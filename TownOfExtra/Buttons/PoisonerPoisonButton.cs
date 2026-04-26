@@ -18,7 +18,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => TownOfExtraColours.PoisonerRoleColour;
     public override float Cooldown => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonCooldown;
-    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.PoisonerRoleIcon;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
 
     public void SetDiseasedTimer(float multiplier)
     {
