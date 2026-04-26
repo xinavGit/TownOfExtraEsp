@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using AmongUs.GameOptions;
+﻿using System.Collections.Generic;
 using Il2CppInterop.Runtime.Attributes;
-using MiraAPI.GameOptions;
 using MiraAPI.Roles;
-using TownOfExtra.Options;
 using TownOfUs.Extensions;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
-using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
 
@@ -33,9 +28,7 @@ public sealed class PoisonerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
 
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
-        CanUseVent = OptionGroupSingleton<PoisonerRoleOptions>.Instance.CanVent,
-        Icon = TownOfExtraAssets.PoisonerRoleIcon,
-        GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
+        Icon = TownOfExtraAssets.PoisonerRoleIcon
     };
     
     [HideFromIl2Cpp]

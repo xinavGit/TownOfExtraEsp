@@ -62,7 +62,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         if (poisoner == PlayerControl.LocalPlayer)
         {
             var poisonerNotif = Helpers.CreateAndShowNotification(
-                $"Your {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poison</color> killed {Palette.ImpostorRed.ToTextColor()}{Player.Data.PlayerName}</color>!",
+                $"Your {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poison</color> has {Palette.ImpostorRed.ToTextColor()}killed</color> {Player.Data.PlayerName}!",
                 Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonerRoleIcon.LoadAsset());
             poisonerNotif.AdjustNotification();
         }
