@@ -1,4 +1,8 @@
-﻿<div align="center">
+> [!NOTE]
+> This repo is an extension mod for [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) that adds new roles and modifiers.\
+> This mod requires Town of Us: Mira to be installed and is NOT for console versions of Among Us.
+ 
+<div align="center">
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki"><img src="./Resources/Banners/TownOfExtraBanner.png" alt="Town of Extra"/></a>
   <p>Town Of Extra</p>
 </div>
