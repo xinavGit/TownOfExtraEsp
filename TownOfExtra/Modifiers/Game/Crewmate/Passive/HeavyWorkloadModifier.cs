@@ -55,7 +55,7 @@ public class HeavyWorkloadModifier : TouGameModifier, IWikiDiscoverable
 
     public override void OnActivate()
     {
-        if (!AmongUsClient.Instance.AmHost) return;
+        if (!PlayerControl.LocalPlayer != Player) return;
 
         var tasks = Player.Data.Tasks;
         if (tasks == null) return;
