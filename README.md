@@ -1,5 +1,5 @@
 ﻿<div align="center">
-  <img src="./Resources/Banners/TownOfExtraBanner.png" alt="Town of Extra"/>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki"><img src="./Resources/Banners/TownOfExtraBanner.png" alt="Town of Extra"/></a>
   <p>Town Of Extra</p>
 </div>
 <br/>
@@ -8,9 +8,9 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 -----------------------
 <p align="center">
-  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-killing"><img src="./Resources/Headers/ImpKilling.png" />
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-killing"><img src="./Resources/Headers/ImpKilling.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#poisoner"><img width="10%" src="./Resources/PoisonerRoleIcon.png" /></a>
-  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#crew-mods"><img src="./Resources/Headers/CrewMods.png" />
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#crew-mods"><img src="./Resources/Headers/CrewMods.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#poisoner"><img width="10%" src="./Resources/PoisonerRoleIcon.png" /></a>
 </p>
 
