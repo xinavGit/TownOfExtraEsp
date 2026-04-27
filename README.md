@@ -36,13 +36,27 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 **Disclaimer: The mod is *not* guaranteed to work on the latest versions of Among Us when the game updates.**
 
-**Note: Due to differing releases on PC and Android, any version that has an x in its version means that it works for that minor release for both platforms.**
-
 | Among Us        | Mod Version | Download Link                                                           |
 |-----------------|-------------|-------------------------------------------------------------------------|
 | 17.3.x          | 0.9.0       | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/0.9.0)   |
 
 -----------------------
+
+# Installation
+
+1. Ensure you have [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) installed
+2. Build this project or download the [latest release](https://github.com/Mehzxzz/TownOfExtra/releases/tag/0.9.0)
+3. Place the compiled DLL in your `BepInEx/plugins/` folder
+
+-----------------------
+
+# Building yourself
+
+1. Clone this repository with `git clone https://github.com/Mehzxzz/TownOfExtra.git`
+2. Build the solution by using `dotnet build`
+
+-----------------------
+
 # License
 This software is distributed under the GNU GPLv3 License. BepInEx is distributed under the LGPL-2.1 License.
 
