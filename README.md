@@ -33,6 +33,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - Mod framework, api & inspiration\
 [Reactor](https://github.com/NuclearPowered/Reactor) - Dependency for the mod\
 [BepInEx](https://github.com/BepInEx) - For hooking game functions
+some guy on the reactor discord - Fake body spawning code
 
 -----------------------
 
