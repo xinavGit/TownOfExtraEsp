@@ -30,7 +30,7 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
     
     public override void Load()
     {
-        ReactorCredits.Register(TownOfExtraPluginInfo.Name, TownOfExtraPluginInfo.Version, false, ReactorCredits.AlwaysShow);
+        ReactorCredits.Register(TownOfExtraPluginInfo.Name, TownOfExtraPluginInfo.Version, TownOfExtraPluginInfo.IsPreRelease, ReactorCredits.AlwaysShow);
         MethodRpcAttribute.Register(Assembly.GetExecutingAssembly(), this);
         Harmony.PatchAll();
         
