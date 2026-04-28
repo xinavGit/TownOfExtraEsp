@@ -26,16 +26,15 @@ public sealed class FreezerFreezeButton : TownOfUsRoleButton<FreezerRole>
         OverrideName("Freeze Active");
         foreach (var player in PlayerControl.AllPlayerControls)
         {
-            if (player.Data.IsDead) continue;
-            if (player.Data.Role is HaunterRole or SpectreRole) continue;
+            if (player.Data.IsDead || player.Data.Role is HaunterRole or SpectreRole) continue;
 
             if (player.Data.Role.IsImpostor)
             {
-                player.AddModifier<ImpostorFreezeModifier>();
+                player.RpcAddModifier<ImpostorFreezeModifier>();
             }
             else
             {
-                player.AddModifier<FreezeModifier>();
+                player.RpcAddModifier<FreezeModifier>();
             }
         }
     }

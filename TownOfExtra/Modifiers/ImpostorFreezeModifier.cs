@@ -27,7 +27,7 @@ public class ImpostorFreezeModifier : TimedModifier
     {
         if (!Player.AmOwner) return;
         
-        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.FrozenImpModifierColour, Duration));
+        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.FreezerRoleColour, Duration));
         var notif = Helpers.CreateAndShowNotification(
             $"Players have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}frozen</color>!",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerRoleIcon.LoadAsset());
