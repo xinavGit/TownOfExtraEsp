@@ -10,13 +10,13 @@ using UnityEngine;
 
 namespace TownOfExtra.Buttons;
 
-public sealed class CannibalKillButton : TownOfUsKillRoleButton<CannibalRole, PlayerControl>, IKillButton, IDiseaseableButton
+public sealed class CannibalEatButton : TownOfUsKillRoleButton<CannibalRole, PlayerControl>, IKillButton, IDiseaseableButton
 {
-    public override string Name => "Cannibalise";
+    public override string Name => "Eat";
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => TownOfExtraColours.CannibalRoleColour;
     public override float Cooldown => OptionGroupSingleton<CannibalRoleOptions>.Instance.KillCooldown;
-    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.CannibalEatButton;
 
     public void SetDiseasedTimer(float multiplier)
     {

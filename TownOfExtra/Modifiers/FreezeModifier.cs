@@ -36,7 +36,7 @@ public class FreezeModifier : TimedModifier
         Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.FreezerRoleColour, Duration));
         var notif = Helpers.CreateAndShowNotification(
             $"You have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}frozen</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerRoleIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerFreezeButton.LoadAsset());
         notif.AdjustNotification();
     }
 
@@ -52,7 +52,7 @@ public class FreezeModifier : TimedModifier
         Player.moveable = true;
         var notif = Helpers.CreateAndShowNotification(
             $"You have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}unfrozen</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerRoleIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerFreezeButton.LoadAsset());
         notif.AdjustNotification();
     }
 

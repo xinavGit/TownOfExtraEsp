@@ -56,7 +56,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         {
             var notif = Helpers.CreateAndShowNotification(
                 $"You have been {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poisoned</color> to {Palette.ImpostorRed.ToTextColor()}death</color>!",
-                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerRoleIcon.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
             notif.AdjustNotification();
         }
 
@@ -64,7 +64,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         {
             var poisonerNotif = Helpers.CreateAndShowNotification(
                 $"Your {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poison</color> has {Palette.ImpostorRed.ToTextColor()}killed</color> {Player.Data.PlayerName}!",
-                Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonerRoleIcon.LoadAsset());
+                Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
             poisonerNotif.AdjustNotification();
         }
     }

@@ -18,4 +18,11 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.TricksterRoleIcon.png");
     public static LoadableAsset<Sprite> HeavyWorkloadModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.HeavyWorkloadModifierIcon.png");
+    
+    public static LoadableAsset<Sprite> CannibalEatButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.CannibalEatButton.png");
+    public static LoadableAsset<Sprite> PoisonerPoisonButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.PoisonerPoisonButton.png");
+    public static LoadableAsset<Sprite> FreezerFreezeButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.FreezerFreezeButton.png");
 }

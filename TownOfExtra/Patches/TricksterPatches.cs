@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
 using System.Linq;
+using MiraAPI.GameOptions;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
+using TownOfExtra.Buttons;
+using TownOfExtra.Networking;
+using TownOfExtra.Options;
 using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -81,6 +85,19 @@ public static class StartGamePatch
         TricksterRole.SpawnedBodies = new List<DeadBody>();
         TricksterRole.SampledColourId = 0;
         TricksterRole.HasSampledColour = false;
+        TricksterPlaceButton.BodyPlaced = false;
+        return true;
+    }
+}
+
+[HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.Start))]
+public static class MeetingHudStartPatch
+{
+    public static bool Prefix()
+    {
+        TricksterRole.SpawnedBodies = new List<DeadBody>();
+        TricksterRole.SampledColourId = 0;
+        TricksterRole.HasSampledColour = false;
         return true;
     }
 }
@@ -89,13 +106,17 @@ public static class BodyManager
 {
     public static void ClearFakeBodies(NetworkedPlayerInfo target)
     {
-        foreach (var body in 
-                 TricksterRole.SpawnedBodies
-                     .Where(b => b != null && b.ParentId == target.PlayerId)
-                     .ToList())
+        if (target.Object == null) return;
+        
+        var bodies = TricksterRole.SpawnedBodies
+            .Where(b => b != null && b.ParentId == target.PlayerId)
+            .ToList();
+        foreach (var body in bodies)
         {
-            Object.Destroy(body.gameObject);
+            TricksterRpcs.RpcDestroyFakeBodies(target.Object, body.ParentId);
         }
-        TricksterRole.SpawnedBodies.RemoveAll(b => b == null || b.ParentId == target.PlayerId);
+
+        TricksterPlaceButton.Instance.Timer = OptionGroupSingleton<TricksterRoleOptions>.Instance.PlaceCooldown;
+        TricksterPlaceButton.BodyPlaced = false;
     }
 }

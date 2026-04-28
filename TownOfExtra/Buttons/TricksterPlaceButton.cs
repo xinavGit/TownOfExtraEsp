@@ -19,59 +19,64 @@ public sealed class TricksterPlaceButton : TownOfUsRoleButton<TricksterRole>
     public override Color TextOutlineColor => TownOfExtraColours.TricksterRoleColour;
     public override float Cooldown => OptionGroupSingleton<TricksterRoleOptions>.Instance.PlaceCooldown;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
-    private static float MaxBodies => 1f;
+    public static bool BodyPlaced;
+    
+    public static TricksterPlaceButton Instance;
+    
     public override bool CanUse()
     {
-        return TricksterRole.HasSampledColour;
+        return (BodyPlaced || TricksterRole.HasSampledColour) && Timer <= 0;
+    }
+
+    public override void ClickHandler()
+    {
+        if (!CanUse()) return;
+        OnClick();
     }
 
     protected override void OnClick()
     {
-        if (!TricksterRole.HasSampledColour)
+        if (BodyPlaced)
         {
-            return;
-        }
-        if (TricksterRole.SpawnedBodies.Count >= MaxBodies)
-        {
-            var oldest = TricksterRole.SpawnedBodies[0];
-            if (oldest != null)
+            BodyPlaced = false;
+            Timer = Cooldown;
+    
+            if (TricksterRole.SpawnedBodies.Count > 0)
             {
-                Object.Destroy(oldest.gameObject);
-            }
-
-            TricksterRole.SpawnedBodies.RemoveAt(0);
-        }
-        
-        var colourName = Palette.GetColorName(TricksterRole.SampledColourId);
-        var colour = Palette.PlayerColors[TricksterRole.SampledColourId];
-        
-        var notif = Helpers.CreateAndShowNotification(
-            $"Placed fake body with colour <color=#{colour.ToHtmlStringRGBA()}>{colourName}</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset()
-        );
-        notif.AdjustNotification();
-
-        static PlayerControl GetTrickster()
-        {
-            foreach (var p in PlayerControl.AllPlayerControls)
-            {
-                if (p.IsRole<TricksterRole>())
+                var oldest = TricksterRole.SpawnedBodies[0];
+                if (oldest != null)
                 {
-                    return p;
+                    TricksterRpcs.RpcDestroyFakeBodies(GetTrickster(), oldest.ParentId);
                 }
             }
-
-            return null;
+            return;
         }
+
+        var colourName = Palette.GetColorName(TricksterRole.SampledColourId);
+        var colour = Palette.PlayerColors[TricksterRole.SampledColourId];
+    
+        Helpers.CreateAndShowNotification(
+            $"Placed fake body with colour <color=#{colour.ToHtmlStringRGBA()}>{colourName}</color>!",
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset()
+        ).AdjustNotification();
 
         PlayerControl trickster = GetTrickster();
         if (trickster == null) return;
         TricksterRpcs.RpcPlaceFakeBody(trickster.transform.position, (byte)TricksterRole.SampledColourId, trickster.PlayerId);
+        BodyPlaced = true;
     }
 
     protected override void FixedUpdate(PlayerControl playerControl)
     {
-        if (TricksterRole.HasSampledColour)
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        if (BodyPlaced)
+        {
+            OverrideName("Remove Body");
+        }
+        else if (TricksterRole.HasSampledColour)
         {
             var colourName = Palette.GetColorName(TricksterRole.SampledColourId);
             OverrideName($"Place {colourName}");
@@ -108,5 +113,18 @@ public sealed class TricksterPlaceButton : TownOfUsRoleButton<TricksterRole>
         deadBody.enabled = true;
     
         return deadBody;
+    }
+    
+    private static PlayerControl GetTrickster()
+    {
+        foreach (var p in PlayerControl.AllPlayerControls)
+        {
+            if (p.IsRole<TricksterRole>())
+            {
+                return p;
+            }
+        }
+
+        return null;
     }
 }
