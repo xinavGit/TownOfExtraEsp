@@ -14,7 +14,7 @@ using UnityEngine;
 namespace TownOfExtra.Patches;
 
 [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.ReportDeadBody))]
-public static class ReportDeadBodyPatch
+public static class TsReportDeadBodyPatch
 {
     public static bool Prefix(PlayerControl __instance, NetworkedPlayerInfo target)
     {
@@ -77,7 +77,7 @@ public static class ReportDeadBodyPatch
 }
 
 [HarmonyPatch(typeof(GameManager), nameof(GameManager.StartGame))]
-public static class StartGamePatch
+public static class TsStartGamePatch
 {
     public static bool Prefix()
     {
@@ -91,7 +91,7 @@ public static class StartGamePatch
 }
 
 [HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.Start))]
-public static class MeetingHudStartPatch
+public static class TsMeetingHudStartPatch
 {
     public static bool Prefix()
     {

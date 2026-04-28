@@ -28,10 +28,6 @@
         <EmbeddedResource Include="Resources\**\*" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Modifiers\Game\" />
-    </ItemGroup>
-
     <Target Name="CopyToPlugins" AfterTargets="Build">
         <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUsPlugins)" />
     </Target>
