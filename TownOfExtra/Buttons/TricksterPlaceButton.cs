@@ -17,7 +17,7 @@ public sealed class TricksterPlaceButton : TownOfUsRoleButton<TricksterRole>
     public override string Name => "Place Body";
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => TownOfExtraColours.TricksterRoleColour;
-    public override float Cooldown => OptionGroupSingleton<TricksterRoleOptions>.Instance.SampleCooldown;
+    public override float Cooldown => OptionGroupSingleton<TricksterRoleOptions>.Instance.PlaceCooldown;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
     private static float MaxBodies => 1f;
     public override bool CanUse()
