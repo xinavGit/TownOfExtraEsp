@@ -13,6 +13,6 @@ public sealed class TricksterRoleOptions : AbstractOptionGroup<TricksterRole>
     public float SampleCooldown { get; set; } = 10f;
     [ModdedNumberOption("Place Cooldown", 10f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float PlaceCooldown { get; set; } = 25f;
-    [ModdedNumberOption("Reports needed to win", 2f, 10f)]
-    public float ReportsNeeded { get; set; } = 3f;
+    [ModdedNumberOption("Reports needed to win", 2f, 15f)]
+    public float ReportsNeeded { get; set; } = 5f;
 }
