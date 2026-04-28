@@ -42,7 +42,6 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
         if (Target == null) return;
         
         Target.RpcAddModifier<PoisonedModifier>(PlayerControl.LocalPlayer);
-        SetTimer(Cooldown);
 
         var notif = Helpers.CreateAndShowNotification(
             $"You poisoned {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}{Target.Data.PlayerName}</color>!",

@@ -1,4 +1,5 @@
 ﻿using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
@@ -41,5 +42,11 @@ public class ImpostorFreezeModifier : TimedModifier
             $"Players have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}unfrozen</color>!",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerRoleIcon.LoadAsset());
         notif.AdjustNotification();
+    }
+    
+    public override void OnDeath(DeathReason reason)
+    {
+        if (!Player.AmOwner) return;
+        Player.RpcRemoveModifier<ImpostorFreezeModifier>();
     }
 }

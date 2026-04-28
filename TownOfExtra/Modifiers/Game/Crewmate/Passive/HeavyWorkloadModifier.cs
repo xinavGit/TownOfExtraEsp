@@ -1,6 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Options;
+using TownOfUs.Interfaces;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles.Crewmate;
@@ -10,12 +11,14 @@ using UnityEngine;
 
 namespace TownOfExtra.Modifiers.Game.Crewmate.Passive;
 
-public class HeavyWorkloadModifier : TouGameModifier, IWikiDiscoverable
+public class HeavyWorkloadModifier : TouGameModifier, IWikiDiscoverable, IColoredModifier
 {
     public override string ModifierName => "Heavy Workload";
     public override ModifierFaction FactionType => ModifierFaction.CrewmatePassive;
     public override string IntroInfo => "You have extra tasks to finish.";
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.HeavyWorkloadModifierIcon;
+    public Color ModifierColor => TownOfExtraColours.HeavyWorkloadModifierColour;
+    public override Color FreeplayFileColor => TownOfExtraColours.HeavyWorkloadModifierColour;
 
     public static float ExtraCommonTasks => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadExtraCommonTasks;
     public static float ExtraLongTasks => OptionGroupSingleton<CrewmateModifierOptions>.Instance.HeavyWorkloadExtraLongTasks;
@@ -55,7 +58,7 @@ public class HeavyWorkloadModifier : TouGameModifier, IWikiDiscoverable
 
     public override void OnActivate()
     {
-        if (!PlayerControl.LocalPlayer != Player) return;
+        if (PlayerControl.LocalPlayer != Player) return;
 
         var tasks = Player.Data.Tasks;
         if (tasks == null) return;
@@ -79,7 +82,7 @@ public class HeavyWorkloadModifier : TouGameModifier, IWikiDiscoverable
             taskObj.Id = (uint)tasks.Count;
             taskObj.Owner = Player;
             taskObj.Initialize();
-            BepInEx.Logging.Logger.CreateLogSource("TownOfExtra").LogInfo($"Added task {taskPrefab.name} to {Player.Data.PlayerName}");
+            TownOfExtraPlugin.Logger.LogInfo($"Added task {taskPrefab.name} to {Player.Data.PlayerName}");
             Player.myTasks.Add(taskObj);
             tasks.Add(CreateTaskInfo(taskObj.Id));
         }

@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
+using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using MiraAPI;
@@ -23,14 +24,17 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
     private Harmony Harmony { get; } = new(TownOfExtraPluginInfo.Id);
 
     public string OptionsTitleText => "Town Of Extra";
-
     public ConfigFile GetConfigFile() => Config;
 
+    public static ManualLogSource Logger;
+    
     public override void Load()
     {
         ReactorCredits.Register(TownOfExtraPluginInfo.Name, TownOfExtraPluginInfo.Version, false, ReactorCredits.AlwaysShow);
         MethodRpcAttribute.Register(Assembly.GetExecutingAssembly(), this);
         Harmony.PatchAll();
+        
+        Logger = Log;
         
         TouLocale.TouLocalization.TryAdd(SupportedLangs.English, null);
         TouLocale.TouLocalization[SupportedLangs.English].TryAdd("DiedToPoisoned", "Poisoned");

@@ -1,5 +1,6 @@
 ﻿using Il2CppSystem;
 using MiraAPI.GameOptions;
+using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
@@ -80,6 +81,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
 
     public override void OnDeath(DeathReason reason)
     {
-        ModifierComponent!.RemoveModifier(this);
+        if (!Player.AmOwner) return;
+        Player.RpcRemoveModifier<PoisonedModifier>();
     }
 }
