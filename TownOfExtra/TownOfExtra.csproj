@@ -9,6 +9,7 @@
 
         <AmongUs>C:\Program Files (x86)\Steam\steamapps\common\Among Us\Mods</AmongUs>
         <AmongUsPlugins>$(AmongUs)\AULauncher\BepInEx\plugins</AmongUsPlugins>
+        <AmongUsTestPlugins>$(AmongUs)\AULaunchers\BepInEx\plugins</AmongUsTestPlugins>
 
         <GenerateDependencyFile>false</GenerateDependencyFile>
     </PropertyGroup>
@@ -30,5 +31,8 @@
 
     <Target Name="CopyToPlugins" AfterTargets="Build">
         <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUsPlugins)" />
+    </Target>
+    <Target Name="CopyToTestPlugins" AfterTargets="Build">
+        <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUsTestPlugins)" />
     </Target>
 </Project>

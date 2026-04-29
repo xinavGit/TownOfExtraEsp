@@ -1,5 +1,4 @@
-﻿using Il2CppSystem;
-using MiraAPI.GameOptions;
+﻿using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
@@ -18,8 +17,6 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
     public override float Duration => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonLength;
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.PoisonerRoleIcon;
 
-    public static bool ShowPoison => OptionGroupSingleton<PoisonerRoleOptions>.Instance.ShowPoison;
-
     public override string GetDescription()
     {
         return $"Time until death: {TimeRemaining:F1}s";
@@ -28,11 +25,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
     public override void OnActivate()
     {
         if (Player != PlayerControl.LocalPlayer) return;
-
-        if (ShowPoison)
-        {
-            Player.cosmetics.SetOutline(true, new Nullable<Color>(TownOfExtraColours.PoisonerRoleColour));
-        }
+        
         Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.PoisonerRoleColour, Duration));
         var notif = Helpers.CreateAndShowNotification(
             $"You have been {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poisoned</color>!",
@@ -66,16 +59,6 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
                 $"Your {TownOfExtraColours.PoisonerRoleColour.ToTextColor()}poison</color> has {Palette.ImpostorRed.ToTextColor()}killed</color> {Player.Data.PlayerName}!",
                 Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
             poisonerNotif.AdjustNotification();
-        }
-    }
-
-    public override void OnDeactivate()
-    {
-        if (Player != PlayerControl.LocalPlayer) return;
-
-        if (ShowPoison)
-        {
-            Player.cosmetics.SetOutline(false);
         }
     }
 
