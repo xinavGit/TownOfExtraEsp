@@ -18,7 +18,7 @@ namespace TownOfExtra.Events
     public class GamblerEvents
     {
         private static bool _isProcessing;
-    
+
         [RegisterEvent(50)]
         public static void BeforeMurderEventHandler(BeforeMurderEvent @event)
         {
@@ -35,7 +35,7 @@ namespace TownOfExtra.Events
                 _isProcessing = false;
             }
         }
-        
+
         [RegisterEvent(50)]
         public static void AfterMurderEventHandler(AfterMurderEvent @event)
         {
@@ -66,7 +66,7 @@ namespace TownOfExtra.Events
                     killer.SetKillTimer(newCd);
                 }
             }
-            
+
             if (options.ViperBodyEnabled)
             {
                 if (killer.HasModifier<RotBodyModifier>())
@@ -74,7 +74,7 @@ namespace TownOfExtra.Events
                     Coroutines.Start(RotBodyModifier.StartRotting(@event.Target, killer));
                 }
             }
-            
+
             if (options.SelfReportEnabled)
             {
                 if (killer.HasModifier<SelfReportModifier>())
@@ -86,21 +86,22 @@ namespace TownOfExtra.Events
                     else
                     {
                         if (!options.SelfReportIgnoreCelebrity) return;
-                        
+
                         foreach (PlayerControl p in PlayerControl.AllPlayerControls)
                         {
                             if (p == killer)
                             {
                                 var notif = Helpers.CreateAndShowNotification(
                                     $"{victim.name} was the {TownOfUsColors.Celebrity.ToTextColor()}Celebrity</color>, so your self report has been canceled!",
-                                    Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.GamblerRoleIcon.LoadAsset());
-                                notif.AdjustNotification();   
+                                    Color.white, new Vector3(0f, 1f, -20f),
+                                    spr: TownOfExtraAssets.GamblerRoleIcon.LoadAsset());
+                                notif.AdjustNotification();
                             }
                         }
                     }
                 }
             }
-            
+
             if (options.InvisibilityEnabled)
             {
                 if (killer.HasModifier<InvisibilityModifier>())
@@ -117,6 +118,12 @@ namespace TownOfExtra.Events
                     Coroutines.Start(GamblerRole.ApplyRandomGambleEffect(p));
                 }
             }
+        }
+
+        [RegisterEvent]
+        public static void GameEndEventHandler(GameEndEvent @event)
+        {
+            GamblerRole.LastEffects.Clear();
         }
     }
 }

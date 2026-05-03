@@ -53,29 +53,23 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         if (player.HasModifier<InvisibilityModifier>()) player.RpcRemoveModifier<InvisibilityModifier>();
     }
     
+    public static readonly Dictionary<byte, int> LastEffects = new();
+
     public static IEnumerator ApplyRandomGambleEffect(PlayerControl player)
     {
         yield return new WaitForSeconds(0.01f);
-        
+    
         var options = OptionGroupSingleton<GamblerRoleOptions>.Instance;
         var validEffects = new List<int>();
 
-        if (options.NothingEnabled)
-            validEffects.Add(0);
-        if (options.LongerCooldownEnabled)
-            validEffects.Add(1);
-        if (options.ShorterCooldownEnabled)
-            validEffects.Add(2);
-        if (options.ViperBodyEnabled)
-            validEffects.Add(3);
-        if (options.TeleportBackEnabled)
-            validEffects.Add(4);
-        if (options.NoBodyEnabled)
-            validEffects.Add(5);
-        if (options.SelfReportEnabled)
-            validEffects.Add(6);
-        if (options.InvisibilityEnabled)
-            validEffects.Add(7);
+        if (options.NothingEnabled) validEffects.Add(0);
+        if (options.LongerCooldownEnabled) validEffects.Add(1);
+        if (options.ShorterCooldownEnabled) validEffects.Add(2);
+        if (options.ViperBodyEnabled) validEffects.Add(3);
+        if (options.TeleportBackEnabled) validEffects.Add(4);
+        if (options.NoBodyEnabled) validEffects.Add(5);
+        if (options.SelfReportEnabled) validEffects.Add(6);
+        if (options.InvisibilityEnabled) validEffects.Add(7);
 
         if (validEffects.Count == 0)
         {
@@ -83,34 +77,24 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
             yield break;
         }
 
+        if (!options.TwiceInARow && validEffects.Count > 1 && LastEffects.TryGetValue(player.PlayerId, out var last))
+        {
+            validEffects.Remove(last);
+        }
+
         int choice = validEffects[System.Random.Shared.Next(validEffects.Count)];
+        LastEffects[player.PlayerId] = choice;
 
         switch (choice)
         {
-            case 0:
-                player.RpcAddModifier<NoAbilityModifier>();
-                break;
-            case 1:
-                player.RpcAddModifier<LongerCdModifier>();
-                break;
-            case 2:
-                player.RpcAddModifier<ShorterCdModifier>();
-                break;
-            case 3:
-                player.RpcAddModifier<RotBodyModifier>();
-                break;
-            case 4:
-                player.RpcAddModifier<TeleportBackModifier>();
-                break;
-            case 5:
-                player.RpcAddModifier<NoBodyModifier>();
-                break;
-            case 6:
-                player.RpcAddModifier<SelfReportModifier>();
-                break;
-            case 7:
-                player.RpcAddModifier<InvisibilityModifier>();
-                break;
+            case 0: player.RpcAddModifier<NoAbilityModifier>(); break;
+            case 1: player.RpcAddModifier<LongerCdModifier>(); break;
+            case 2: player.RpcAddModifier<ShorterCdModifier>(); break;
+            case 3: player.RpcAddModifier<RotBodyModifier>(); break;
+            case 4: player.RpcAddModifier<TeleportBackModifier>(); break;
+            case 5: player.RpcAddModifier<NoBodyModifier>(); break;
+            case 6: player.RpcAddModifier<SelfReportModifier>(); break;
+            case 7: player.RpcAddModifier<InvisibilityModifier>(); break;
         }
     }
 }
