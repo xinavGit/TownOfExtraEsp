@@ -3,7 +3,7 @@ using MiraAPI.GameOptions.Attributes;
 using MiraAPI.Utilities;
 using TownOfExtra.Roles.Impostor.Support;
 
-namespace TownOfExtra.Options;
+namespace TownOfExtra.Options.Roles;
 
 public sealed class FreezerRoleOptions : AbstractOptionGroup<FreezerRole>
 {

@@ -18,6 +18,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.TricksterRoleIcon.png");
     public static LoadableAsset<Sprite> SignalJammerRoleIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.SignalJammerRoleIcon.png");
+    public static LoadableAsset<Sprite> GamblerRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.GamblerRoleIcon.png");
     public static LoadableAsset<Sprite> HeavyWorkloadModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.HeavyWorkloadModifierIcon.png");
     public static LoadableAsset<Sprite> RoutineModifierIcon =>

@@ -5,7 +5,7 @@ using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfExtra.Buttons;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.GameOver;
 using TownOfUs.Utilities;

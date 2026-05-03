@@ -3,12 +3,8 @@ using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.GameOptions;
 using TownOfExtra.Networking;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Concealing;
-using TownOfUs;
-using TownOfUs.Modules;
-using TownOfUs.Networking;
-using UnityEngine;
 
 namespace TownOfExtra.Events;
 

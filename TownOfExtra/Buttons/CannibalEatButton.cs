@@ -1,7 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
 using MiraAPI.Utilities.Assets;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Concealing;
 using TownOfUs.Buttons;
 using TownOfUs.Networking;

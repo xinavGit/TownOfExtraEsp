@@ -7,7 +7,7 @@ using TownOfUs.Roles;
 using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Roles.Impostor.Support;
+namespace TownOfExtra.Roles.Impostor.Concealing;
 
 public sealed class SignalJammerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable, IDoomable
 {
@@ -16,13 +16,13 @@ public sealed class SignalJammerRole : ImpostorRole, ITownOfUsRole, IWikiDiscove
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
-    public RoleAlignment RoleAlignment => RoleAlignment.ImpostorSupport;
+    public RoleAlignment RoleAlignment => RoleAlignment.ImpostorConcealing;
     public DoomableType DoomHintType => DoomableType.Default;
 
     public string GetAdvancedDescription()
     {
         return
-            "The Signal Jammer is an Impostor Support role that can jam report and meeting signals, preventing the crewmates from talking to eachother." +
+            "The Signal Jammer is an Impostor Concealing role that can jam report and meeting signals, preventing the crewmates from talking to eachother." +
             MiscUtils.AppendOptionsText(GetType());
     }
 

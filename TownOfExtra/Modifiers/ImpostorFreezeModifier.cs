@@ -4,7 +4,7 @@ using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using TownOfUs.Utilities;
 using UnityEngine;
 

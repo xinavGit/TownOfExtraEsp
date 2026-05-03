@@ -4,7 +4,7 @@ using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities.Extensions;
 using TownOfExtra.Networking;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.Buttons;
 using TownOfUs.Utilities;
