@@ -2,7 +2,7 @@
 using MiraAPI.Modifiers;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities.Assets;
-using TownOfExtra.Options;
+using TownOfExtra.Options.Roles;
 using UnityEngine;
 
 namespace TownOfExtra.Modifiers;

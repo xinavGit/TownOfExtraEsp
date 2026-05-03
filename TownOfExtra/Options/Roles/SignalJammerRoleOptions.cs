@@ -1,9 +1,9 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.Utilities;
-using TownOfExtra.Roles.Impostor.Support;
+using TownOfExtra.Roles.Impostor.Concealing;
 
-namespace TownOfExtra.Options;
+namespace TownOfExtra.Options.Roles;
 
 public sealed class SignalJammerRoleOptions : AbstractOptionGroup<SignalJammerRole>
 {
