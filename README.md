@@ -17,10 +17,10 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-poisoner"><img width="10%" src="./Resources/PoisonerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-support"><img src="./Resources/Headers/ImpSupport.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-freezer"><img width="10%" src="./Resources/FreezerRoleIcon.png" /></a>
-  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-signal-jammer"><img width="10%" src="./Resources/SignalJammerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-gambler"><img width="10%" src="./Resources/GamblerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-concealing"><img src="./Resources/Headers/ImpConcealing.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-cannibal"><img width="10%" src="./Resources/CannibalRoleIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-signal-jammer"><img width="10%" src="./Resources/SignalJammerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#neutral-evil"><img src="./Resources/Headers/NeutEvil.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-trickster"><img width="10%" src="./Resources/TricksterRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#crew-modifiers"><img src="./Resources/Headers/CrewMods.png" /></a>
