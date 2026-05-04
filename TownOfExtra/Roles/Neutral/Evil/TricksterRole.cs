@@ -36,7 +36,7 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralEvilTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
         orCreateTask.name = "NeutralRoleText";
     }
 
@@ -50,8 +50,6 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         MaxRoleCount = 1,
-        UseVanillaKillButton = false,
-        TasksCountForProgress = false,
         Icon = TownOfExtraAssets.TricksterRoleIcon,
         GhostRole = (RoleTypes)RoleId.Get<NeutralGhostRole>()
     };

@@ -1,0 +1,16 @@
+﻿using MiraAPI.GameOptions;
+using MiraAPI.GameOptions.Attributes;
+using MiraAPI.Utilities;
+using TownOfExtra.Roles.Impostor.Power;
+
+namespace TownOfExtra.Options.Roles;
+
+public sealed class EraserRoleOptions : AbstractOptionGroup<EraserRole>
+{
+    public override string GroupName => "Eraser";
+    
+    [ModdedNumberOption("Erase Cooldown", 10f, 300f, 2.5f, MiraNumberSuffixes.Seconds)]
+    public float EraseCooldown { get; set; } = 120f;
+    [ModdedNumberOption("Erase Uses", 0f, 30f, 1f, zeroInfinity:true)]
+    public float EraseUses { get; set; } = 4f;
+}

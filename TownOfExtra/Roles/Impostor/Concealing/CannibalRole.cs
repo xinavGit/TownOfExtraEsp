@@ -47,7 +47,7 @@ public sealed class CannibalRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Cannibalise", "Kill a player with no dead body left behind.", TownOfExtraAssets.Placeholder)
+                new("Cannibalise", "Kill a player with no dead body left behind.", TownOfExtraAssets.CannibalEatButton)
             };
         }
     }
