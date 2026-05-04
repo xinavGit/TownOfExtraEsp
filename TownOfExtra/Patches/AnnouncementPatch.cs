@@ -71,7 +71,6 @@ public static class ModNewsFetcher
 
         if (request.isNetworkError || request.isHttpError)
         {
-            LoadFromResources();
             yield break;
         }
 
@@ -79,19 +78,7 @@ public static class ModNewsFetcher
         {
             ParseJson(request.downloadHandler.text);
         }
-        catch
-        {
-            LoadFromResources();
-        }
-    }
-
-    private static void LoadFromResources()
-    {
-        var assembly = Assembly.GetExecutingAssembly();
-        using var stream = assembly.GetManifestResourceStream("TownOfExtra.Resources.Announcements.modNews-en_US.json")
-            ?? throw new InvalidOperationException("Embedded news resource not found.");
-        using var reader = new StreamReader(stream);
-        ParseJson(reader.ReadToEnd());
+        catch {}
     }
 
     private static void ParseJson(string json)
