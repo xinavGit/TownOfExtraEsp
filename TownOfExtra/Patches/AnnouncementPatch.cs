@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
@@ -10,9 +9,7 @@ using AmongUs.Data.Player;
 using Assets.InnerNet;
 using HarmonyLib;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
-using Reactor.Utilities;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TownOfExtra.Patches;
 
@@ -53,32 +50,18 @@ public class AnnouncementPatch
 
 public static class ModNewsFetcher
 {
-    private static string _newsUrl = "https://raw.githubusercontent.com/Mehzxzz/TownOfExtra/refs/heads/master/TownOfExtra/Resources/Announcements/modNews-en_US.json";
-    private static bool _downloaded;
-
     public static void CheckForNews()
     {
-        Coroutines.Start(FetchNews());
+        LoadFromResources();
     }
 
-    public static IEnumerator FetchNews()
+    private static void LoadFromResources()
     {
-        if (_downloaded) yield break;
-        _downloaded = true;
-
-        var request = UnityWebRequest.Get(_newsUrl);
-        yield return request.SendWebRequest();
-
-        if (request.isNetworkError || request.isHttpError)
-        {
-            yield break;
-        }
-
-        try
-        {
-            ParseJson(request.downloadHandler.text);
-        }
-        catch {}
+        var assembly = Assembly.GetExecutingAssembly();
+        using var stream = assembly.GetManifestResourceStream("TownOfExtra.Resources.Announcements.modNews-en_US.json")
+            ?? throw new InvalidOperationException("Embedded news resource not found.");
+        using var reader = new StreamReader(stream);
+        ParseJson(reader.ReadToEnd());
     }
 
     private static void ParseJson(string json)
@@ -119,7 +102,7 @@ public static class ModNewsFetcher
             for (var i = 0; i < combined.Count; i++) result[i] = combined[i];
             aRange = result;
         }
-        
+
         [HarmonyPatch(typeof(AnnouncementPanel), nameof(AnnouncementPanel.SetUp))]
         [HarmonyPostfix]
         public static void SetUpPanel_Postfix(AnnouncementPanel __instance, [HarmonyArgument(0)] Announcement announcement)
@@ -131,7 +114,6 @@ public static class ModNewsFetcher
             obj.transform.localPosition = new Vector3(-0.8f, 0.13f, 0.5f);
             obj.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
             var renderer = obj.AddComponent<SpriteRenderer>();
-            //renderer.sprite = TownOfExtraAssets.NewsIcon.LoadAsset();
             renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         }
     }
