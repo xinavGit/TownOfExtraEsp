@@ -2,7 +2,7 @@
   "News": [
     {
       "Date": "2026-04-29T15:26:00Z",
-      "Number": "1000",
+      "Number": "10000",
       "ShortTitle": "TownOfExtra v1.0.0",
       "Title": "Initial Release",
       "SubTitle": "The initial release!",
@@ -14,7 +14,7 @@
     },
     {
       "Date": "2026-04-29T19:11:00Z",
-      "Number": "1001",
+      "Number": "10001",
       "ShortTitle": "TownOfExtra v1.0.1",
       "Title": "A small hotfix",
       "SubTitle": "Squashing them pesky bugs!",
@@ -26,7 +26,7 @@
     },
     {
       "Date": "2026-05-02T23:34:00Z",
-      "Number": "1002",
+      "Number": "10002",
       "ShortTitle": "TownOfExtra v1.0.2",
       "Title": "The reaper is here!",
       "SubTitle": "",
@@ -40,8 +40,8 @@
       ]
     },
     {
-      "Date": "2026-05-03T23:19:00Z",
-      "Number": "1003",
+      "Date": "2026-05-04T09:35:00Z",
+      "Number": "10003",
       "ShortTitle": "TownOfExtra v1.0.3",
       "Title": "Lets go gambling!",
       "SubTitle": "Aw, dang it :(",

@@ -124,7 +124,7 @@ public static class ModNewsFetcher
         [HarmonyPostfix]
         public static void SetUpPanel_Postfix(AnnouncementPanel __instance, [HarmonyArgument(0)] Announcement announcement)
         {
-            if (announcement.Number > 1000 && announcement.Number < 100000) return;
+            if (announcement.Number < 10000 || announcement.Number > 100000) return;
 
             var obj = new GameObject("ModLabel");
             obj.transform.SetParent(__instance.transform);
