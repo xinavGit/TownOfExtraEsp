@@ -49,6 +49,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 - Lightning icon (recoloured)
 - Signal jammer role icon & button (recoloured/edited)
 - Trickster role icon (recoloured)
+- Soulless modifier icon
 
 -----------------------
 
