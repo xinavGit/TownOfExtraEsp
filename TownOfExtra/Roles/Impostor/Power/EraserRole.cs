@@ -39,7 +39,7 @@ public sealed class EraserRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable,
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Erase", "Erase a player's role, turning them into a plain crewmate next meeting.", TownOfExtraAssets.Placeholder)
+                new("Erase", "Erase a player's role, turning them into a plain crewmate next meeting.", TownOfExtraAssets.EraserEraseButton)
             };
         }
     }

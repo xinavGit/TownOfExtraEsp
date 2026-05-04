@@ -39,7 +39,7 @@ public sealed class PoisonerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Poison", "Poison a player causing them to die later in the game.", TownOfExtraAssets.PoisonerRoleIcon)
+                new("Poison", "Poison a player causing them to die later in the game.", TownOfExtraAssets.PoisonerPoisonButton)
             };
         }
     }

@@ -38,7 +38,7 @@ public sealed class SignalJammerRole : ImpostorRole, ITownOfUsRole, IWikiDiscove
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Jam", "Disables reporting bodies or calling meetings for a certain amount of time.", TownOfExtraAssets.Placeholder)
+                new("Jam", "Disables reporting bodies or calling meetings for a certain amount of time.", TownOfExtraAssets.SignalJammerJamButton)
             };
         }
     }

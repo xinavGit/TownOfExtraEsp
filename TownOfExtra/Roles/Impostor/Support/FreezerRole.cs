@@ -38,7 +38,7 @@ public sealed class FreezerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Freeze", "Freeze all players in place, stopping them from moving around.", TownOfExtraAssets.Placeholder)
+                new("Freeze", "Freeze all players in place, stopping them from moving around.", TownOfExtraAssets.FreezerFreezeButton)
             };
         }
     }
