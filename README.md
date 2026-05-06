@@ -66,6 +66,8 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 -----------------------
 
 # Installation
+> [!WARNING]
+> This mod is NOT available on mobile or starlight, you can only install it with a copy of among us on a pc.
 
 1. Ensure you have [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) installed
 2. Build this project or download the [latest release](https://github.com/Mehzxzz/TownOfExtra/releases/latest)
