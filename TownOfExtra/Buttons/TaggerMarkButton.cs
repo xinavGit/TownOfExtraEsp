@@ -21,7 +21,7 @@ public sealed class TaggerMarkButton : TownOfUsKillRoleButton<TaggerRole, Player
     public override string Name => "Mark";
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => Palette.ImpostorRed;
-    public override float Cooldown => OptionGroupSingleton<UnnamedRoleOptions>.Instance.MarkCooldown;
+    public override float Cooldown => OptionGroupSingleton<TaggerRoleOptions>.Instance.MarkCooldown;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.TaggerMarkButton;
 
     public override PlayerControl GetTarget()

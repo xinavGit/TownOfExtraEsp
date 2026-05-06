@@ -21,7 +21,7 @@ public sealed class TaggerKillButton : TownOfUsKillRoleButton<TaggerRole, Player
     public override string Name => "Kill";
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => Palette.ImpostorRed;
-    public override float Cooldown => OptionGroupSingleton<UnnamedRoleOptions>.Instance.KillCooldown;
+    public override float Cooldown => OptionGroupSingleton<TaggerRoleOptions>.Instance.KillCooldown;
     public override LoadableAsset<Sprite> Sprite => TouAssets.KillSprite;
 
     public void SetDiseasedTimer(float multiplier)
