@@ -30,7 +30,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Roles\Crewmate\Support\" />
+      <Compile Remove="Roles\Crewmate\Protective\BodyguardRole.cs" />
     </ItemGroup>
 
     <Target Name="CopyToPlugins" AfterTargets="Build">

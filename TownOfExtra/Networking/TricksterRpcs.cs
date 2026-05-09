@@ -45,7 +45,7 @@ public class TricksterRpcs
     }
     
     [MethodRpc((uint)TownOfExtraRpcs.PlaceFakeBody)]
-    public static void RpcPlaceFakeBody(Vector3 position, byte colorId, byte parentId)
+    public static void RpcPlaceFakeBody(PlayerControl sender, Vector3 position, byte colorId, byte parentId)
     {
         var player = PlayerControl.LocalPlayer;
 

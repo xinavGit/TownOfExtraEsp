@@ -77,7 +77,7 @@
       ]
     },
     {
-      "Date": "2026-05-05T08:00:00Z",
+      "Date": "2026-05-06T13:33:00Z",
       "Number": "10005",
       "ShortTitle": "TownOfExtra v1.0.5",
       "Title": "TownOfExtra v1.0.5",
@@ -92,6 +92,21 @@
 
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed gambler not teleporting back to bodies."
+      ]
+    },
+    {
+      "Date": "2026-05-08T18:00:00Z",
+      "Number": "10006",
+      "ShortTitle": "TownOfExtra v1.0.6",
+      "Title": "TownOfExtra v1.0.6",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.0.6</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.0.6>TownOfExtra v1.0.6 Download</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>New Modifiers:</size>",
+        "\n- New Crewmate Passive modifier has been added: Fragile."
       ]
     }
   ]

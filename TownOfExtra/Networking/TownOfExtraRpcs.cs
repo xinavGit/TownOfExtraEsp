@@ -7,4 +7,5 @@ public enum TownOfExtraRpcs : uint
     DestroyFakeBodies = 502,
     NotifyCannibalDead = 503,
     ReviveCannibalVictims = 504,
+    TriggerFragileModifier = 505,
 }

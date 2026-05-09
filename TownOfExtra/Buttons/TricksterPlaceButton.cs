@@ -61,7 +61,7 @@ public sealed class TricksterPlaceButton : TownOfUsRoleButton<TricksterRole>
 
         PlayerControl trickster = GetTrickster();
         if (trickster == null) return;
-        TricksterRpcs.RpcPlaceFakeBody(trickster.transform.position, (byte)TricksterRole.SampledColourId, trickster.PlayerId);
+        TricksterRpcs.RpcPlaceFakeBody(PlayerControl.LocalPlayer, trickster.transform.position, (byte)TricksterRole.SampledColourId, trickster.PlayerId);
         BodyPlaced = true;
     }
 
