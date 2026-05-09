@@ -89,3 +89,4 @@ This software is distributed under the GNU GPLv3 License. BepInEx is distributed
 # Copyright
 <p align="center">This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC.</p>
 <p align="center">© Innersloth LLC.</p>
+<p align="center">Any roles that resemble the roles from the sidemen's version of Tou: Mira, are NOT the same, and should not be taken as the same mod.</p>
