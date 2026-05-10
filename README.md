@@ -32,7 +32,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-heavy-workload"><img width="10%" src="./TownOfExtra/Resources/HeavyWorkloadModifierIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-routine"><img width="10%" src="./TownOfExtra/Resources/RoutineModifierIcon.png" /></a>
  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#universal-modifiers"><img src="./Resources/Headers/UniMods.png" /></a>
-  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-soulless"><img width="10%" src="./Resources/SoullessModifierIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-soulless"><img width="10%" src="./TownOfExtra/Resources/SoullessModifierIcon.png" /></a>
 </p>
 
 -----------------------
