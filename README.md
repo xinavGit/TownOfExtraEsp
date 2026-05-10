@@ -46,13 +46,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 [BepInEx](https://github.com/BepInEx) - For hooking game functions
 
 # Asset Credits
-**[Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira):**
-- Poisoner role/button icons
-- Lightning icon (recoloured)
-- Signal jammer role icon & button (recoloured/edited)
-- Trickster role icon (recoloured)
-- Soulless modifier icon
-- Cannibal role icon
+- Thank you to [@AtonyGit](https://github.com/AtonyGit) for most role icons from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)!
 
 -----------------------
 
