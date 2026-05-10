@@ -62,7 +62,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
         
         var notif = Helpers.CreateAndShowNotification(
             $"Applying {TownOfExtraColours.PoisonColour.ToTextColor()}poison</color> to {Target.Data.PlayerName}...",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
         notif.AdjustNotification();
 
         string targetName = Target.Data.PlayerName;
@@ -76,7 +76,7 @@ public sealed class PoisonerPoisonButton : TownOfUsKillRoleButton<PoisonerRole, 
 
             var pnotif = Helpers.CreateAndShowNotification(
                 $"You poisoned {TownOfExtraColours.PoisonColour.ToTextColor()}{targetName}</color>!",
-                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
             pnotif.AdjustNotification();
 
             OverrideName("Poisoning...");

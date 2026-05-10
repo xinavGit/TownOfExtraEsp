@@ -15,7 +15,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
 {
     public override string ModifierName => "Poisoned";
     public override float Duration => OptionGroupSingleton<PoisonerRoleOptions>.Instance.PoisonLength;
-    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.PoisonerRoleIcon;
+    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.PoisonedModifierIcon;
 
     public override string GetDescription()
     {
@@ -29,7 +29,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.PoisonColour, Duration));
         var notif = Helpers.CreateAndShowNotification(
             $"You have been {TownOfExtraColours.PoisonColour.ToTextColor()}poisoned</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerRoleIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
         notif.AdjustNotification();
     }
 
@@ -49,7 +49,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         {
             var notif = Helpers.CreateAndShowNotification(
                 $"You have been {TownOfExtraColours.PoisonColour.ToTextColor()}poisoned</color> to {Palette.ImpostorRed.ToTextColor()}death</color>!",
-                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
             notif.AdjustNotification();
         }
 
@@ -57,7 +57,7 @@ public sealed class PoisonedModifier(PlayerControl poisoner) : TimedModifier
         {
             var poisonerNotif = Helpers.CreateAndShowNotification(
                 $"Your {TownOfExtraColours.PoisonColour.ToTextColor()}poison</color> has {Palette.ImpostorRed.ToTextColor()}killed</color> {Player.Data.PlayerName}!",
-                Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonerPoisonButton.LoadAsset());
+                Color.white, new Vector3(0f, 1.8f, -20f), spr: TownOfExtraAssets.PoisonedModifierIcon.LoadAsset());
             poisonerNotif.AdjustNotification();
         }
     }
