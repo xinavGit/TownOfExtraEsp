@@ -17,7 +17,7 @@ public class SoullessModifier : TouGameModifier, IWikiDiscoverable, IColoredModi
     public override string ModifierName => "Soulless";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;
     public override string IntroInfo => "Your soul is harvested on death.";
-    public override LoadableAsset<Sprite> ModifierIcon => TouNeutAssets.ReapSprite;
+    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.SoullessModifierIcon;
     public Color ModifierColor => TownOfUsColors.SoulCollector;
     public override Color FreeplayFileColor => TownOfUsColors.SoulCollector;
 

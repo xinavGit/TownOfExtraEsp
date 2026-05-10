@@ -30,6 +30,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.PoisonedModifierIcon.png");
     public static LoadableAsset<Sprite> HeavyWorkloadModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.HeavyWorkloadModifierIcon.png");
+    public static LoadableAsset<Sprite> SoullessModifierIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.SoullessModifierIcon.png");
     public static LoadableAsset<Sprite> RoutineModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.RoutineModifierIcon.png");
     
