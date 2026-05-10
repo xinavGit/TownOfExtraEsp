@@ -18,7 +18,7 @@ public sealed class CannibalRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
     public string RoleName => "Cannibal";
     public string RoleDescription => "Leave no traces of the crew!";
     public string RoleLongDescription => RoleDescription;
-    public Color RoleColor => TownOfExtraColours.CannibalColour;
+    public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
     public RoleAlignment RoleAlignment => RoleAlignment.ImpostorConcealing;
     public DoomableType DoomHintType => DoomableType.Death;
@@ -47,7 +47,7 @@ public sealed class CannibalRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Cannibalise", "Kill a player with no dead body left behind.", TownOfExtraAssets.CannibalEatButton)
+                new("Eat", "Kill a player with no dead body left behind.", TouAssets.KillSprite)
             };
         }
     }
