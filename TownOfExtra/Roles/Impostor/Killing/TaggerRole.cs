@@ -67,7 +67,7 @@ public sealed class TaggerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable,
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Mark", "Mark a player, allowing you to eliminate them later.", TownOfExtraAssets.Placeholder),
+                new("Mark", "Mark a player, allowing you to eliminate them later.", TownOfExtraAssets.TaggerMarkButton),
                 new("Eliminate", "Eliminate a marked player.", TouAssets.KillSprite)
             };
         }

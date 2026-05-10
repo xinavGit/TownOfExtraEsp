@@ -63,8 +63,8 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Sample", "Sample a player's colour to make a fake body of.", TownOfExtraAssets.Placeholder),
-                new("Spawn Body", "Spawn a fake dead body of the sampled colour.", TownOfExtraAssets.Placeholder)
+                new("Sample", "Sample a player's colour to make a fake body of.", TownOfExtraAssets.TricksterSampleButton),
+                new("Spawn Body", "Spawn a fake dead body of the sampled colour.", TownOfExtraAssets.TricksterPlaceButton)
             };
         }
     }

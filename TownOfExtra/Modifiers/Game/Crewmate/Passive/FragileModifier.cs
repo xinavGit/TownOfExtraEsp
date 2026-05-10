@@ -17,7 +17,7 @@ public class FragileModifier : TouGameModifier, IWikiDiscoverable, IColoredModif
     public override string ModifierName => "Fragile";
     public override ModifierFaction FactionType => ModifierFaction.CrewmatePassive;
     public override string IntroInfo => "You die if interacted too much";
-    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.Placeholder;
+    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.FragileModifierIcon;
     public Color ModifierColor => TownOfExtraColours.FragileModifierColour;
     public override Color FreeplayFileColor => TownOfExtraColours.FragileModifierColour;
     
@@ -25,7 +25,7 @@ public class FragileModifier : TouGameModifier, IWikiDiscoverable, IColoredModif
 
     public override string GetDescription()
     {
-        return $"You die if you are interacted with {OptionGroupSingleton<CrewmateModifierOptions>.Instance.FragileMaxInteractions.Value} times.";
+        return $"You die if you are interacted with {OptionGroupSingleton<CrewmateModifierOptions>.Instance.FragileMaxInteractions.Value} times.\n<b>Interactions: {Interactions[PlayerControl.LocalPlayer]}/{OptionGroupSingleton<CrewmateModifierOptions>.Instance.FragileMaxInteractions.Value}</b>";
     }
 
     public string GetAdvancedDescription()

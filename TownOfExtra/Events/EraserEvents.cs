@@ -5,7 +5,6 @@ using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers;
-using TownOfUs;
 using TownOfUs.Utilities;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ public class EraserEvents
                     Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
                     var notif = Helpers.CreateAndShowNotification(
                         $"Your role has been erased by the {Palette.ImpostorRed.ToTextColor()}eraser</color>!",
-                        Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.Placeholder.LoadAsset());
+                        Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.EraserEraseButton.LoadAsset());
                     notif.AdjustNotification();
                 }
                 p.RpcSetRole(RoleTypes.Crewmate);

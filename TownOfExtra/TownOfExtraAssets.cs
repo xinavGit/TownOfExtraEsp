@@ -34,6 +34,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.SoullessModifierIcon.png");
     public static LoadableAsset<Sprite> RoutineModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.RoutineModifierIcon.png");
+    public static LoadableAsset<Sprite> FragileModifierIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.FragileModifierIcon.png");
     
     public static LoadableAsset<Sprite> CannibalEatButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.CannibalEatButton.png");
