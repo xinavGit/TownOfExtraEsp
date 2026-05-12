@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.GameOptions;
 using MiraAPI.Roles;
+using TownOfExtra.Options.Roles;
 using TownOfUs;
 using TownOfUs.Extensions;
 using TownOfUs.Interfaces;
-using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
 using TownOfUs.Roles.Neutral;
@@ -38,8 +40,18 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
             return;
         }
         ImportantTextTask orCreateTask = PlayerTask.GetOrCreateTask<ImportantTextTask>(playerControl);
-        orCreateTask.Text = $"{TownOfUsColors.Neutral.ToTextColor()}{TouLocale.GetParsed("NeutralOutlierTaskHeader")}</color>";
+        orCreateTask.Text = $"{TownOfExtraColours.TricksterRoleColour.ToTextColor()}Get {OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded} of your fake bodies reported!</color>\n{TownOfExtraColours.TricksterRoleColour.ToTextColor()}Optional Tasks:</color>";
         orCreateTask.name = "NeutralRoleText";
+    }
+    
+    [HideFromIl2Cpp]
+    public StringBuilder SetTabText()
+    {
+        var stringB = ITownOfUsRole.SetNewTabText(this);
+
+        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>Fakes Reported: {Color.white.ToTextColor()}{FakeBodiesReported}/{OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded}</color>");
+
+        return stringB;
     }
 
     public string GetAdvancedDescription()
@@ -76,7 +88,7 @@ public sealed class TricksterRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfU
             return false;
         }
 
-        return FakeBodiesReported >= 3;
+        return FakeBodiesReported >= OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)

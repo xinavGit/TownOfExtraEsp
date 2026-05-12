@@ -32,14 +32,23 @@ public class TricksterEvents
         {
             if (e.Reporter.IsRole<TricksterRole>())
             {
-                BodyManager.ClearFakeBodies(e.Target);
-                
                 Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
                 var othernotif = Helpers.CreateAndShowNotification(
                     $"You cannot report your own {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>!",
                     Palette.ImpostorRed, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                 othernotif.AdjustNotification();
                 e.Cancel();
+                
+                if (e.Target != null)
+                {
+                    var body = Object.FindObjectsOfType<DeadBody>().FirstOrDefault(b => b.ParentId == e.Target.PlayerId);
+                    if (body != null)
+                    {
+                        body.Reported = false;
+                    }
+                }
+                
+                return;
             }
 
             if (e.Reporter.IsLover())
@@ -50,14 +59,23 @@ public class TricksterEvents
 
                     if (player.IsRole<TricksterRole>() && player.IsLover())
                     {
-                        BodyManager.ClearFakeBodies(e.Target);
-                        
                         Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
                         var othernotif = Helpers.CreateAndShowNotification(
                             $"You cannot report your lover's {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>!",
                             Palette.ImpostorRed, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                         othernotif.AdjustNotification();
                         e.Cancel();
+                        
+                        if (e.Target != null)
+                        {
+                            var body = Object.FindObjectsOfType<DeadBody>().FirstOrDefault(b => b.ParentId == e.Target.PlayerId);
+                            if (body != null)
+                            {
+                                body.Reported = false;
+                            }
+                        }
+                        
+                        return;
                     }
                 }
             }
