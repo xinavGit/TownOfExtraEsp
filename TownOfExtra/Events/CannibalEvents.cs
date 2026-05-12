@@ -31,7 +31,7 @@ public class CannibalEvents
         
             if (victim == null) continue;
 
-            CannibalRpcs.RpcReviveCannibalVictims(PlayerControl.LocalPlayer, victimId);
+            CannibalRpcs.RpcReviveCannibalVictims(victimId);
             CannibalRpcs.RpcNotifyCannibalDead(GameData.Instance.GetPlayerById(victimId));
         }
 

@@ -16,7 +16,7 @@ public class CannibalRpcs
     }
     
     [MethodRpc((uint)TownOfExtraRpcs.ReviveCannibalVictims)]
-    public static void RpcReviveCannibalVictims(PlayerControl sender, byte victimId)
+    public static void RpcReviveCannibalVictims(byte victimId)
     {
         PlayerControl victim = GameData.Instance.GetPlayerById(victimId)?.Object;
         if (victim == null) return;
