@@ -12,7 +12,7 @@ public sealed class ChiefRoleOptions : AbstractOptionGroup<ChiefRole>
     [ModdedNumberOption("Recruit Cooldown", 7.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float RecruitCooldown { get; set; } = 30f;
     [ModdedNumberOption("Max Recruit Uses", 0f, 30f, zeroInfinity:true)]
-    public float RecruitUses { get; set; } = 3f;
+    public float RecruitUses { get; set; } = 2f;
     [ModdedToggleOption("Can Recruit Lover Teammate")]
     public bool CanRecruitLoverTeammate { get; set; } = true;
     [ModdedNumberOption("Shoot Cooldown", 7.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
