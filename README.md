@@ -28,6 +28,8 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-trickster"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/TricksterRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#neutral-evil"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutOutlier.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-switcher"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/SwitcherRoleIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#crewmate-power"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewPower.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-chief"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/ChiefRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#crew-modifiers"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewMods.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-heavy-workload"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/HeavyWorkloadModifierIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Modifiers#-routine"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/RoutineModifierIcon.png" /></a>
@@ -63,7 +65,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.1.0       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.0) |
+| 17.3 (2026.3.31)         | 1.1.1       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.1) |
 
 -----------------------
 
