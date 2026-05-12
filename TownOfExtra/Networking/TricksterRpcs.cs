@@ -31,7 +31,7 @@ public class TricksterRpcs
             var notif = Helpers.CreateAndShowNotification(
                 $"One of your {ttc}fake bodies</color> has been found! {ttc}{reports}/{reportsNeeded}</color>",
                 Color.white,
-                new Vector3(0f, 1f, -20f)
+                new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset()
             );
             notif.AdjustNotification();
 
