@@ -26,8 +26,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.SwitcherRoleIcon.png");
     public static LoadableAsset<Sprite> TaggerRoleIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.TaggerRoleIcon.png");
-    /*public static LoadableAsset<Sprite> HitmanRoleIcon =>
-        new LoadableResourceAsset("TownOfExtra.Resources.HitmanRoleIcon.png");*/
+    public static LoadableAsset<Sprite> ChiefRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.ChiefRoleIcon.png");
     public static LoadableAsset<Sprite> PoisonedModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.PoisonedModifierIcon.png");
     public static LoadableAsset<Sprite> HeavyWorkloadModifierIcon =>
