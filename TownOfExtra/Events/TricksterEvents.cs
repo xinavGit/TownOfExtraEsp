@@ -32,10 +32,11 @@ public class TricksterEvents
         {
             if (e.Reporter.IsRole<TricksterRole>())
             {
+                var c = Palette.ImpostorRed.ToTextColor();
                 Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
                 var othernotif = Helpers.CreateAndShowNotification(
-                    $"You cannot report your own {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>!",
-                    Palette.ImpostorRed, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
+                    $"{c}You cannot report your own {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>{c}!",
+                    Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                 othernotif.AdjustNotification();
                 e.Cancel();
                 
@@ -59,10 +60,11 @@ public class TricksterEvents
 
                     if (player.IsRole<TricksterRole>() && player.IsLover())
                     {
+                        var c = Palette.ImpostorRed.ToTextColor();
                         Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
                         var othernotif = Helpers.CreateAndShowNotification(
-                            $"You cannot report your lover's {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>!",
-                            Palette.ImpostorRed, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
+                            $"{c}You cannot report your lover's {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>{c}!",
+                            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                         othernotif.AdjustNotification();
                         e.Cancel();
                         
