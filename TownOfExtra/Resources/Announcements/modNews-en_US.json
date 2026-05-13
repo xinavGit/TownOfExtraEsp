@@ -130,7 +130,7 @@
       ]
     },
     {
-      "Date": "2026-05-13T11:50:00Z",
+      "Date": "2026-05-13T16:50:00Z",
       "Number": "10012",
       "ShortTitle": "TownOfExtra v1.1.2",
       "Title": "TownOfExtra v1.1.2",
@@ -144,7 +144,7 @@
         "\n- A new Impostor Power role has been added: Vinculator.",
 
         "\n\n\r<size=105%>Bugfixes:</size>",
-        "\n- Fixed the trickster role having issues."
+        "\n- Fixed the trickster role (it should finally work now)."
       ]
     }
   ]
