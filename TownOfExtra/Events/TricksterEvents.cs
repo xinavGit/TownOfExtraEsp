@@ -30,6 +30,8 @@ public class TricksterEvents
 
         if (isFake)
         {
+            e.Cancel();
+            
             if (e.Reporter.IsRole<TricksterRole>())
             {
                 var c = Palette.ImpostorRed.ToTextColor();
@@ -38,7 +40,6 @@ public class TricksterEvents
                     $"{c}You cannot report your own {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>{c}!",
                     Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                 othernotif.AdjustNotification();
-                e.Cancel();
                 
                 if (e.Target != null)
                 {
@@ -66,7 +67,6 @@ public class TricksterEvents
                             $"{c}You cannot report your lover's {TownOfExtraColours.TricksterRoleColour.ToTextColor()}fake bodies</color>{c}!",
                             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
                         othernotif.AdjustNotification();
-                        e.Cancel();
                         
                         if (e.Target != null)
                         {
@@ -82,18 +82,14 @@ public class TricksterEvents
                 }
             }
             
-            TricksterRole.FakeBodiesReported++;
-            
             Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.TricksterRoleColour));
             var notif = Helpers.CreateAndShowNotification(
                 $"Something about that body felt {TownOfExtraColours.TricksterRoleColour.ToTextColor()}wrong</color>...",
                 Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
             notif.AdjustNotification();
-            TricksterRpcs.RpcNotifyTrickster();
-
+            
+            TricksterRpcs.RpcNotifyTrickster(PlayerControl.LocalPlayer);
             BodyManager.ClearFakeBodies(e.Target);
-
-            e.Cancel();
         }
     }
 

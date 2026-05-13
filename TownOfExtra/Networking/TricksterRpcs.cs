@@ -16,27 +16,23 @@ namespace TownOfExtra.Networking;
 public class TricksterRpcs
 {
     [MethodRpc((uint)TownOfExtraRpcs.NotifyTrickster)]
-    public static void RpcNotifyTrickster()
+    public static void RpcNotifyTrickster(PlayerControl sender)
     {
-        PlayerControl targetPlayer = null;
-        foreach (var p in PlayerControl.AllPlayerControls)
-        {
-            if (p.GetTownOfUsRole() is TricksterRole)
-            {
-                targetPlayer = p;
-            }
-        }
-        
-        if (targetPlayer == null) return;
+        if (PlayerControl.LocalPlayer.GetTownOfUsRole() is not TricksterRole) return;
+        PlayerControl p = PlayerControl.LocalPlayer;
+        if (p == null) return;
 
-        if (PlayerControl.LocalPlayer == targetPlayer)
+        TricksterRole.FakeBodiesReported++;
+        TricksterPlaceButton.BodyPlaced = false;
+
+        if (PlayerControl.LocalPlayer == p)
         {
             Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.TricksterRoleColour));
-            
+
             string ttc = TownOfExtraColours.TricksterRoleColour.ToTextColor();
             int reports = TricksterRole.FakeBodiesReported;
             int reportsNeeded = (int)OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded;
-            
+
             var notif = Helpers.CreateAndShowNotification(
                 $"One of your {ttc}fake bodies</color> has been found! {ttc}{reports}/{reportsNeeded}</color>",
                 Color.white,
@@ -49,10 +45,11 @@ public class TricksterRpcs
                 List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
                 winners.Add(PlayerControl.LocalPlayer.Data);
                 CustomGameOver.Trigger<NeutralGameOver>(winners);
+
             }
         }
     }
-    
+
     [MethodRpc((uint)TownOfExtraRpcs.PlaceFakeBody)]
     public static void RpcPlaceFakeBody(PlayerControl sender, byte colorId, byte parentId)
     {
