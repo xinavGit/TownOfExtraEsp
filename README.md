@@ -24,6 +24,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-signal-jammer"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/SignalJammerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-power"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpPower.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-eraser"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/EraserRoleIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-vinculator"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/VinculatorRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#crewmate-power"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewPower.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-chief"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/ChiefRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#neutral-evil"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutEvil.png" /></a>
@@ -55,7 +56,8 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 [BepInEx](https://github.com/BepInEx) - For hooking game functions
 
 # Asset Credits
-- Thank you to [@AtonyGit](https://github.com/AtonyGit) for most role, modifier & button icons from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)!
+- Most role, modifier & button icons, some are edited - [@AtonyGit](https://github.com/AtonyGit) from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)
+- Vinculator role icon & idea - az0th_19 (on discord)
 
 -----------------------
 
@@ -65,7 +67,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.1.1       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.1) |
+| 17.3 (2026.3.31)         | 1.1.2       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.2) |
 
 -----------------------
 
