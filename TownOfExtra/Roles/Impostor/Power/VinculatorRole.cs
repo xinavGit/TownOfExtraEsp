@@ -22,7 +22,7 @@ public sealed class VinculatorRole : ImpostorRole, ITownOfUsRole, IWikiDiscovera
     public string GetAdvancedDescription()
     {
         return
-            "The Vinculator is an Impostor Power role that can intertwine the fates of players with deadly chains and empower fellow impostors by instantly refreshing their abilities!\n" +
+            "The Vinculator is an Impostor Power role that can intertwine the fates of players with deadly chains and empower fellow impostors by instantly refreshing their abilities!" +
             MiscUtils.AppendOptionsText(GetType());
     }
 

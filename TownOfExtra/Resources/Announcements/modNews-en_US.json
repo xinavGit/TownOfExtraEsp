@@ -95,8 +95,8 @@
       ]
     },
     {
-      "Date": "2026-05-10T10:24:00Z",
-      "Number": "10006",
+      "Date": "2026-05-10T10:32:00Z",
+      "Number": "10010",
       "ShortTitle": "TownOfExtra v1.1.0",
       "Title": "TownOfExtra v1.1.0",
       "SubTitle": "",
@@ -112,6 +112,36 @@
 
         "\n\n\r<size=105%>New Modifiers:</size>",
         "\n- A new Crewmate Passive modifier has been added: Fragile."
+      ]
+    },
+    {
+      "Date": "2026-05-12T22:12:00Z",
+      "Number": "10011",
+      "ShortTitle": "TownOfExtra v1.1.1",
+      "Title": "TownOfExtra v1.1.1",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.1.1</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.1>TownOfExtra v1.1.1 Download</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>New Roles:</size>",
+        "\n- A new Crewmate Power role has been added: Chief."
+      ]
+    },
+    {
+      "Date": "2026-05-13T11:50:00Z",
+      "Number": "10012",
+      "ShortTitle": "TownOfExtra v1.1.2",
+      "Title": "TownOfExtra v1.1.2",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.1.2</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.2>TownOfExtra v1.1.2 Download</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>New Roles:</size>",
+        "\n- A new Impostor Power role has been added: Vinculator."
       ]
     }
   ]
