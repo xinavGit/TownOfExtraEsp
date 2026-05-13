@@ -73,15 +73,10 @@ public class VinculatorEvents
     {
         var exiled = e.ExileController.initData.networkedPlayer.Object;
 
-        if (exiled == null)
-        {
+        if (exiled == null ||
+            e.ExileController.initData.networkedPlayer == null ||
+            !exiled.HasModifier<LinkedModifier>())
             return;
-        }
-
-        if (!exiled.HasModifier<LinkedModifier>())
-        {
-            return;
-        }
 
         foreach (var player in PlayerControl.AllPlayerControls)
         {

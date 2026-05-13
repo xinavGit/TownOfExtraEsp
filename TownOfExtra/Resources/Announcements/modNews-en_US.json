@@ -147,5 +147,21 @@
         "\n- Fixed the trickster role (it should finally work now)."
       ]
     }
+    ,
+    {
+      "Date": "2026-05-13T20:00:00Z",
+      "Number": "10013",
+      "ShortTitle": "TownOfExtra v1.1.21",
+      "Title": "TownOfExtra v1.1.21",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.1.21</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.21>TownOfExtra v1.1.21 Download</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>Bufixes:</size>",
+        "\n- Fixed a lobby crashing bug with vinculator."
+      ]
+    }
   ]
 }
