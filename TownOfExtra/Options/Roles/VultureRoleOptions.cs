@@ -14,4 +14,7 @@ public sealed class VultureRoleOptions : AbstractOptionGroup<VultureRole>
 
     [ModdedNumberOption("# of Bodies Eaten to Win", 1f, 15f)]
     public float EatenBodiesNeeded { get; set; } = 3f;
+    
+    [ModdedToggleOption("Turn into Amnesiac when cannot win")]
+    public bool TurnIntoAmne { get; set; } = true;
 }

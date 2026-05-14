@@ -2,16 +2,22 @@
 using TownOfUs.Utilities;
 using MiraAPI.Events;
 using MiraAPI.GameOptions;
+using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
 using Reactor.Utilities;
+using TownOfExtra.Roles.Neutral.Outlier;
 using TownOfUs;
+using TownOfUs.Assets;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Modules;
 using TownOfUs.Modules.TimeLord;
 using TownOfUs.Modules.Components;
 using TownOfUs.Options;
 using TownOfUs.Options.Roles.Crewmate;
+using TownOfUs.Roles.Neutral;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace TownOfExtra.Networking;
@@ -55,5 +61,21 @@ public class VultureRpcs
             }
             Coroutines.Start(CrimeSceneComponent.CoClean(body));
         }
+    }
+
+    [MethodRpc((uint)TownOfExtraRpcs.VultureChangeToAmne)]
+    public static void RpcChangeVultureToAmne(int aliveOthers, int impostors)
+    {
+        PlayerControl player = PlayerControl.LocalPlayer;
+        if (player.GetTownOfUsRole() is not VultureRole || player.Data.IsDead) return;
+        if (aliveOthers > impostors * 2) return;
+
+        player.RpcChangeRole(RoleId.Get<AmnesiacRole>());
+
+        Coroutines.Start(MiscUtils.CoFlash(TownOfUsColors.Amnesiac));
+        var notif = Helpers.CreateAndShowNotification(
+            $"There are no longer enough players for you to realistically win. You have become an {TownOfUsColors.Amnesiac.ToTextColor()}Amnesiac</color>.",
+            Color.white, new Vector3(0f, 1f, -20f), spr: TouRoleIcons.Amnesiac.LoadAsset());
+        notif.AdjustNotification();
     }
 }

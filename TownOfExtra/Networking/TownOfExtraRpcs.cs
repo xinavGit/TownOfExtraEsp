@@ -11,4 +11,5 @@ public enum TownOfExtraRpcs : uint
     ChiefNotifiyRecruited = 506,
     VinculatorNotifyTeam = 507,
     VultureCleanBody = 508,
+    VultureChangeToAmne = 509,
 }
