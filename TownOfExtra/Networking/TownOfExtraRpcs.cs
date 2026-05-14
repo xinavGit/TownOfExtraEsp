@@ -10,4 +10,5 @@ public enum TownOfExtraRpcs : uint
     TriggerFragileModifier = 505,
     ChiefNotifiyRecruited = 506,
     VinculatorNotifyTeam = 507,
+    VultureCleanBody = 508,
 }

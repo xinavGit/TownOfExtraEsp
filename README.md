@@ -57,7 +57,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 # Asset Credits
 - Most role, modifier & button icons, some are edited - [@AtonyGit](https://github.com/AtonyGit) from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)
-- Vinculator role icon & idea - az0th_19 (on discord)
+- Vinculator role icon - az0th_19 (on discord)
 
 -----------------------
 
@@ -67,7 +67,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.1.2       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.2) |
+| 17.3 (2026.3.31)         | 1.1.3       | 1.6.0+            | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.3) |
 
 -----------------------
 

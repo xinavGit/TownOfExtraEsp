@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using MiraAPI.Events;
+﻿using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
@@ -8,41 +7,29 @@ using TownOfUs.Modules;
 
 namespace TownOfExtra.Events;
 
-public static class SoulLessEvents
+public static class SoullessEvents
 {
-    private static readonly HashSet<byte> SoullessKills = new();
-    
     [RegisterEvent]
     public static void BeforeMurderEventHandler(BeforeMurderEvent e)
     {
-        if (!AmongUsClient.Instance.AmHost) return;
-        
         var target = e.Target;
-        var source = e.Source;
-
-        if (SoullessKills.Contains(target.PlayerId))
-        {
-            SoullessKills.Remove(target.PlayerId);
-            return;
-        }
-
-        if (target.HasModifier<SoullessModifier>() && !MeetingHud.Instance)
-        {
-            e.Cancel();
-
-            SoullessKills.Add(target.PlayerId);
-            source.RpcCustomMurder(target, MeetingCheck.OutsideMeeting, createDeadBody: false);
-        }
+        
+        if (!target.HasModifier<SoullessModifier>() || !MeetingHud.Instance) return;
+        
+        e.Cancel();
     }
     
     [RegisterEvent]
     public static void AfterMurderEventHandler(AfterMurderEvent e)
     {
         var target = e.Target;
+        var source = e.Source;
 
-        if (target.HasModifier<SoullessModifier>() && !MeetingHud.Instance)
+        if (target.HasModifier<SoullessModifier>())
         {
+            target.RpcRemoveModifier<SoullessModifier>();
             _ = new FakePlayer(target);
+            source.RpcCustomMurder(target, createDeadBody:false);
         }
     }
 }

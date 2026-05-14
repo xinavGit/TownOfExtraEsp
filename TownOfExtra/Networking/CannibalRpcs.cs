@@ -16,18 +16,17 @@ public class CannibalRpcs
     }
     
     [MethodRpc((uint)TownOfExtraRpcs.ReviveCannibalVictims)]
-    public static void RpcReviveCannibalVictims(byte victimId)
+    public static void RpcReviveCannibalVictims(PlayerControl p)
     {
-        PlayerControl victim = GameData.Instance.GetPlayerById(victimId)?.Object;
-        if (victim == null) return;
+        if (p == null) return;
 
         PlayerControl cannibal = CannibalEvents.GetCannibal();
 
         ReviveUtilities.RevivePlayer(
             reviver: cannibal,
-            revived: victim,
-            position: victim.transform.position,
-            roleWhenAlive: victim.GetRoleWhenAlive(),
+            revived: p,
+            position: p.transform.position,
+            roleWhenAlive: p.GetRoleWhenAlive(),
             flashColor: TownOfUsColors.Medic,
             revivedOwnerNotificationText: null,
             reviverOwnerNotificationText: null);
