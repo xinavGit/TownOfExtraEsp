@@ -32,7 +32,10 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
 
     public override bool CanClick()
     {
-        return GetTarget() != null && Timer <= 0;
+        return
+            GetTarget() != null &&
+            Timer <= 0 &&
+            (MaxUses == 0 || UsesLeft > 0);
     }
 
     public override PlayerControl GetTarget()
@@ -73,7 +76,7 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
             var c = Palette.ImpostorRed.ToTextColor();
             var notif = Helpers.CreateAndShowNotification(
                 $"{c}There is already a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color>{c} in the game!",
-                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRoleIcon.LoadAsset());
+                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRecruitButton.LoadAsset());
             notif.AdjustNotification();
 
             if (MaxUses != 0)
@@ -89,7 +92,7 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
 
         var recruitingnotif = Helpers.CreateAndShowNotification(
             $"{Recruit.Data.PlayerName} will be {TownOfExtraColours.ChiefRoleColour.ToTextColor()}recruited</color> in 3 seconds!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRoleIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRecruitButton.LoadAsset());
         recruitingnotif.AdjustNotification();
     }
 
@@ -108,6 +111,28 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
     public override void OnEffectEnd()
     {
         if (Recruit == null) return;
+        LobbyNotificationMessage notif;
+        if (Recruit.Data.IsDead || Recruit.Data.Disconnected)
+        {
+            if (MaxUses != 0)
+            {
+                IncreaseUses();
+                notif = Helpers.CreateAndShowNotification(
+                    $"{Palette.ImpostorRed.ToTextColor()}Your recruit is no longer alive. Your charge has been refunded!</color>",
+                    Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRecruitButton.LoadAsset());
+                notif.AdjustNotification();
+            }
+            else
+            {
+                notif = Helpers.CreateAndShowNotification(
+                    $"{Palette.ImpostorRed.ToTextColor()}Your recruit is no longer alive!</color>",
+                    Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRecruitButton.LoadAsset());
+                notif.AdjustNotification();
+            }
+
+            Recruit = null;
+            return;
+        }
 
         if (Recruit.IsCrewmate())
         {
@@ -115,10 +140,11 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
             ChiefRpcs.RpcNotifyChiefRecruited(Recruit);
         }
 
-        var notif = Helpers.CreateAndShowNotification(
+        notif = Helpers.CreateAndShowNotification(
             $"You have recruited {Recruit.Data.PlayerName} and they are now a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRoleIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRecruitButton.LoadAsset());
         notif.AdjustNotification();
+        ChiefRole.Recruits.Add(Recruit);
         Recruit = null;
     }
 }

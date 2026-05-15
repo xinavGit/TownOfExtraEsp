@@ -9,6 +9,7 @@ using TownOfExtra.Roles.Crewmate.Power;
 using TownOfUs;
 using TownOfUs.Buttons;
 using TownOfUs.Modifiers;
+using TownOfUs.Modules;
 using TownOfUs.Networking;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;
@@ -44,16 +45,6 @@ public sealed class ChiefShootButton : TownOfUsKillRoleButton<ChiefRole, PlayerC
             return;
         }
 
-        var roleName = Target.GetTownOfUsRole()?.RoleName;
-        var touColour = 
-            roleName != null
-            ? MiscUtils.GetRoleColour(roleName)
-            : Color.white;
-        var roleColour = 
-            touColour == TownOfUsColors.Impostor 
-            ? TownOfExtraColours.GetTownOfExtraRoleColour(roleName).ToTextColor()
-            : touColour.ToTextColor();
-
         string c = TownOfUsColors.Crewmate.ToTextColor();
         
         if (Target.IsCrewmate())
@@ -72,9 +63,11 @@ public sealed class ChiefShootButton : TownOfUsKillRoleButton<ChiefRole, PlayerC
         }
         
         var notif = Helpers.CreateAndShowNotification(
-            $"{c}You have shot {Target.Data.PlayerName} and their role was {roleColour}{roleName}{c}!",
+            $"{c}You have shot {Target.Data.PlayerName} and their role was {TownOfExtraColours.GetRoleColour(Target.GetRoleWhenAlive().NiceName).ToTextColor()}{Target.GetRoleWhenAlive().NiceName}{c}!",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.ChiefRoleIcon.LoadAsset());
         notif.AdjustNotification();
+
+        ChiefRole.ShotPlayers.Add(Target);
         
         PlayerControl.LocalPlayer.RpcSpecialMurder(
             Target,

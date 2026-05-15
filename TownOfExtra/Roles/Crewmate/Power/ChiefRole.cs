@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.Roles;
+using TownOfUs;
 using TownOfUs.Extensions;
+using TownOfUs.Modules;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
 using TownOfUs.Utilities;
@@ -19,6 +22,9 @@ public sealed class ChiefRole : CrewmateRole, ITownOfUsRole, IWikiDiscoverable, 
     public RoleAlignment RoleAlignment => RoleAlignment.CrewmatePower;
     public DoomableType DoomHintType => DoomableType.Hunter;
     
+    public static List<PlayerControl> Recruits = new List<PlayerControl>();
+    public static List<PlayerControl> ShotPlayers = new List<PlayerControl>();
+    
     public string GetAdvancedDescription()
     {
         return
@@ -26,6 +32,55 @@ public sealed class ChiefRole : CrewmateRole, ITownOfUsRole, IWikiDiscoverable, 
             MiscUtils.AppendOptionsText(GetType());
     }
 
+    [HideFromIl2Cpp]
+    public StringBuilder SetTabText()
+    {
+        var stringB = ITownOfUsRole.SetNewTabText(this);
+        
+        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>Recruits:</b>");
+        foreach (var p in Recruits)
+        {
+            if (p.Data.IsDead)
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{Palette.ImpostorRed.ToTextColor()}{p.Data.PlayerName}</color>");
+            }
+            else if (p.Data.Disconnected)
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{TownOfUsColors.Neutral.ToTextColor()}{p.Data.PlayerName}</color>");
+            }
+            else
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{Palette.AcceptedGreen.ToTextColor()}{p.Data.PlayerName}</color>");
+            }
+        }
+        
+        stringB.Append(TownOfUsPlugin.Culture, $"\n<b>Shot Players:</b>");
+        foreach (var p in ShotPlayers)
+        {
+            var r = p.GetRoleWhenAlive();
+            if (r.IsImpostor)
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{Palette.ImpostorRed.ToTextColor()}{p.Data.PlayerName}:</color> {TownOfExtraColours.GetRoleColour(r.NiceName).ToTextColor()}{r.NiceName}</color>");
+            }
+            else if (r.IsNeutral())
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{TownOfUsColors.Neutral.ToTextColor()}{p.Data.PlayerName}:</color> {TownOfExtraColours.GetRoleColour(r.NiceName).ToTextColor()}{r.NiceName}</color>");
+            }
+            else
+            {
+                stringB.Append(TownOfUsPlugin.Culture,
+                    $"\n{Palette.CrewmateBlue.ToTextColor()}{p.Data.PlayerName}:</color> {TownOfExtraColours.GetRoleColour(r.NiceName).ToTextColor()}{r.NiceName}</color>");
+            }
+        }
+        
+        return stringB;
+    }
+    
     public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(this)
     {
         MaxRoleCount = 1,
