@@ -59,7 +59,10 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 # Asset Credits
 - Most role, modifier & button icons, some are edited - [@AtonyGit](https://github.com/AtonyGit) from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)
-- Vinculator role icon/empower button icon - az0th_19 (on discord)
+- Vinculator role icon/empower button icon - @az0th_19 (discord)
+- Freezer/switcher role icons - @aasteriisken (discord)
+- Freeze button icon - @mystic_haze2 (discord)
+- Soulless modifier/gambler role icons - @jaydoeswitchcraft (discord)
 
 -----------------------
 
