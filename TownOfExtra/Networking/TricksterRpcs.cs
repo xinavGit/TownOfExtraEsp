@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
+using MiraAPI.Hud;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
@@ -38,6 +39,8 @@ public class TricksterRpcs
                 Color.white,
                 new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset()
             );
+            CustomButtonSingleton<TricksterPlaceButton>.Instance.Timer = OptionGroupSingleton<TricksterRoleOptions>.Instance.PlaceCooldown;
+            
             notif.AdjustNotification();
 
             if (reports == reportsNeeded)
