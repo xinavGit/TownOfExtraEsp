@@ -1,21 +1,30 @@
-﻿using MiraAPI.Events;
+﻿using System.Collections.Generic;
+using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
 using MiraAPI.Networking;
 using TownOfExtra.Modifiers.Game.Universal.Passive;
+using TownOfUs.Modifiers;
 using TownOfUs.Modules;
 
 namespace TownOfExtra.Events;
 
 public static class SoullessEvents
 {
+    public static Dictionary<PlayerControl, bool> NeedFakePlayer = new Dictionary<PlayerControl, bool>();
+    
     [RegisterEvent]
     public static void BeforeMurderEventHandler(BeforeMurderEvent e)
     {
         var target = e.Target;
+
+        if (NeedFakePlayer.ContainsKey(target)) return;
+        if (!target.HasModifier<SoullessModifier>()) return;
+        if (target.HasModifier<BaseShieldModifier>()) return;
         
-        if (!target.HasModifier<SoullessModifier>() || !MeetingHud.Instance) return;
-        
+        NeedFakePlayer.Add(target, true);
+        e.Source.RpcCustomMurder(target, createDeadBody: false);
+        target.RpcRemoveModifier<SoullessModifier>();
         e.Cancel();
     }
     
@@ -23,13 +32,9 @@ public static class SoullessEvents
     public static void AfterMurderEventHandler(AfterMurderEvent e)
     {
         var target = e.Target;
-        var source = e.Source;
 
-        if (target.HasModifier<SoullessModifier>())
-        {
-            target.RpcRemoveModifier<SoullessModifier>();
-            _ = new FakePlayer(target);
-            source.RpcCustomMurder(target, createDeadBody:false);
-        }
+        if (!NeedFakePlayer.ContainsKey(target)) return;
+        _ = new FakePlayer(target);
+        NeedFakePlayer.Remove(target);
     }
 }
