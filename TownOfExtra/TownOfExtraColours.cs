@@ -18,7 +18,7 @@ public class TownOfExtraColours
     
     
     public static Color PoisonColour => new Color(46/255f, 82/255f, 53/255f);
-    public static Color FreezerRoleColour => new Color(0/255f, 200/255f, 255/255f);
+    public static Color FreezeColour => new Color(0/255f, 200/255f, 255/255f);
     public static Color CannibalColour => new Color(180/255f, 90/255f, 50/255f);
     
     
