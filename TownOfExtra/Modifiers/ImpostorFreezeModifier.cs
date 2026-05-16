@@ -28,9 +28,9 @@ public class ImpostorFreezeModifier : TimedModifier
     {
         if (!Player.AmOwner) return;
         
-        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.FreezeColour, Duration));
+        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.FreezerRoleColour, Duration));
         var notif = Helpers.CreateAndShowNotification(
-            $"Players have been {TownOfExtraColours.FreezeColour.ToTextColor()}frozen</color>!",
+            $"Players have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}frozen</color>!",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerFreezeButton.LoadAsset());
         notif.AdjustNotification();
     }
@@ -39,7 +39,7 @@ public class ImpostorFreezeModifier : TimedModifier
     {
         if (!Player.AmOwner) return;
         var notif = Helpers.CreateAndShowNotification(
-            $"Players have been {TownOfExtraColours.FreezeColour.ToTextColor()}unfrozen</color>!",
+            $"Players have been {TownOfExtraColours.FreezerRoleColour.ToTextColor()}unfrozen</color>!",
             Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.FreezerFreezeButton.LoadAsset());
         notif.AdjustNotification();
     }
