@@ -7,10 +7,10 @@ using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using TownOfExtra.Events.Custom;
 using TownOfExtra.Networking;
 using TownOfExtra.Options.Roles;
 using TownOfUs;
-using TownOfUs.Events.TouEvents;
 using TownOfUs.GameOver;
 using TownOfUs.Utilities;
 using Color = UnityEngine.Color;
@@ -39,9 +39,9 @@ public class VultureEvents
     }
     
     [RegisterEvent]
-    public static void OnBodyCleanEventHandler(TouAbilityEvent e)
+    public static void OnBodyCleanEventHandler(TownOfExtraAbilityEvent e)
     {
-        if (e.AbilityType != AbilityType.JanitorClean) return;
+        if (e.AbilityType != AbilityType.VultureEatBody) return;
         if (e.Player.GetTownOfUsRole() is not VultureRole) return;
 
         VultureRole.DeadBodiesEaten++;

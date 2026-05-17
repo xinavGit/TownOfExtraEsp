@@ -1,20 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TownOfUs.Utilities;
 using MiraAPI.Events;
-using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
 using Reactor.Utilities;
-using TownOfExtra.Options.Roles;
+using TownOfExtra.Events.Custom;
 using TownOfExtra.Roles.Neutral.Outlier;
 using TownOfUs;
 using TownOfUs.Assets;
-using TownOfUs.Events.TouEvents;
-using TownOfUs.GameOver;
 using TownOfUs.Modules;
 using TownOfUs.Modules.TimeLord;
 using TownOfUs.Modules.Components;
@@ -39,8 +35,8 @@ public class VultureRpcs
 
         if (body != null)
         {
-            var touAbilityEvent = new TouAbilityEvent(AbilityType.JanitorClean, player, body);
-            MiraEventManager.InvokeEvent(touAbilityEvent);
+            var toexAbilityEvent = new TownOfExtraAbilityEvent(AbilityType.VultureEatBody, player, body);
+            MiraEventManager.InvokeEvent(toexAbilityEvent);
 
             var isHost = AmongUsClient.Instance && AmongUsClient.Instance.AmHost;
             var optionEnabled = OptionGroupSingleton<TimeLordOptions>.Instance.UncleanBodiesOnRewind;
