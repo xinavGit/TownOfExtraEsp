@@ -5,9 +5,7 @@ using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
-using TownOfUs;
 using TownOfUs.Buttons;
-using TownOfUs.Utilities;
 using UnityEngine;
 
 namespace TownOfExtra.Buttons;
@@ -29,15 +27,7 @@ public sealed class VultureEatButton : TownOfUsRoleButton<VultureRole, DeadBody>
     {
         var p = PlayerControl.LocalPlayer;
         if (p == null || Target == null) return;
-
-        VultureRpcs.RpcCleanBody(p, Target.ParentId);
-        VultureRpcs.RpcIncrementBodyCount(1);
-
-        var notif = Helpers.CreateAndShowNotification(
-            $"You have {TownOfExtraColours.VultureRoleColour.ToTextColor()}eaten</color> a body and are now at {TownOfUsColors.Neutral.ToTextColor()}{VultureRole.DeadBodiesEaten}/{OptionGroupSingleton<VultureRoleOptions>.Instance.EatenBodiesNeeded}</color> bodies!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.VultureEatButton.LoadAsset());
-        notif.AdjustNotification();
         
-        VultureRpcs.RpcCheckWin(PlayerControl.LocalPlayer);
+        VultureRpcs.RpcCleanBody(p, Target.ParentId);
     }
 }

@@ -9,6 +9,7 @@ using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
 using Reactor.Utilities;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Outlier;
 using TownOfUs;
 using TownOfUs.Assets;
@@ -54,7 +55,7 @@ public class VultureRpcs
                 if (bodyPlayer != null)
                 {
                     TownOfUs.Events.Crewmate.TimeLordEventHandlers.RecordBodyCleaned(player, body, body.transform.position, 
-                        TimeLordBodyManager.CleanedBodySource.Janitor);
+                        TimeLordBodyManager.CleanedBodySource.Unknown);
                 }
                 Coroutines.Start(TimeLordBodyManager.CoHideBodyForTimeLord(body, destroyBody));
             }
@@ -80,26 +81,5 @@ public class VultureRpcs
             $"There are no longer enough players for you to realistically win. You have become an {TownOfUsColors.Amnesiac.ToTextColor()}Amnesiac</color>.",
             Color.white, new Vector3(0f, 1f, -20f), spr: TouRoleIcons.Amnesiac.LoadAsset());
         notif.AdjustNotification();
-    }
-
-    [MethodRpc((uint)TownOfExtraRpcs.VultureCountIncrement)]
-    public static void RpcIncrementBodyCount(int increment)
-    {
-        VultureRole.DeadBodiesEaten += increment;
-    }
-
-    [MethodRpc((uint)TownOfExtraRpcs.VultureCheckWin)]
-    public static void RpcCheckWin(PlayerControl sender)
-    {
-        if (AmongUsClient.Instance.AmHost)
-        {
-            List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
-            foreach (var vulture in CustomRoleUtils.GetActiveRolesOfType<VultureRole>().Where(t => t.WinConditionMet()))
-            {
-                winners.Add(vulture.Player.Data);
-            }
-
-            CustomGameOver.Trigger<NeutralGameOver>(winners);
-        }
     }
 }

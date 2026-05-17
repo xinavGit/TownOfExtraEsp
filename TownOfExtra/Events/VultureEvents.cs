@@ -1,10 +1,20 @@
-﻿using TownOfExtra.Roles.Neutral.Outlier;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TownOfExtra.Roles.Neutral.Outlier;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
+using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
+using MiraAPI.Roles;
+using MiraAPI.Utilities;
 using TownOfExtra.Networking;
 using TownOfExtra.Options.Roles;
+using TownOfUs;
+using TownOfUs.Events.TouEvents;
+using TownOfUs.GameOver;
 using TownOfUs.Utilities;
+using Color = UnityEngine.Color;
+using Vector3 = UnityEngine.Vector3;
 
 namespace TownOfExtra.Events;
 
@@ -26,6 +36,31 @@ public class VultureEvents
     public static void RoundStartEventHandler(RoundStartEvent e)
     {
         CheckAndConvertVulture();
+    }
+    
+    [RegisterEvent]
+    public static void OnBodyCleanEventHandler(TouAbilityEvent e)
+    {
+        if (e.AbilityType != AbilityType.JanitorClean) return;
+        if (e.Player.GetTownOfUsRole() is not VultureRole) return;
+
+        VultureRole.DeadBodiesEaten++;
+
+        if (PlayerControl.LocalPlayer == e.Player)
+        {
+            var notif = Helpers.CreateAndShowNotification(
+                $"You have {TownOfExtraColours.VultureRoleColour.ToTextColor()}eaten</color> a body and are now at {TownOfUsColors.Neutral.ToTextColor()}{VultureRole.DeadBodiesEaten}/{OptionGroupSingleton<VultureRoleOptions>.Instance.EatenBodiesNeeded}</color> bodies!",
+                Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.VultureEatButton.LoadAsset());
+            notif.AdjustNotification();
+        }
+
+        if (AmongUsClient.Instance.AmHost)
+        {
+            List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
+            foreach (var vulture in CustomRoleUtils.GetActiveRolesOfType<VultureRole>().Where(t => t.WinConditionMet()))
+                winners.Add(vulture.Player.Data);
+            CustomGameOver.Trigger<NeutralGameOver>(winners);
+        }
     }
 
     private static void CheckAndConvertVulture()
