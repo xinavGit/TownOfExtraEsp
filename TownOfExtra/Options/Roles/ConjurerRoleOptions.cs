@@ -11,7 +11,10 @@ public sealed class ConjurerRoleOptions : AbstractOptionGroup<ConjurerRole>
 
     [ModdedNumberOption("Conjure Cooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ConjureCooldown { get; set; } = 30f;
-    
+
     [ModdedNumberOption("Conjure Duration", 2.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ConjureDuration { get; set; } = 15f;
+
+    [ModdedToggleOption("Can crush impostors")]
+    public bool CanCrushImps { get; set; } = true;
 }

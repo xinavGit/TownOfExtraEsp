@@ -20,6 +20,7 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.ConjurerConjureButton;
 
     private bool _placing;
+    private bool _fallen;
     private GameObject _preview;
 
     public override bool CanUse()
@@ -51,7 +52,23 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                 _preview.transform.position = loc;
             }
 
-            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (_fallen)
+                {
+                    _fallen = false;
+                    var renderer = _preview.GetComponent<SpriteRenderer>();
+                    renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
+                }
+                else
+                {
+                    _fallen = true;
+                    var renderer = _preview.GetComponent<SpriteRenderer>();
+                    renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 ExitPlacingMode();
                 yield break;
@@ -61,7 +78,7 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
             {
                 toWorldPoint.z = 0f;
 
-                ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, toWorldPoint.x, toWorldPoint.y);
+                ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, toWorldPoint.x, toWorldPoint.y, _fallen);
                 ExitPlacingMode();
                 Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
                 yield break;
@@ -75,14 +92,14 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     {
         OverrideName("Conjuring...");
         _placing = true;
+        _fallen = false;
 
         Vector3 loc = Camera.main != null ? Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector3.zero;
         
         loc.z = 0f;
 
-        _preview = new GameObject("ConjurerRockPreview");
+        _preview = new GameObject();
         _preview.transform.position = loc;
-        _preview.layer = LayerMask.NameToLayer("Ghost");
 
         var renderer = _preview.AddComponent<SpriteRenderer>();
         renderer.sprite = TownOfExtraAssets.ConjurerRoleIcon.LoadAsset();

@@ -87,4 +87,6 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.LightningIcon.png");
     public static LoadableAsset<Sprite> ConjurerRockSprite =>
         new LoadableResourceAsset("TownOfExtra.Resources.ConjurerRockSprite.png");
+    public static LoadableAsset<Sprite> ConjurerRockSpriteFallen =>
+        new LoadableResourceAsset("TownOfExtra.Resources.ConjurerRockSpriteFallen.png");
 }
