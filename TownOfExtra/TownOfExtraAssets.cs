@@ -34,6 +34,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.VinculatorRoleIcon.png");
     public static LoadableAsset<Sprite> VultureRoleIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.VultureRoleIcon.png");
+    public static LoadableAsset<Sprite> ConjurerRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.ConjurerRoleIcon.png");
     
     
     
@@ -76,9 +78,13 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.VinculatorEmpowerButton.png");
     public static LoadableAsset<Sprite> VultureEatButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.VultureEatButton.png");
+    public static LoadableAsset<Sprite> ConjurerConjureButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.ConjurerConjureButton.png");
     
     
     
     public static LoadableAsset<Sprite> LightningIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.LightningIcon.png");
+    public static LoadableAsset<Sprite> ConjurerRockSprite =>
+        new LoadableResourceAsset("TownOfExtra.Resources.ConjurerRockSprite.png");
 }

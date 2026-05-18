@@ -208,6 +208,21 @@
         "\n- Fixed trickster never actually winning (finally...)",
         "\n- Fixed vulture never actually winning (finally...)"
       ]
+    },
+    {
+      "Date": "2026-05-18T00:00:00Z",
+      "Number": "10016",
+      "ShortTitle": "TownOfExtra v1.1.6",
+      "Title": "TownOfExtra v1.1.6",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.1.6</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>New Roles:</size>",
+        "\n- A new Impostor Support role has been added: Conjurer"
+      ]
     }
   ]
 }

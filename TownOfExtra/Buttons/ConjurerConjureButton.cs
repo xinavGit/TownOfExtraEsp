@@ -1,0 +1,103 @@
+﻿using System.Collections;
+using TownOfExtra.Roles.Impostor.Support;
+using MiraAPI.GameOptions;
+using MiraAPI.Keybinds;
+using MiraAPI.Utilities.Assets;
+using Reactor.Utilities;
+using TownOfExtra.Networking;
+using TownOfExtra.Options.Roles;
+using TownOfUs.Buttons;
+using UnityEngine;
+
+namespace TownOfExtra.Buttons;
+
+public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
+{
+    public override string Name => "Conjure";
+    public override BaseKeybind Keybind => Keybinds.SecondaryAction;
+    public override Color TextOutlineColor => Palette.ImpostorRed;
+    public override float Cooldown => 0f;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.ConjurerConjureButton;
+
+    private bool _placing;
+    private GameObject _preview;
+
+    public override bool CanUse()
+    {
+        return Timer <= 0 && !_placing;
+    }
+
+    protected override void OnClick()
+    {
+        Coroutines.Start(StartPlacing());
+    }
+
+    private IEnumerator StartPlacing()
+    {
+        var camera = Camera.main;
+        if (camera == null) yield break;
+        
+        EnterPlacingMode();
+
+        while (true)
+        {
+            var toWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
+            var screenToWorldPoint = toWorldPoint;
+            
+            if (_preview != null)
+            {
+                var loc = screenToWorldPoint;
+                loc.z = 0f;
+                _preview.transform.position = loc;
+            }
+
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitPlacingMode();
+                yield break;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                toWorldPoint.z = 0f;
+
+                ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, toWorldPoint.x, toWorldPoint.y);
+                ExitPlacingMode();
+                Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
+    private void EnterPlacingMode()
+    {
+        OverrideName("Conjuring...");
+        _placing = true;
+
+        Vector3 loc = Camera.main != null ? Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector3.zero;
+        
+        loc.z = 0f;
+
+        _preview = new GameObject("ConjurerRockPreview");
+        _preview.transform.position = loc;
+        _preview.layer = LayerMask.NameToLayer("Ghost");
+
+        var renderer = _preview.AddComponent<SpriteRenderer>();
+        renderer.sprite = TownOfExtraAssets.ConjurerRoleIcon.LoadAsset();
+        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.5f);
+    }
+
+    private void ExitPlacingMode()
+    {
+        OverrideName("Conjure");
+        _placing = false;
+
+        if (_preview != null)
+        {
+            Object.Destroy(_preview);
+            _preview = null;
+        }
+    }
+}

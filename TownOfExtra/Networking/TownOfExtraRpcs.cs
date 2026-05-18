@@ -13,4 +13,5 @@ public enum TownOfExtraRpcs : uint
     VultureCleanBody = 508,
     VultureChangeToAmne = 509,
     GamblerNotifyEffect = 510,
+    ConjurerPlaceRock = 511,
 }

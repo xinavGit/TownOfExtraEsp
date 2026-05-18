@@ -5,7 +5,7 @@ namespace TownOfExtra.Events.Custom;
 
 public class TownOfExtraAbilityEvent : MiraEvent
 {
-    public TownOfExtraAbilityEvent(AbilityType ability, string result, PlayerControl player, MonoBehaviour? target = null,
+    public TownOfExtraAbilityEvent(AbilityType ability, string result, PlayerControl player, MonoBehaviour target = null,
         MonoBehaviour target2 = null)
     {
         AbilityType = ability;
@@ -15,7 +15,7 @@ public class TownOfExtraAbilityEvent : MiraEvent
         Result = result;
     }
     
-    public TownOfExtraAbilityEvent(AbilityType ability, PlayerControl player, MonoBehaviour? target = null,
+    public TownOfExtraAbilityEvent(AbilityType ability, PlayerControl player, MonoBehaviour target = null,
         MonoBehaviour target2 = null)
     {
         AbilityType = ability;
