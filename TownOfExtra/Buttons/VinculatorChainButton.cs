@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace TownOfExtra.Buttons;
 
-public sealed class VinculatorChainButton : TownOfUsRoleButton<VinculatorRole>, IDiseaseableButton
+public sealed class VinculatorChainButton : TownOfUsRoleButton<VinculatorRole>
 {
     public override string Name => "Chain";
     public override BaseKeybind Keybind => Keybinds.TertiaryAction;
@@ -24,11 +24,6 @@ public sealed class VinculatorChainButton : TownOfUsRoleButton<VinculatorRole>, 
     public int ExtraUses { get; set; }
     public override bool ZeroIsInfinite => true;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.VinculatorChainButton;
-    
-    public void SetDiseasedTimer(float multiplier)
-    {
-        SetTimer(Cooldown * multiplier);
-    }
 
     public override bool CanUse()
     {

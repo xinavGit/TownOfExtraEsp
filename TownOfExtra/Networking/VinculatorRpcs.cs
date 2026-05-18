@@ -25,8 +25,8 @@ public class VinculatorRpcs
                 Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.VinculatorEmpowerButton.LoadAsset());
             notif.AdjustNotification();
             
+            p.SetKillTimer(p.killTimer + GameOptionsManager.Instance.normalGameHostOptions.KillCooldown);
             foreach (var btn in CustomButtonManager.Buttons) btn.ResetCooldownAndOrEffect();
-            PlayerControl.LocalPlayer.SetKillTimer(GameOptionsManager.Instance.normalGameHostOptions.KillCooldown);
         }
         else
         {
@@ -36,8 +36,8 @@ public class VinculatorRpcs
                 Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.VinculatorEmpowerButton.LoadAsset());
             notif.AdjustNotification();
             
+            p.SetKillTimer(0f);
             foreach (var btn in CustomButtonManager.Buttons) btn.SetTimer(0f);
-            PlayerControl.LocalPlayer.SetKillTimer(0f);
         }
     }
 }

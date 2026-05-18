@@ -43,10 +43,6 @@ public sealed class VinculatorEmpowerButton : TownOfUsRoleButton<VinculatorRole>
 
     protected override void OnClick()
     {
-        PlayerControl p = PlayerControl.LocalPlayer;
-        float killCooldown = GameOptionsManager.Instance.currentNormalGameOptions.KillCooldown;
-        
-        p.SetKillTimer(p.killTimer + killCooldown);
         VinculatorRpcs.RpcEmpowerImpostors(PlayerControl.LocalPlayer);
     }
 }
