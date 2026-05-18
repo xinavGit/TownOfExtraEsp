@@ -15,10 +15,10 @@ public class ConjurerRpcs
     [MethodRpc((uint)TownOfExtraRpcs.ConjurerPlaceRock)]
     public static void RpcPlaceRock(PlayerControl sender, float x, float y, bool fallen)
     {
-        Coroutines.Start(SpawnRock(x, y, fallen));
+        Coroutines.Start(SpawnRock(sender, x, y, fallen));
     }
 
-    private static IEnumerator SpawnRock(float x, float y, bool fallen)
+    private static IEnumerator SpawnRock(PlayerControl sender, float x, float y, bool fallen)
     {
         var rock = new GameObject();
         rock.transform.position = new Vector3(x, y + 2.5f, y / 1000f + 1f);
@@ -36,13 +36,19 @@ public class ConjurerRpcs
             pos.y = Mathf.Max(pos.y, y);
             rock.transform.position = pos;
             
-            foreach (var player in PlayerControl.AllPlayerControls)
+            foreach (var p in PlayerControl.AllPlayerControls)
             {
-                if (player.Data.IsDead) continue;
-                if (!OptionGroupSingleton<ConjurerRoleOptions>.Instance.CanCrushImps && player.IsImpostor()) continue;
-                if (Vector2.Distance(player.transform.position, pos) < 0.5f)
+                if (p.Data.IsDead) continue;
+                
+                var cantCrush = OptionGroupSingleton<ConjurerRoleOptions>.Instance.CantCrush;
+                
+                if (cantCrush == CantCrushOptions.Everyone) continue;
+                if (cantCrush == CantCrushOptions.Team && p.IsImpostor() && p != sender) continue;
+                if (cantCrush == CantCrushOptions.SelfAndTeam && p.IsImpostor()) continue;
+                
+                if (Vector2.Distance(p.transform.position, pos) < 0.5f)
                 {
-                    player.RpcSpecialMurder(player, causeOfDeath: "Crushed");
+                    p.RpcSpecialMurder(p, causeOfDeath: "Crushed");
                     break;
                 }
             }
