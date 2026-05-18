@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using TownOfExtra.Roles.Impostor.Support;
+using TownOfExtra.Roles.Impostor.Power;
 using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
 using MiraAPI.Utilities.Assets;
@@ -102,7 +102,7 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
         _preview.transform.position = loc;
 
         var renderer = _preview.AddComponent<SpriteRenderer>();
-        renderer.sprite = TownOfExtraAssets.ConjurerRoleIcon.LoadAsset();
+        renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.5f);
     }
 

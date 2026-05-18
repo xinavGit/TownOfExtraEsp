@@ -7,7 +7,7 @@ using TownOfUs.Roles;
 using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Roles.Impostor.Support;
+namespace TownOfExtra.Roles.Impostor.Power;
 
 public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable, IDoomable
 {
@@ -22,7 +22,7 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
     public string GetAdvancedDescription()
     {
         return
-            "The Conjurer is an Impostor Support role that can conjure to summon a rock wherever they click, blocking players from passing and killing any it lands on." +
+            "The Conjurer is an Impostor Power role that can conjure to summon a rotatable rock wherever they click, blocking players from passing and killing any it lands on." +
             MiscUtils.AppendOptionsText(GetType());
     }
 
@@ -38,7 +38,7 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Conjure", "Summon a rock wherever you click, blocking players from passing and killing any it lands on.", TownOfExtraAssets.ConjurerConjureButton)
+                new("Conjure", "Summon a rock wherever you click, blocking players from passing and killing any it lands on. Left click to place, right  click to rotate, esc to cancel.", TownOfExtraAssets.ConjurerConjureButton)
             };
         }
     }

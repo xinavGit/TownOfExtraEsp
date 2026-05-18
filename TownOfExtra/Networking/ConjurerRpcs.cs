@@ -35,7 +35,7 @@ public class ConjurerRpcs
             pos.y -= velocity * Time.deltaTime;
             pos.y = Mathf.Max(pos.y, y);
             rock.transform.position = pos;
-            
+
             foreach (var p in PlayerControl.AllPlayerControls)
             {
                 if (p.Data.IsDead) continue;
@@ -48,7 +48,7 @@ public class ConjurerRpcs
                 
                 if (Vector2.Distance(p.transform.position, pos) < 0.5f)
                 {
-                    p.RpcSpecialMurder(p, causeOfDeath: "Crushed");
+                    sender.RpcSpecialMurder(p, true, true, teleportMurderer: false, showKillAnim: false, causeOfDeath: "Crushed");
                     break;
                 }
             }
