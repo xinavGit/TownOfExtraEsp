@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using TownOfExtra.Roles.Impostor.Power;
 using MiraAPI.GameOptions;
+using TownOfExtra.Roles.Impostor.Power;
 using MiraAPI.Keybinds;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
@@ -16,13 +16,21 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     public override string Name => "Conjure";
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => Palette.ImpostorRed;
-    public override float Cooldown => 0f;
+    public override float Cooldown => 0.01f;
+    public override float EffectDuration => OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureDuration;
+    public override bool HasEffect => true;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.ConjurerConjureButton;
 
     private bool _placing;
     private bool _fallen;
     private GameObject _preview;
-
+    
+    public override void ClickHandler()
+    {
+        if (!CanClick()) return;
+        OnClick();
+    }
+    
     public override bool CanUse()
     {
         return Timer <= 0 && !_placing && !PlayerControl.LocalPlayer.inVent;
@@ -44,6 +52,12 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
         {
             while (true)
             {
+                if (PlayerControl.LocalPlayer.inVent)
+                {
+                    ExitPlacingMode();
+                    yield return null;
+                }
+                
                 var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
 
                 if (_preview != null)
@@ -80,8 +94,12 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                     screenToWorldPoint.z = 0f;
 
                     ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
+                    
                     ExitPlacingMode();
-                    Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
+                    
+                    EffectActive = true;
+                    Timer = EffectDuration;
+                    
                     yield break;
                 }
 
@@ -92,6 +110,12 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
         {
             while (true)
             {
+                if (PlayerControl.LocalPlayer.inVent)
+                {
+                    ExitPlacingMode();
+                    yield return null;
+                }
+
                 var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
 
                 if (_preview != null)
@@ -128,8 +152,12 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                     screenToWorldPoint.z = 0f;
 
                     ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
+                    
                     ExitPlacingMode();
-                    Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
+                    
+                    EffectActive = true;
+                    Timer = EffectDuration;
+                    
                     yield break;
                 }
 
@@ -166,5 +194,10 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
             Object.Destroy(_preview);
             _preview = null;
         }
+    }
+    
+    public override void OnEffectEnd()
+    {
+        Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
     }
 }
