@@ -132,7 +132,7 @@ public sealed class HolographerHolographButton : TownOfUsRoleButton<HolographerR
                 {
                     stwp.z = 0f;
                     
-                    HolographerRpcs.RpcSpawnFakePlayer(target, stwp);
+                    HolographerRpcs.RpcSpawnFakePlayer(target, stwp.x, stwp.y, stwp.z);
                     
                     ExitPlacingMode();
                     
@@ -181,7 +181,7 @@ public sealed class HolographerHolographButton : TownOfUsRoleButton<HolographerR
                 {
                     stwp.z = 0f;
 
-                    HolographerRpcs.RpcSpawnFakePlayer(target, stwp);
+                    HolographerRpcs.RpcSpawnFakePlayer(target, stwp.x, stwp.y, stwp.z);
                     
                     ExitPlacingMode();
                     
