@@ -14,9 +14,6 @@ public sealed class ConjurerRoleOptions : AbstractOptionGroup<ConjurerRole>
 
     [ModdedNumberOption("Conjure Duration", 2.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ConjureDuration { get; set; } = 15f;
-    
-    [ModdedToggleOption("Conjure in vent")]
-    public bool UseInVent { get; set; } = false;
 
     [ModdedEnumOption("Cannot crush", typeof(CantCrushOptions),
         ["No One", "Everyone", "Teammates", "Teammates & Self"])]

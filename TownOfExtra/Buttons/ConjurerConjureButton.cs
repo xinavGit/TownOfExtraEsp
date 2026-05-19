@@ -25,9 +25,7 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
 
     public override bool CanUse()
     {
-        bool useInVent = OptionGroupSingleton<ConjurerRoleOptions>.Instance.UseInVent;
-
-        return Timer <= 0 && !_placing && (!PlayerControl.LocalPlayer.inVent || useInVent);
+        return Timer <= 0 && !_placing && !PlayerControl.LocalPlayer.inVent;
     }
 
     protected override void OnClick()
@@ -37,8 +35,6 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
 
     private IEnumerator StartPlacing()
     {
-        PlayerControl p = PlayerControl.LocalPlayer;
-        
         var camera = Camera.main;
         if (camera == null) yield break;
         
