@@ -17,7 +17,7 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
-    public RoleAlignment RoleAlignment => RoleAlignment.ImpostorSupport;
+    public RoleAlignment RoleAlignment => RoleAlignment.ImpostorPower;
     public DoomableType DoomHintType => DoomableType.Relentless;
 
     public string GetAdvancedDescription()
@@ -28,7 +28,7 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
             "<b>PC | Mobile [Touches]</b>\n" +
             "LMB | 1 = Drop\n" +
             "RMB | 2 = Rotate\n" +
-            "ESC | 3 = Cancel\n\n" +
+            "ESC | 3 = Cancel" +
             MiscUtils.AppendOptionsText(GetType());
     }
 
