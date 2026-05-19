@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.Roles;
+using TownOfUs;
 using TownOfUs.Extensions;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Roles;
@@ -22,7 +23,12 @@ public sealed class ConjurerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverabl
     public string GetAdvancedDescription()
     {
         return
-            "The Conjurer is an Impostor Power role that can conjure to summon a rotatable rock wherever they click, blocking players from passing and killing any it lands on." +
+            "The Conjurer is an Impostor Power role that can conjure to summon a rotatable rock wherever they click, blocking players from passing and killing any it lands on.\n\n" +
+            $"<b>{TownOfUsColors.Vigilante.ToTextColor()}Controls:</color></b>\n" +
+            "<b>PC | Mobile [Touches]</b>\n" +
+            "LMB | 1 = Drop\n" +
+            "RMB | 2 = Rotate\n" +
+            "ESC | 3 = Cancel\n\n" +
             MiscUtils.AppendOptionsText(GetType());
     }
 

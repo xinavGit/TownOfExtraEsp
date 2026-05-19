@@ -25,7 +25,9 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
 
     public override bool CanUse()
     {
-        return Timer <= 0 && !_placing;
+        bool useInVent = OptionGroupSingleton<ConjurerRoleOptions>.Instance.UseInVent;
+
+        return Timer <= 0 && !_placing && (!PlayerControl.LocalPlayer.inVent || useInVent);
     }
 
     protected override void OnClick()
@@ -35,56 +37,108 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
 
     private IEnumerator StartPlacing()
     {
+        PlayerControl p = PlayerControl.LocalPlayer;
+        
         var camera = Camera.main;
         if (camera == null) yield break;
         
         EnterPlacingMode();
 
-        while (true)
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            var toWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
-            var screenToWorldPoint = toWorldPoint;
-            
-            if (_preview != null)
+            while (true)
             {
-                var loc = screenToWorldPoint;
-                loc.z = 0f;
-                _preview.transform.position = loc;
-            }
+                var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (_fallen)
+                if (_preview != null)
                 {
-                    _fallen = false;
-                    var renderer = _preview.GetComponent<SpriteRenderer>();
-                    renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
+                    var loc = screenToWorldPoint;
+                    loc.z = 0f;
+                    _preview.transform.position = loc;
                 }
-                else
+
+                if (Input.touchCount == 2)
                 {
-                    _fallen = true;
-                    var renderer = _preview.GetComponent<SpriteRenderer>();
-                    renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
+                    if (_fallen)
+                    {
+                        _fallen = false;
+                        var renderer = _preview.GetComponent<SpriteRenderer>();
+                        renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
+                    }
+                    else
+                    {
+                        _fallen = true;
+                        var renderer = _preview.GetComponent<SpriteRenderer>();
+                        renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
+                    }
                 }
-            }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.touchCount == 3)
+                {
+                    ExitPlacingMode();
+                    yield break;
+                }
+
+                if (Input.touchCount == 1)
+                {
+                    screenToWorldPoint.z = 0f;
+
+                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
+                    ExitPlacingMode();
+                    Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
+                    yield break;
+                }
+
+                yield return null;
+            }
+        }
+        else
+        {
+            while (true)
             {
-                ExitPlacingMode();
-                yield break;
+                var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
+
+                if (_preview != null)
+                {
+                    var loc = screenToWorldPoint;
+                    loc.z = 0f;
+                    _preview.transform.position = loc;
+                }
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (_fallen)
+                    {
+                        _fallen = false;
+                        var renderer = _preview.GetComponent<SpriteRenderer>();
+                        renderer.sprite = TownOfExtraAssets.ConjurerRockSprite.LoadAsset();
+                    }
+                    else
+                    {
+                        _fallen = true;
+                        var renderer = _preview.GetComponent<SpriteRenderer>();
+                        renderer.sprite = TownOfExtraAssets.ConjurerRockSpriteFallen.LoadAsset();
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    ExitPlacingMode();
+                    yield break;
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    screenToWorldPoint.z = 0f;
+
+                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
+                    ExitPlacingMode();
+                    Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
+                    yield break;
+                }
+
+                yield return null;
             }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                toWorldPoint.z = 0f;
-
-                ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, toWorldPoint.x, toWorldPoint.y, _fallen);
-                ExitPlacingMode();
-                Timer = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjureCooldown;
-                yield break;
-            }
-
-            yield return null;
         }
     }
 
