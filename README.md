@@ -64,7 +64,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 - Vinculator role icon/empower button icon - @az0th_19 (discord)
 - Freezer/switcher role icons - @aasteriisken (discord)
 - Freeze/conjure button icon, conjurer role icon - @mystic_haze2 (discord)
-- Soulless modifier & gambler/signal jammer role icons - @jaydoeswitchcraft (discord)
+- Soulless modifier & gambler/signal jammer/holographer role icons - @jaydoeswitchcraft (discord)
 
 -----------------------
 
