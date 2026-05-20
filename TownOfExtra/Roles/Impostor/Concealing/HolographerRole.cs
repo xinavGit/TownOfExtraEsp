@@ -44,7 +44,7 @@ public sealed class HolographerRole : ImpostorRole, ITownOfUsRole, IWikiDiscover
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Holograph", "Spawn a hologram of a dead player, tricking others into thinking they are alive.", TownOfExtraAssets.Placeholder)
+                new("Holograph", "Spawn a hologram of a dead player, tricking others into thinking they are alive.", TownOfExtraAssets.HolographerHolographButton)
             };
         }
     }

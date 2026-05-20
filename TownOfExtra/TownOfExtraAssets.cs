@@ -82,6 +82,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.VultureEatButton.png");
     public static LoadableAsset<Sprite> ConjurerConjureButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.ConjurerConjureButton.png");
+    public static LoadableAsset<Sprite> HolographerHolographButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.HolographerHolographButton.png");
     
     
     

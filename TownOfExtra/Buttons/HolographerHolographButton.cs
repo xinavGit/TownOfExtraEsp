@@ -21,7 +21,7 @@ public sealed class HolographerHolographButton : TownOfUsRoleButton<HolographerR
     public override float Cooldown => OptionGroupSingleton<HolographerRoleOptions>.Instance.HolographCooldown;
     public override float EffectDuration => OptionGroupSingleton<HolographerRoleOptions>.Instance.HologramDuration;
     public override bool HasEffect => true;
-    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.HolographerHolographButton;
 
     private bool _placing;
     private FakePlayer _preview;
