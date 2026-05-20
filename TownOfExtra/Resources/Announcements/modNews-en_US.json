@@ -222,7 +222,10 @@
 
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Power role has been added: Conjurer",
-        "\n- A new Impostor Concealing role has been added: Holographer"
+        "\n- A new Impostor Concealing role has been added: Holographer",
+        
+        "\n\n\r<size=105%>Changes:</size>",
+        "\n- New icon for the Signal Jammer role"
       ]
     }
   ]

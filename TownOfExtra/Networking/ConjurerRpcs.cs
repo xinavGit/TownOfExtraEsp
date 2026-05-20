@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using MiraAPI.GameOptions;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
+using Reactor.Utilities.Attributes;
 using TownOfExtra.Options.Roles;
 using TownOfUs.Networking;
 using TownOfUs.Utilities;
@@ -47,8 +49,25 @@ public class ConjurerRpcs
                 if (cantCrush == CantCrushOptions.SelfAndTeam && p.IsImpostor()) continue;
                 
                 if (Vector2.Distance(p.transform.position, pos) < 0.5f)
-                {
-                    sender.RpcSpecialMurder(p, true, true, teleportMurderer: false, showKillAnim: false, causeOfDeath: "Crushed");
+                { 
+                    sender.RpcSpecialMurder(p, true, true, teleportMurderer: false, showKillAnim: false, createDeadBody: false, causeOfDeath: "Crushed");
+                    
+                    var body = new GameObject();
+                    body.AddComponent<SquashedBody>();
+                    var sRenderer = body.AddComponent<SpriteRenderer>();
+                    sRenderer.sprite = TownOfExtraAssets.SquashedDeadBodySprite.LoadAsset();
+                    sRenderer.color = Palette.PlayerColors[p.cosmetics.ColorId];
+
+                    var loc = p.transform.position;
+                    loc.z = loc.y / 1000f + 1f;
+                    body.transform.position = loc;
+
+                    var visor = new GameObject();
+                    visor.transform.SetParent(body.transform);
+                    visor.transform.localPosition = Vector3.zero;
+                    var osRenderer = visor.AddComponent<SpriteRenderer>();
+                    osRenderer.sprite = TownOfExtraAssets.SquashedDeadBodySpriteVisor.LoadAsset();
+                    
                     break;
                 }
             }
@@ -70,4 +89,10 @@ public class ConjurerRpcs
 
         if (rock != null) Object.Destroy(rock);
     }
+}
+
+[RegisterInIl2Cpp]
+public class SquashedBody : MonoBehaviour
+{
+    public SquashedBody(IntPtr ptr) : base(ptr) { }
 }
