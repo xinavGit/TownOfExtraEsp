@@ -28,6 +28,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-eraser"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/EraserRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-vinculator"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/VinculatorRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-conjurer"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/ConjurerRoleIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-dream-caster"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/DreamCasterRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#crewmate-power"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/CrewPower.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-chief"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/ChiefRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#neutral-evil"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/NeutEvil.png" /></a>
@@ -58,13 +59,14 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - Mod framework, api, inspiration & some assets\
 [Reactor](https://github.com/NuclearPowered/Reactor) - Dependency for the mod\
 [BepInEx](https://github.com/BepInEx) - For hooking game functions
+[[Divani Mods](https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn)/[Divani](https://github.com/DivaniNL)] - Code for making cleric's cleansing work on TouEx roles
 
 # Asset Credits
 - Most role, modifier & button icons, some are edited - [@AtonyGit](https://github.com/AtonyGit) from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)
-- Vinculator role icon/empower button icon - @az0th_19 (discord)
-- Freezer/switcher role icons - @aasteriisken (discord)
-- Freeze/conjure button icon, conjurer role icon - @mystic_haze2 (discord)
-- Soulless modifier & gambler/signal jammer/holographer role icons - @jaydoeswitchcraft (discord)
+- @az0th_19 (discord) - Empower, Chain, Vinculator
+- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer [Role Icons]
+- @mystic_haze2 (discord) - Freeze, Conjure [Buttons]
+- @jaydoeswitchcraft (discord) - Soulless, Gambler, Signal Jammer, Holographer, Chief [Role/Modifier Icons]
 
 -----------------------
 
@@ -74,7 +76,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.1.6       | 1.6.2             | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.6) |
+| 17.3 (2026.3.31)         | 1.1.7       | 1.6.2             | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.1.7) |
 
 -----------------------
 

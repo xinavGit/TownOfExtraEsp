@@ -227,6 +227,27 @@
         "\n\n\r<size=105%>Changes:</size>",
         "\n- New icon for the Signal Jammer role"
       ]
+    },
+    {
+      "Date": "2026-05-21T00:00:00Z",
+      "Number": "10017",
+      "ShortTitle": "TownOfExtra v1.1.7",
+      "Title": "TownOfExtra v1.1.7",
+      "SubTitle": "",
+      "Text": [
+        "\r<b>TownOfExtra has updated to v1.1.7</b>",
+        "\n\nThank you for playing the mod!",
+        "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
+
+        "\n\n\r<size=105%>New Roles:</size>",
+        "\n- A new Impostor Power role has been added: Dream Caster",
+
+        "\n\n\r<size=105%>New Icons:</size>",
+        "\n- New icons have been added for: Conjurer, Eraser & Chief",
+
+        "\n\n\r<size=105%>Changes:</size>",
+        "\n- Tou: Mira's cleric role can now cleanse ToEx's bad effects"
+      ]
     }
   ]
 }

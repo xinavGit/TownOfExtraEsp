@@ -51,6 +51,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.FragileModifierIcon.png");
     public static LoadableAsset<Sprite> HolographerRoleIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.HolographerRoleIcon.png");
+    public static LoadableAsset<Sprite> DreamCasterRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.DreamCasterRoleIcon.png");
     
     
     

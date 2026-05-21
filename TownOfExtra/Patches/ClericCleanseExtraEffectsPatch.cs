@@ -1,4 +1,9 @@
-﻿using HarmonyLib;
+﻿/*
+ * Divani Mods - https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn | Divani - https://github.com/DivaniNL
+ * For the code for making cleric's cleansing work on TouEx roles
+*/
+
+using HarmonyLib;
 using TownOfExtra.Utilities;
 using TownOfUs.Modifiers.Crewmate;
 
