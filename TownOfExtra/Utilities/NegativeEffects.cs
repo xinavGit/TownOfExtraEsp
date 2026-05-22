@@ -5,22 +5,22 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MiraAPI.Modifiers;
+using TownOfExtra.Modifiers;
 
 namespace TownOfExtra.Utilities;
 
 public static class NegativeEffects
 {
-    private static readonly List<Action<PlayerControl, ModifierComponent>> Removers =
+    private static readonly List<Action<PlayerControl>> Removers =
     [
         // general
-        Remover<Modifiers.ErasedModifier>(),
-        Remover<Modifiers.PoisonedModifier>(),
-        Remover<Modifiers.SwitchedModifier>(),
+        Remover<ErasedModifier>(),
+        Remover<PoisonedModifier>(),
+        Remover<SwitchedModifier>(),
         // lucid dreams
-        Remover<Modifiers.LucidDreamingModifier>(),
-        Remover<Modifiers.WaitingOnLcdModifier>(),
+        Remover<LucidDreamingModifier>(),
+        Remover<WaitingOnLcdModifier>(),
     ];
 
     public static void CleanseAll(PlayerControl player)
@@ -30,26 +30,20 @@ public static class NegativeEffects
             return;
         }
 
-        var comp = player.GetModifierComponent();
-        if (comp == null)
-        {
-            return;
-        }
-
         foreach (var remove in Removers)
         {
-            remove(player, comp);
+            remove(player);
         }
     }
 
-    private static Action<PlayerControl, ModifierComponent> Remover<T>()
+    private static Action<PlayerControl> Remover<T>()
         where T : BaseModifier
     {
-        return (player, comp) =>
+        return player =>
         {
-            foreach (var modifier in player.GetModifiers<T>().ToArray())
+            if (player.HasModifier<T>())
             {
-                comp.RemoveModifier(modifier);
+                player.RpcRemoveModifier<T>();
             }
         };
     }
