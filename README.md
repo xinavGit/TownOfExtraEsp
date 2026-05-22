@@ -64,7 +64,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 # Asset Credits
 - Most role, modifier & button icons, some are edited - [@AtonyGit](https://github.com/AtonyGit) from [Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira)
 - @az0th_19 (discord) - Empower, Chain, Vinculator
-- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer [Role Icons]
+- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Heavy Workload [Role/Modifier Icons]
 - @mystic_haze2 (discord) - Freeze, Conjure [Buttons]
 - @jaydoeswitchcraft (discord) - Soulless, Gambler, Signal Jammer, Holographer, Chief [Role/Modifier Icons]
 

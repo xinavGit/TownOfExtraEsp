@@ -1,1 +1,0 @@
-﻿Old role icons/buttons, these are the old AI made icons, now removed due to town of us mira not wanting extentions to use ai-generated assets.
