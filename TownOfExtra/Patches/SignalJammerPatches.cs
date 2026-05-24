@@ -4,6 +4,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers;
+using TownOfExtra.Networking;
 using TownOfUs.Utilities;
 using UnityEngine;
 
@@ -14,9 +15,10 @@ public static class SjStartMeetingPatch
 {
     public static bool Prefix(PlayerControl __instance)
     {
-        if (__instance.AmOwner && __instance.HasModifier<SignalJammedModifier>())
+        if (__instance.HasModifier<SignalJammedModifier>())
         {
-            SignalJammerPatches.SendJammedWarning();
+            SignalJammerRpcs.RpcNotifyOfJAm(__instance);
+            
             return false;
         }
         return true;
@@ -28,9 +30,9 @@ public static class SjReportDeadBodyPatch
 {
     public static bool Prefix(PlayerControl __instance, NetworkedPlayerInfo target)
     {
-        if (__instance.AmOwner && __instance.HasModifier<SignalJammedModifier>())
+        if (__instance.HasModifier<SignalJammedModifier>())
         {
-            SignalJammerPatches.SendJammedWarning();
+            SignalJammerRpcs.RpcNotifyOfJAm(__instance);
 
             if (target != null)
             {
@@ -43,17 +45,5 @@ public static class SjReportDeadBodyPatch
             return false;
         }
         return true;
-    }
-}
-
-public class SignalJammerPatches
-{
-    public static void SendJammedWarning()
-    {
-        Coroutines.Start(MiscUtils.CoFlash(Palette.ImpostorRed));
-        var notif = Helpers.CreateAndShowNotification(
-            $"Your meeting signals are {Palette.ImpostorRed.ToTextColor()}jammed</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SignalJammerJamButton.LoadAsset());
-        notif.AdjustNotification();
     }
 }

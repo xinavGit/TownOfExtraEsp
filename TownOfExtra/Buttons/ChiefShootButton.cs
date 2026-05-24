@@ -61,6 +61,13 @@ public sealed class ChiefShootButton : TownOfUsKillRoleButton<ChiefRole, PlayerC
             Coroutines.Start(MiscUtils.CoFlash(TownOfUsColors.Impostor));
             c = TownOfUsColors.Impostor.ToTextColor();
         }
+
+        PlayerControl.LocalPlayer.RpcSpecialMurder(
+            Target,
+            causeOfDeath: "Terminated"
+        );
+        
+        if (Target.HasModifier<BaseShieldModifier>()) return;
         
         var notif = Helpers.CreateAndShowNotification(
             $"{c}You have shot {Target.Data.PlayerName} and their role was {TownOfExtraColours.GetRoleColour(Target.GetRoleWhenAlive().NiceName).ToTextColor()}{Target.GetRoleWhenAlive().NiceName}{c}!",
@@ -68,10 +75,5 @@ public sealed class ChiefShootButton : TownOfUsKillRoleButton<ChiefRole, PlayerC
         notif.AdjustNotification();
 
         ChiefRole.ShotPlayers.Add(Target);
-        
-        PlayerControl.LocalPlayer.RpcSpecialMurder(
-            Target,
-            causeOfDeath: "Terminated"
-        );
     }
 }

@@ -49,7 +49,6 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         if (player.HasModifier<ShorterCdModifier>()) player.RpcRemoveModifier<ShorterCdModifier>();
         if (player.HasModifier<RotBodyModifier>()) player.RpcRemoveModifier<RotBodyModifier>();
         if (player.HasModifier<TeleportBackModifier>()) player.RpcRemoveModifier<TeleportBackModifier>();
-        if (player.HasModifier<NoBodyModifier>()) player.RpcRemoveModifier<NoBodyModifier>();
         if (player.HasModifier<SelfReportModifier>()) player.RpcRemoveModifier<SelfReportModifier>();
         if (player.HasModifier<InvisibilityModifier>()) player.RpcRemoveModifier<InvisibilityModifier>();
     }
@@ -68,9 +67,8 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         if (options.ShorterCooldownEnabled) validEffects.Add(2);
         if (options.ViperBodyEnabled) validEffects.Add(3);
         if (options.TeleportBackEnabled) validEffects.Add(4);
-        if (options.NoBodyEnabled) validEffects.Add(5);
-        if (options.SelfReportEnabled) validEffects.Add(6);
-        if (options.InvisibilityEnabled) validEffects.Add(7);
+        if (options.SelfReportEnabled) validEffects.Add(5);
+        if (options.InvisibilityEnabled) validEffects.Add(6);
 
         if (validEffects.Count == 0)
         {
@@ -111,26 +109,21 @@ public sealed class GamblerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
             case 3:
                 player.RpcAddModifier<RotBodyModifier>();
                 msg =
-                    $"Your next kill's body will {Palette.ImpostorRed.ToTextColor()}dissolve in {OptionGroupSingleton<GamblerRoleOptions>.Instance.ViperBodyDissolveDuration.Value} seconds</color>";
+                    $"Your next kill's body will {Palette.ImpostorRed.ToTextColor()}dissolve</color> {OptionGroupSingleton<GamblerRoleOptions>.Instance.ViperBodyDissolveDuration.Value} seconds";
                 break;
 
             case 4:
                 player.RpcAddModifier<TeleportBackModifier>();
                 msg =
-                    $"You will {Palette.ImpostorRed.ToTextColor()}teleport back to your next kill after {OptionGroupSingleton<GamblerRoleOptions>.Instance.TeleportBackDelay.Value} seconds</color>";
+                    $"You will {Palette.ImpostorRed.ToTextColor()}teleport back</color> to your next kill after {OptionGroupSingleton<GamblerRoleOptions>.Instance.TeleportBackDelay.Value} seconds";
                 break;
 
             case 5:
-                player.RpcAddModifier<NoBodyModifier>();
-                msg = $"Your next kill will {Palette.ImpostorRed.ToTextColor()}not spawn a dead body</color>";
-                break;
-
-            case 6:
                 player.RpcAddModifier<SelfReportModifier>();
                 msg = $"You will {Palette.ImpostorRed.ToTextColor()}self report</color> your next kill's body";
                 break;
 
-            case 7:
+            case 6:
                 player.RpcAddModifier<InvisibilityModifier>();
                 msg = $"You will {Palette.ImpostorRed.ToTextColor()}become invisible</color> for {OptionGroupSingleton<GamblerRoleOptions>.Instance.InvisibilityDuration.Value} seconds after your next kill";
                 break;

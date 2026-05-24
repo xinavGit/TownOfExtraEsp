@@ -15,4 +15,6 @@ public enum TownOfExtraRpcs : uint
     GamblerNotifyEffect = 510,
     ConjurerPlaceRock = 511,
     HolographerSyncFakePlayer = 512,
+    SignalJammerNotifyOfJam = 513,
+    EraserNotifyErased = 514,
 }

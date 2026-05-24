@@ -13,7 +13,7 @@ namespace TownOfExtra.Events;
 
 public class SwitcherEvents
 {
-    [RegisterEvent(101)]
+    [RegisterEvent(1)]
     public static void RoundStartEventHandler(RoundStartEvent e)
     {
         var switcher = GetSwitcher();

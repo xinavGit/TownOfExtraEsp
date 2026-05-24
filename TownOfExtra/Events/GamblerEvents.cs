@@ -2,7 +2,6 @@
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
-using MiraAPI.Networking;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers.Gambler;
@@ -18,30 +17,9 @@ namespace TownOfExtra.Events
 {
     public class GamblerEvents
     {
-        private static bool _isProcessing;
-
-        [RegisterEvent(50)]
-        public static void BeforeMurderEventHandler(BeforeMurderEvent e)
-        {
-            var target = e.Target;
-            var source = e.Source;
-
-            if (_isProcessing) return;
-
-            if (source.HasModifier<NoBodyModifier>() && !MeetingHud.Instance)
-            {
-                _isProcessing = true;
-                e.Cancel();
-                source.RpcCustomMurder(target, MeetingCheck.OutsideMeeting, createDeadBody: false);
-                _isProcessing = false;
-            }
-        }
-
         [RegisterEvent(50)]
         public static void AfterMurderEventHandler(AfterMurderEvent e)
         {
-            if (!AmongUsClient.Instance.AmHost || MeetingHud.Instance) return;
-
             var options = OptionGroupSingleton<GamblerRoleOptions>.Instance;
             var killer = e.Source;
             var victim = e.Target;
@@ -119,15 +97,12 @@ namespace TownOfExtra.Events
                 }
             }
 
-            foreach (PlayerControl p in PlayerControl.AllPlayerControls)
+            if (killer.Data.Role is GamblerRole)
             {
-                if (p.Data.Role is GamblerRole)
-                {
-                    GamblerRole.ClearGambleEffect(p);
-                    Coroutines.Start(GamblerRole.ApplyRandomGambleEffect(p, msg =>
-                        GamblerRpcs.RpcNotifyEffect(p, msg)
-                    ));
-                }
+                GamblerRole.ClearGambleEffect(killer);
+                Coroutines.Start(GamblerRole.ApplyRandomGambleEffect(killer, msg =>
+                    GamblerRpcs.RpcNotifyEffect(killer, msg)
+                ));
             }
         }
 

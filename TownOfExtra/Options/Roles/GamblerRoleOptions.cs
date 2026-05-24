@@ -43,8 +43,6 @@ public sealed class GamblerRoleOptions : AbstractOptionGroup<GamblerRole>
         {
             Visible = () => OptionGroupSingleton<GamblerRoleOptions>.Instance.TeleportBackEnabled
         };
-    [ModdedToggleOption("No Body")]
-    public bool NoBodyEnabled { get; set; } = true;
     [ModdedToggleOption("Self Report")]
     public bool SelfReportEnabled { get; set; } = true;
     public ModdedToggleOption SelfReportIgnoreCelebrity { get; } =
