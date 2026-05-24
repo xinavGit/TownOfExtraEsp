@@ -107,13 +107,14 @@ public static class ModNewsFetcher
         [HarmonyPostfix]
         public static void SetUpPanel_Postfix(AnnouncementPanel __instance, [HarmonyArgument(0)] Announcement announcement)
         {
-            if (announcement.Number < 10000 || announcement.Number > 100000) return;
+            if (announcement.Number < 0 || announcement.Number > 1000) return;
 
             var obj = new GameObject("ModLabel");
             obj.transform.SetParent(__instance.transform);
             obj.transform.localPosition = new Vector3(-0.8f, 0.13f, 0.5f);
             obj.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
             var renderer = obj.AddComponent<SpriteRenderer>();
+            renderer.sprite = TownOfExtraAssets.TownOfExtraIcon.LoadAsset();
             renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         }
     }

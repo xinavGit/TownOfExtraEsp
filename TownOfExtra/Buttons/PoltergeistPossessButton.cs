@@ -46,7 +46,6 @@ public sealed class PoltergeistPossessedButton : TownOfUsKillRoleButton<Polterge
         Target.RpcRemoveModifier<ScaredModifier>();
         Target.RpcAddModifier<PossessedModifier>();
         
-        TownOfExtraPlugin.Logger.LogInfo("OnPoltergeistPossess sent");
         var toexAbilityEvent = new TownOfExtraAbilityEvent(AbilityType.PoltergeistPossessPlayer, PlayerControl.LocalPlayer, Target);
         MiraEventManager.InvokeEvent(toexAbilityEvent);
     }

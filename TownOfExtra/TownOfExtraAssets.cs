@@ -107,5 +107,5 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.SquashedDeadBodySpriteVisor.png");
     
     public static LoadableAsset<Sprite> TownOfExtraIcon =>
-        new LoadableResourceAsset("TownOfExtra.Resources.TownOfExtraIcon.png");
+        new LoadableResourceAsset("TownOfExtra.Resources.TownOfExtraIcon.png", 250f);
 }

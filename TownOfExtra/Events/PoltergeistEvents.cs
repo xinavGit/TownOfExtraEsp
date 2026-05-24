@@ -21,7 +21,6 @@ public class PoltergeistEvents
     [RegisterEvent]
     public static void OnPoltergeistPossess(TownOfExtraAbilityEvent e)
     {
-        TownOfExtraPlugin.Logger.LogInfo("OnPoltergeistPossess received");
         if (e.AbilityType != AbilityType.PoltergeistPossessPlayer) return;
 
         Coroutines.Start(CheckPoltergeistPossess());
@@ -29,27 +28,19 @@ public class PoltergeistEvents
     
     private static IEnumerator CheckPoltergeistPossess()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
 
         int possessedCount = 0;
 
         foreach (var p in PlayerControl.AllPlayerControls)
         {
             if (p.HasModifier<PossessedModifier>()) possessedCount++;
-
-            TownOfExtraPlugin.Logger.LogInfo($"OnPoltergeistPossess is now at {possessedCount}");
         }
-
-        TownOfExtraPlugin.Logger.LogInfo($"OnPoltergeistPossess count is finished at {possessedCount}");
 
         if (possessedCount >= OptionGroupSingleton<PoltergeistRoleOptions>.Instance.WinPossesses)
         {
-            TownOfExtraPlugin.Logger.LogInfo("OnPoltergeistPossess possessed count over needed count");
-
             if (AmongUsClient.Instance.AmHost)
             {
-                TownOfExtraPlugin.Logger.LogInfo("OnPoltergeistPossess sent to host for win check");
-
                 List<NetworkedPlayerInfo> winners = new List<NetworkedPlayerInfo>();
 
                 foreach (var poltergeist in CustomRoleUtils
