@@ -275,7 +275,9 @@
 
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed poltergeist's possess button sometimes not ending the game when it should.",
-        "\n- Fixed eraser not working for non host"
+        "\n- Fixed eraser not working for non host",
+        "\n- Fixed gambler sometimes giving all effects and crashing servers",
+        "\n- "
       ]
     }
   ]

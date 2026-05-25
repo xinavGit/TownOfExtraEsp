@@ -22,11 +22,11 @@ public class TeleportBackModifier : BaseModifier
     
     public static IEnumerator StartDelay(PlayerControl target, PlayerControl killer, float delay)
     {
+        var killPosition = target.transform.position;
+        
         yield return new WaitForSeconds(delay);
         
-        var killPosition = target.transform.position;
         if (killer == null || killer.Data.IsDead) yield break;
-
         killer.RpcSetPos(killPosition);
     }
     

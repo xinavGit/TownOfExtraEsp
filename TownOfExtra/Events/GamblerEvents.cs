@@ -2,7 +2,6 @@
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
-using MiraAPI.Utilities;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers.Gambler;
 using TownOfExtra.Networking;
@@ -10,8 +9,6 @@ using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Support;
 using TownOfUs;
 using TownOfUs.Modifiers.Game.Crewmate;
-using TownOfUs.Utilities;
-using UnityEngine;
 
 namespace TownOfExtra.Events
 {
@@ -20,6 +17,8 @@ namespace TownOfExtra.Events
         [RegisterEvent(50)]
         public static void AfterMurderEventHandler(AfterMurderEvent e)
         {
+            if (!AmongUsClient.Instance.AmHost) return;
+            
             var options = OptionGroupSingleton<GamblerRoleOptions>.Instance;
             var killer = e.Source;
             var victim = e.Target;
@@ -58,25 +57,17 @@ namespace TownOfExtra.Events
             {
                 if (killer.HasModifier<SelfReportModifier>())
                 {
-                    if (!victim.HasModifier<CelebrityModifier>())
+                    if (victim.HasModifier<CelebrityModifier>() && options.SelfReportIgnoreCelebrity)
                     {
-                        killer.CmdReportDeadBody(victim.Data);
+                        GlobalRpcs.RpcSendNotification(
+                            e.Source,
+                            $"{victim.name} was the {TownOfUsColors.Celebrity.ToTextColor()}Celebrity</color>, so your self report has been canceled",
+                            TownOfExtraAssets.GamblerRoleIcon.LoadAsset()
+                        );
                     }
                     else
                     {
-                        if (!options.SelfReportIgnoreCelebrity) return;
-
-                        foreach (PlayerControl p in PlayerControl.AllPlayerControls)
-                        {
-                            if (p == killer)
-                            {
-                                var notif = Helpers.CreateAndShowNotification(
-                                    $"{victim.name} was the {TownOfUsColors.Celebrity.ToTextColor()}Celebrity</color>, so your self report has been canceled!",
-                                    Color.white, new Vector3(0f, 1f, -20f),
-                                    spr: TownOfExtraAssets.GamblerRoleIcon.LoadAsset());
-                                notif.AdjustNotification();
-                            }
-                        }
+                        killer.CmdReportDeadBody(victim.Data);
                     }
                 }
             }
@@ -101,7 +92,11 @@ namespace TownOfExtra.Events
             {
                 GamblerRole.ClearGambleEffect(killer);
                 Coroutines.Start(GamblerRole.ApplyRandomGambleEffect(killer, msg =>
-                    GamblerRpcs.RpcNotifyEffect(killer, msg)
+                    GlobalRpcs.RpcSendNotification(
+                        e.Source, 
+                        msg, 
+                        TownOfExtraAssets.GamblerRoleIcon.LoadAsset()
+                    )
                 ));
             }
         }
