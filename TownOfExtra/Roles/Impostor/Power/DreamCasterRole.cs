@@ -38,7 +38,7 @@ public sealed class DreamCasterRole : ImpostorRole, ITownOfUsRole, IWikiDiscover
         {
             return new List<CustomButtonWikiDescription>
             {
-                new("Lucid Dream", "Force the player into a state of lucid dreaming. While in this state, they cannot use abilities or be killed in any way.", TownOfExtraAssets.Placeholder)
+                new("Lucid Dream", "Force the player into a state of lucid dreaming. While in this state, they cannot use abilities or be killed in any way.", TownOfExtraAssets.DreamCasterCastButton)
             };
         }
     }

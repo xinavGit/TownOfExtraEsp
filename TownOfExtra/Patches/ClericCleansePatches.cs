@@ -6,14 +6,8 @@
 using System;
 using System.Collections.Generic;
 using HarmonyLib;
-using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers;
-using TownOfExtra.Networking;
-using TownOfExtra.Options.Roles;
-using TownOfExtra.Roles.Impostor.Power;
-using TownOfUs;
-using TownOfUs.Assets;
 using TownOfUs.Buttons.Crewmate;
 
 namespace TownOfExtra.Patches;
@@ -25,6 +19,7 @@ public static class ClericCleansePatches
         // general
         Remover<PoisonedModifier>(),
         Remover<SwitchedModifier>(),
+        Remover<ImpendingDoomModifierv>(),
         // dream caster
         Remover<LucidDreamingModifier>(),
         Remover<WaitingOnLcdModifier>(),

@@ -36,6 +36,14 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.VultureRoleIcon.png");
     public static LoadableAsset<Sprite> ConjurerRoleIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.ConjurerRoleIcon.png");
+    public static LoadableAsset<Sprite> HolographerRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.HolographerRoleIcon.png");
+    public static LoadableAsset<Sprite> DreamCasterRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.DreamCasterRoleIcon.png");
+    public static LoadableAsset<Sprite> PoltergeistRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.PoltergeistRoleIcon.png");
+    public static LoadableAsset<Sprite> StrikerRoleIcon =>
+        new LoadableResourceAsset("TownOfExtra.Resources.StrikerRoleIcon.png");
     
     
     
@@ -47,14 +55,9 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.SoullessModifierIcon.png");
     public static LoadableAsset<Sprite> RoutineModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.RoutineModifierIcon.png");
+
     public static LoadableAsset<Sprite> FragileModifierIcon =>
         new LoadableResourceAsset("TownOfExtra.Resources.FragileModifierIcon.png");
-    public static LoadableAsset<Sprite> HolographerRoleIcon =>
-        new LoadableResourceAsset("TownOfExtra.Resources.HolographerRoleIcon.png");
-    public static LoadableAsset<Sprite> DreamCasterRoleIcon =>
-        new LoadableResourceAsset("TownOfExtra.Resources.DreamCasterRoleIcon.png");
-    public static LoadableAsset<Sprite> PoltergeistRoleIcon =>
-        new LoadableResourceAsset("TownOfExtra.Resources.PoltergeistRoleIcon.png");
     
     
     
@@ -88,10 +91,16 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset("TownOfExtra.Resources.ConjurerConjureButton.png");
     public static LoadableAsset<Sprite> HolographerHolographButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.HolographerHolographButton.png");
+    public static LoadableAsset<Sprite> DreamCasterCastButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.DreamCasterCastButton.png");
     public static LoadableAsset<Sprite> PoltergeistPossessButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.PoltergeistPossessButton.png");
     public static LoadableAsset<Sprite> PoltergeistScareButton =>
         new LoadableResourceAsset("TownOfExtra.Resources.PoltergeistScareButton.png");
+    public static LoadableAsset<Sprite> StrikerLocateButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.StrikerLocateButton.png");
+    public static LoadableAsset<Sprite> StrikerStrikeButton =>
+        new LoadableResourceAsset("TownOfExtra.Resources.StrikerStrikeButton.png");
     
     
     

@@ -200,4 +200,9 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     {
         Timer = Cooldown;
     }
+
+    protected override void FixedUpdate(PlayerControl playerControl)
+    {
+        if (!PlayerControl.LocalPlayer.Data.IsDead && !PlayerControl.LocalPlayer.Data.Disconnected && !_placing) ExitPlacingMode();
+    }
 }

@@ -21,7 +21,7 @@ public sealed class DreamCasterCastButton : TownOfUsKillRoleButton<DreamCasterRo
     public override BaseKeybind Keybind => Keybinds.SecondaryAction;
     public override Color TextOutlineColor => Palette.ImpostorRed;
     public override float Cooldown => OptionGroupSingleton<DreamCasterRoleOptions>.Instance.CastCooldown;
-    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.Placeholder;
+    public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.DreamCasterCastButton;
 
     public override PlayerControl GetTarget()
     {

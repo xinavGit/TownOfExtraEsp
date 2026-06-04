@@ -42,11 +42,11 @@ public class ConjurerRpcs
             {
                 if (p.Data.IsDead) continue;
                 
-                var cantCrush = OptionGroupSingleton<ConjurerRoleOptions>.Instance.CantCrush;
+                var cantCrush = OptionGroupSingleton<ConjurerRoleOptions>.Instance.ConjurerCantCrush;
                 
-                if (cantCrush == CantCrushOptions.Everyone) continue;
-                if (cantCrush == CantCrushOptions.Team && p.IsImpostor() && p != sender) continue;
-                if (cantCrush == CantCrushOptions.SelfAndTeam && p.IsImpostor()) continue;
+                if (cantCrush == ConjurerCantCrushOptions.Everyone) continue;
+                if (cantCrush == ConjurerCantCrushOptions.Team && p.IsImpostor() && p != sender) continue;
+                if (cantCrush == ConjurerCantCrushOptions.SelfAndTeam && p.IsImpostor()) continue;
                 
                 if (Vector2.Distance(p.transform.position, pos) < 0.5f)
                 { 

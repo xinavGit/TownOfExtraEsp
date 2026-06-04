@@ -17,6 +17,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-killing-v100"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpKilling.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-poisoner-v100"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/PoisonerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-tagger-v105"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/TaggerRoleIcon.png" /></a>
+  <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-striker-v121"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/StrikerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#impostor-support-v100"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpSupport.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-freezer-v100"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/FreezerRoleIcon.png" /></a>
   <a href="https://github.com/Mehzxzz/TownOfExtra/wiki/Roles#-gambler-v103"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/GamblerRoleIcon.png" /></a>
@@ -65,9 +66,10 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 # Asset Credits
 - [@AtonyGit](https://github.com/AtonyGit)/[Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - All assets that are not specified below
 - @az0th_19 (discord) - Vinculator | Empower, Chain [Role/Button Icons]
-- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Vulture | Heavy Workload | Scare, Possess [Role/Modifier/Button Icons]
+- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Vulture | Heavy Workload | Scare, Possess, Cast, Locate [Role/Modifier/Button Icons]
 - @mystic_haze2 (discord) - Freeze, Conjure [Buttons]
-- @jaydoeswitchcraft (discord) - Soulless, Gambler, Signal Jammer, Holographer, Chief [Role/Modifier Icons]
+- @jaydoeswitchcraft (discord) - Gambler, Signal Jammer, Holographer, Chief | Soulless [Role/Modifier Icons]
+- @superkiller500(NerdCandy) (discord) - Striker | Strike [Role/Button Icons]
 
 -----------------------
 
@@ -77,7 +79,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 
 | Game Version             | Mod Version | Tou: Mira Version | Download Link                                                         |
 |--------------------------|-------------|-------------------|-----------------------------------------------------------------------|
-| 17.3 (2026.3.31)         | 1.2.0       | 1.6.2             | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.2.0) |
+| 17.3 (2026.3.31)         | 1.2.1       | 1.6.2             | [Download](https://github.com/Mehzxzz/TownOfExtra/releases/tag/1.2.1) |
 
 -----------------------
 

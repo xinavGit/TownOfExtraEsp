@@ -6,7 +6,7 @@ using MiraAPI.Utilities.Assets;
 using TownOfExtra.Events.Custom;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Options.Roles;
-using TownOfExtra.Roles.Neutral.Outlier;
+using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.Buttons;
 using TownOfUs.Options.Modifiers.Alliance;
 using TownOfUs.Utilities;

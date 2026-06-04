@@ -89,4 +89,17 @@ public sealed class CrewmateModifierOptions : AbstractOptionGroup
         {
             Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.FragileAmount > 0
         };
+    
+    /*----------------------
+           OBSERVANT
+   ----------------------*/
+
+    [ModdedNumberOption("Observant Amount", 0, 5)]
+    public float ObservantAmount { get; set; } = 0;
+
+    public ModdedNumberOption ObservantChance { get; } =
+        new("Observant Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
+        {
+            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.ObservantAmount > 0
+        };
 }

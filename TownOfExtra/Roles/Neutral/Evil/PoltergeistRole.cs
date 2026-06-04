@@ -16,7 +16,7 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Roles.Neutral.Outlier;
+namespace TownOfExtra.Roles.Neutral.Evil;
 
 public sealed class PoltergeistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
 {
@@ -25,7 +25,7 @@ public sealed class PoltergeistRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownO
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => TownOfExtraColours.PoltergeistRoleColour;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
-    public RoleAlignment RoleAlignment => RoleAlignment.NeutralOutlier;
+    public RoleAlignment RoleAlignment => RoleAlignment.NeutralEvil;
     public DoomableType DoomHintType => DoomableType.Trickster;
     
     public override void SpawnTaskHeader(PlayerControl playerControl)

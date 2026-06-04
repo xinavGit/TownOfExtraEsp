@@ -10,7 +10,7 @@ using Reactor.Utilities;
 using TownOfExtra.Events.Custom;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Options.Roles;
-using TownOfExtra.Roles.Neutral.Outlier;
+using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.GameOver;
 using UnityEngine;
 

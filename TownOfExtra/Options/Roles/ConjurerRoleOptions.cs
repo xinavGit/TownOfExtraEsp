@@ -15,12 +15,12 @@ public sealed class ConjurerRoleOptions : AbstractOptionGroup<ConjurerRole>
     [ModdedNumberOption("Conjure Duration", 2.5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float ConjureDuration { get; set; } = 15f;
 
-    [ModdedEnumOption("Cannot crush", typeof(CantCrushOptions),
+    [ModdedEnumOption("Cannot crush", typeof(ConjurerCantCrushOptions),
         ["No One", "Everyone", "Teammates", "Teammates & Self"])]
-    public CantCrushOptions CantCrush { get; set; } = CantCrushOptions.NoOne;
+    public ConjurerCantCrushOptions ConjurerCantCrush { get; set; } = ConjurerCantCrushOptions.NoOne;
 }
 
-public enum CantCrushOptions
+public enum ConjurerCantCrushOptions
 {
     NoOne,
     Everyone,

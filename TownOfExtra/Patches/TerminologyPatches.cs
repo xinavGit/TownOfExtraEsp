@@ -5,6 +5,7 @@ using TownOfExtra.Modifiers;
 using TownOfExtra.Roles.Crewmate.Power;
 using TownOfExtra.Roles.Impostor.Killing;
 using TownOfExtra.Roles.Impostor.Power;
+using TownOfExtra.Roles.Neutral.Evil;
 using TownOfExtra.Roles.Neutral.Outlier;
 using TownOfUs.Modules.Localization;
 using TownOfUs.Modules.Wiki;
