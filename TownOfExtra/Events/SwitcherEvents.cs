@@ -1,13 +1,9 @@
 ﻿using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
-using MiraAPI.Utilities;
-using Reactor.Utilities;
-using TownOfExtra.Buttons;
 using TownOfExtra.Modifiers;
+using TownOfExtra.Networking;
 using TownOfExtra.Roles.Neutral.Outlier;
-using TownOfUs.Utilities;
-using UnityEngine;
 
 namespace TownOfExtra.Events;
 
@@ -24,18 +20,18 @@ public class SwitcherEvents
             {
                 if (switcher == null || p == null || p.Data.IsDead || switcher.Data.IsDead)
                 {
-                    if (switcher != null && PlayerControl.LocalPlayer == switcher)
+                    if (switcher != null)
                     {
-                        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.SwitcherRoleColour));
-                        var notif = Helpers.CreateAndShowNotification(
+                        switcher.RpcSendNotification(
                             $"Your {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color> target is no longer alive!",
-                            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SwitcherRoleIcon.LoadAsset());
-                        notif.AdjustNotification();
+                            "SwitcherRoleIcon",
+                            TownOfExtraColours.SwitcherRoleColour
+                        );
                     }
-                    SwitcherSwitchButton.ButtonDisabled = false;
-                    continue;
+
+                    return;
                 }
-                
+
                 var pRole = p.Data.Role.Role;
                 var switcherRole = switcher.Data.Role.Role;
 
@@ -43,23 +39,16 @@ public class SwitcherEvents
                 switcher.RpcSetRole(pRole);
                 p.RpcRemoveModifier<SwitchedModifier>();
 
-                if (PlayerControl.LocalPlayer == p)
-                {
-                    Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.SwitcherRoleColour));
-                    var notif = Helpers.CreateAndShowNotification(
-                        $"Your role has been switched by the {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color>!",
-                        Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SwitcherRoleIcon.LoadAsset());
-                    notif.AdjustNotification();
-                }
-                else if (PlayerControl.LocalPlayer == switcher)
-                {
-                    Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.SwitcherRoleColour));
-                    var notif = Helpers.CreateAndShowNotification(
-                        $"You have {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switched</color> your role with {p.name}!",
-                        Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SwitcherRoleIcon.LoadAsset());
-                    notif.AdjustNotification();
-                }
-                SwitcherSwitchButton.ButtonDisabled = false;
+                p.RpcSendNotification(
+                    $"Your role has been switched with the {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color>!",
+                    "SwitcherRoleIcon",
+                    TownOfExtraColours.SwitcherRoleColour
+                );
+                switcher.RpcSendNotification(
+                    $"You have {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switched</color> your role with {p.name}!",
+                    "SwitcherRoleIcon",
+                    TownOfExtraColours.SwitcherRoleColour
+                );
             }
         }
     }

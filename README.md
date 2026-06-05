@@ -70,6 +70,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 - @mystic_haze2 (discord) - Freeze, Conjure [Buttons]
 - @jaydoeswitchcraft (discord) - Gambler, Signal Jammer, Holographer, Chief | Soulless [Role/Modifier Icons]
 - @superkiller500(NerdCandy) (discord) - Striker | Strike [Role/Button Icons]
+- **You will probably never see these, unless I leave one used by accident, but these placeholder icons were made by @aasteriisken (discord)** - Generic Protect, Generic Info, Generic Attack, Generic Misc
 
 -----------------------
 

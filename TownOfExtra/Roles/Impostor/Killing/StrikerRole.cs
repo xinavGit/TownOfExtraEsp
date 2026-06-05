@@ -127,7 +127,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
 
                     Player.RpcSendNotification(
                         $"You have been {Palette.AcceptedGreen.ToTextColor()}given a hint</color> for {target.Data.PlayerName}'s role!",
-                        TownOfExtraAssets.StrikerLocateButton.LoadAsset(),
+                        "StrikerLocateButton",
                         Palette.AcceptedGreen
                     );
                 }
@@ -135,7 +135,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
                 {
                     Player.RpcSendNotification(
                         $"You have {Palette.ImpostorRed.ToTextColor()}already located</color> {target.Data.PlayerName}!",
-                        TownOfExtraAssets.StrikerLocateButton.LoadAsset(),
+                        "StrikerLocateButton",
                         Palette.ImpostorRed
                     );
                 }
@@ -144,7 +144,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
             {
                 Player.RpcSendNotification(
                     $"You have already hit the {Palette.ImpostorRed.ToTextColor()}max uses</color> for this meeting!!",
-                    TownOfExtraAssets.StrikerLocateButton.LoadAsset(),
+                    "StrikerLocateButton",
                     Palette.ImpostorRed
                 );
             }
@@ -153,7 +153,7 @@ public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable
         {
             Player.RpcSendNotification(
                 $"You have already hit the {Palette.ImpostorRed.ToTextColor()}max uses</color> per game!",
-                TownOfExtraAssets.StrikerLocateButton.LoadAsset(),
+                "StrikerLocateButton",
                 Palette.ImpostorRed
             );
         }

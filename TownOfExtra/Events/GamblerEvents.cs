@@ -62,7 +62,7 @@ namespace TownOfExtra.Events
                         GlobalRpcs.RpcSendNotification(
                             e.Source,
                             $"{victim.name} was the {TownOfUsColors.Celebrity.ToTextColor()}Celebrity</color>, so your self report has been canceled",
-                            TownOfExtraAssets.GamblerRoleIcon.LoadAsset()
+                            "GamblerRoleIcon"
                         );
                     }
                     else
@@ -95,7 +95,7 @@ namespace TownOfExtra.Events
                     GlobalRpcs.RpcSendNotification(
                         e.Source, 
                         msg, 
-                        TownOfExtraAssets.GamblerRoleIcon.LoadAsset()
+                        "GamblerRoleIcon"
                     )
                 ));
             }

@@ -24,6 +24,7 @@ public class EraserEvents
                 p.RpcSetRole(RoleTypes.Crewmate, true);
                 EraserRpcs.RpcNotifyErased(p);
                 p.RpcRemoveModifier<PendingEraseModifier>();
+                p.RpcAddModifier<ErasedModifier>();
             }
         }
     }

@@ -7,6 +7,14 @@ public static class TownOfExtraAssets
 {
     public static LoadableAsset<Sprite> Placeholder =>
         new LoadableResourceAsset("TownOfExtra.Resources.Placeholder.png");
+    public static LoadableAsset<Sprite> ProtectPh =>
+        new LoadableResourceAsset("TownOfExtra.Resources.Placeholder.png");
+    public static LoadableAsset<Sprite> InfoPh =>
+        new LoadableResourceAsset("TownOfExtra.Resources.Placeholder.png");
+    public static LoadableAsset<Sprite> AttackPh =>
+        new LoadableResourceAsset("TownOfExtra.Resources.Placeholder.png");
+    public static LoadableAsset<Sprite> MiscPh =>
+        new LoadableResourceAsset("TownOfExtra.Resources.Placeholder.png");
     
     
     

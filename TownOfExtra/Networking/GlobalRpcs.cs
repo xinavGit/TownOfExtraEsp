@@ -1,5 +1,6 @@
 ﻿using TownOfUs.Utilities;
 using MiraAPI.Utilities;
+using MiraAPI.Utilities.Assets;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace TownOfExtra.Networking;
 public static class GlobalRpcs
 {
     [MethodRpc((uint)TownOfExtraRpcs.SendNotification)]
-    public static void RpcSendNotification(this PlayerControl p, string msg, Sprite sprite, Color? flashColour = null)
+    public static void RpcSendNotification(this PlayerControl p, string msg, string spriteName, Color? flashColour = null)
     {
         if (PlayerControl.LocalPlayer != p || p == null) return;
 
@@ -20,7 +21,7 @@ public static class GlobalRpcs
 
         var notif = Helpers.CreateAndShowNotification(
             msg,
-            Color.white, new Vector3(0f, 1f, -20f), spr: sprite);
+            Color.white, new Vector3(0f, 1f, -20f), spr: new LoadableResourceAsset($"TownOfExtra.Resources.{spriteName}.png").LoadAsset());
         notif.AdjustNotification();
     }
 }

@@ -1,9 +1,10 @@
-﻿using MiraAPI.Keybinds;
+﻿using MiraAPI.GameOptions;
+using MiraAPI.Keybinds;
 using MiraAPI.Modifiers;
-using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
-using Reactor.Utilities;
 using TownOfExtra.Modifiers;
+using TownOfExtra.Networking;
+using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Outlier;
 using TownOfUs.Buttons;
 using TownOfUs.Utilities;
@@ -16,11 +17,8 @@ public sealed class SwitcherSwitchButton : TownOfUsKillRoleButton<SwitcherRole, 
     public override string Name => "Switch";
     public override BaseKeybind Keybind => Keybinds.PrimaryAction;
     public override Color TextOutlineColor => TownOfExtraColours.SwitcherRoleColour;
-    public override float Cooldown => 0f;
-    public override bool Disabled => ButtonDisabled;
+    public override float Cooldown => OptionGroupSingleton<SwitcherRoleOptions>.Instance.SwitchCooldown;
     public override LoadableAsset<Sprite> Sprite => TownOfExtraAssets.SwitcherSwitchButton;
-
-    public static bool ButtonDisabled;
 
     public override PlayerControl GetTarget()
     {
@@ -30,14 +28,18 @@ public sealed class SwitcherSwitchButton : TownOfUsKillRoleButton<SwitcherRole, 
     protected override void OnClick()
     {
         if (Target == null) return;
+
+        foreach (var p in PlayerControl.AllPlayerControls)
+        {
+            p.RpcRemoveModifier<SwitchedModifier>();
+        }
         
         Target.RpcAddModifier<SwitchedModifier>();
-        Coroutines.Start(MiscUtils.CoFlash(TownOfExtraColours.SwitcherRoleColour));
-        var notif = Helpers.CreateAndShowNotification(
+
+        PlayerControl.LocalPlayer.RpcSendNotification(
             $"Your role will be {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switched</color> with {Target.name} after the next meeting!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SwitcherRoleIcon.LoadAsset());
-        notif.AdjustNotification();
-        
-        ButtonDisabled = true;
+            "SwitcherRoleIcon",
+            TownOfExtraColours.SwitcherRoleColour
+        );
     }
 }

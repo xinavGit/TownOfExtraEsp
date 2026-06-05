@@ -299,16 +299,22 @@
         "\n- A new Impostor Killing role has been added: Striker",
 
         "\n\n\r<size=105%>Additions:</size>",
-        "\n- Added an option to disable guessing plain crewmate for the eraser",
+        "\n- Added an option to disable assasin modifier for the eraser",
         
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Changed poltergeist from Neutral Outlier > Neutral Evil",
+        "\n- Eraser now only marks full erased players (not just pending)",
 
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Conjurer can no longer drop rocks while dead",
+        "\n- Switcher can now change target after selecting",
+        "\n- Switcher now actually is given the target's role",
+        "\n- Fixed some notifications not being sent",
+        "\n- Fixed eraser being able to re-erase erased players",
         
         "\n\n\r<size=105%>New Icons:</size>",
-        "\n- Added new button icons for: Cast"
+        "\n- Added new button icons for: Cast",
+        "\n- Added new placeholder button icons for: Protect, Info, Attack, Misc (you will probably never see these unless i forget to remove uses)"
       ]
     }
   ]
