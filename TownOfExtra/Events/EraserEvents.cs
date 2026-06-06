@@ -5,12 +5,13 @@ using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Networking;
 using TownOfExtra.Roles.Impostor.Power;
+using TownOfUs.Modifiers.Crewmate;
 
 namespace TownOfExtra.Events;
 
 public class EraserEvents
 {
-    [RegisterEvent]
+    [RegisterEvent(1005)]
     public static void RoundStartEventHandler(RoundStartEvent e)
     {
         foreach (var p in PlayerControl.AllPlayerControls)
@@ -21,8 +22,16 @@ public class EraserEvents
                 
                 if (!AmongUsClient.Instance.AmHost) continue;
                 
+                p.RpcRemoveModifier<ImitatorCacheModifier>();
                 p.RpcSetRole(RoleTypes.Crewmate, true);
-                EraserRpcs.RpcNotifyErased(p);
+                
+                p.RpcSendNotification(
+                    $"Your role has been erased by the {Palette.ImpostorRed.ToTextColor()}eraser</color>!",
+                    "EraserRoleIcon",
+                    200,
+                    Palette.ImpostorRed
+                );
+                
                 p.RpcRemoveModifier<PendingEraseModifier>();
                 p.RpcAddModifier<ErasedModifier>();
             }

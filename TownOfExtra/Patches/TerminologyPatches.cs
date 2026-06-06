@@ -35,6 +35,7 @@ internal static class TerminologyIconRegistry
         Register(new PendingSwitchIcon());
         Register(new TaggedIcon());
         Register(new RecruitedIcon());
+        Register(new InterviewingIcon());
     }
 
     internal static void AppendIcons(ref string result, PlayerControl row)
@@ -114,6 +115,14 @@ internal sealed class RecruitedIcon : ITerminologyIcon
         (local.GetTownOfUsRole() is ChiefRole || local.Data.IsDead);
 }
 
+internal sealed class InterviewingIcon : ITerminologyIcon
+{
+    public string RichChunk => $"{TownOfExtraColours.JournalistRoleColour.ToTextColor()}ⓘ</color>";
+    public bool ShouldShow(PlayerControl local, PlayerControl row) =>
+        row.HasModifier<InterviewModifier>() &&
+        (local.GetTownOfUsRole() is JournalistRole || local.Data.IsDead);
+}
+
 [HarmonyPatch(typeof(PlayerRoleTextExtensions), nameof(PlayerRoleTextExtensions.UpdateTargetSymbols), new[] { typeof(string), typeof(PlayerControl), typeof(bool) })]
 public static class TerminologySymbolPatch
 {
@@ -167,7 +176,8 @@ public static class TerminologyPatches
             $"• Erased players are marked with <b>{Palette.ImpostorRed.ToTextColor()}▧</color></b>\n" +
             $"• Pending switches are marked with <b>{TownOfExtraColours.SwitcherRoleColour.ToTextColor()}⇆</color></b>\n" +
             $"• Tagged players are marked with <b>{Palette.ImpostorRed.ToTextColor()}▣</color></b>\n" +
-            $"• Recruited players are marked with <b>{TownOfExtraColours.ChiefRoleColour.ToTextColor()}❖</color></b>\n"
+            $"• Recruited players are marked with <b>{TownOfExtraColours.ChiefRoleColour.ToTextColor()}❖</color></b>\n" +
+            $"• Players waiting for/in interviews are marked with <b>{TownOfExtraColours.JournalistRoleColour.ToTextColor()}</color>ⓘ</b>\n"
         );
     }
 }

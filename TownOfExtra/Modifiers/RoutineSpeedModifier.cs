@@ -16,7 +16,7 @@ public class RoutineSpeedModifier : TimedModifier
     public override float Duration => OptionGroupSingleton<CrewmateModifierOptions>.Instance.RoutineSpeedBoostDuration.Value;
     public override bool AutoStart => true;
     public override bool RemoveOnComplete => true;
-    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.LightningIcon;
+    public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.SpeedBoostModifierIcon;
     
     public float NormalSpeed;
 
@@ -34,7 +34,7 @@ public class RoutineSpeedModifier : TimedModifier
         
         var notif = Helpers.CreateAndShowNotification(
             $"You have gained a {Palette.CrewmateBlue.ToTextColor()}speed boost</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.LightningIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SpeedBoostModifierIcon.LoadAsset());
         notif.AdjustNotification();
     }
 
@@ -45,7 +45,7 @@ public class RoutineSpeedModifier : TimedModifier
 
         var notif = Helpers.CreateAndShowNotification(
             $"You have lost your {Palette.CrewmateBlue.ToTextColor()}speed boost</color>!",
-            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.LightningIcon.LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.SpeedBoostModifierIcon.LoadAsset());
         notif.AdjustNotification();
     }
 

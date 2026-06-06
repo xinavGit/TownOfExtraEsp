@@ -1,9 +1,12 @@
 ﻿using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
+using MiraAPI.Roles;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Networking;
 using TownOfExtra.Roles.Neutral.Outlier;
+using TownOfUs.Modifiers.Crewmate;
+using TownOfUs.Utilities;
 
 namespace TownOfExtra.Events;
 
@@ -12,6 +15,8 @@ public class SwitcherEvents
     [RegisterEvent(1)]
     public static void RoundStartEventHandler(RoundStartEvent e)
     {
+        if (!AmongUsClient.Instance.AmHost) return;
+        
         var switcher = GetSwitcher();
 
         foreach (var p in PlayerControl.AllPlayerControls)
@@ -25,6 +30,21 @@ public class SwitcherEvents
                         switcher.RpcSendNotification(
                             $"Your {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color> target is no longer alive!",
                             "SwitcherRoleIcon",
+                            356,
+                            TownOfExtraColours.SwitcherRoleColour
+                        );
+                    }
+
+                    return;
+                }
+                if (switcher.HasModifier<ErasedModifier>() || switcher.HasModifier<PendingEraseModifier>() || p.HasModifier<ErasedModifier>() || p.HasModifier<PendingEraseModifier>())
+                {
+                    if (switcher != null)
+                    {
+                        switcher.RpcSendNotification(
+                            $"You or your {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color> target's role was erased!",
+                            "SwitcherRoleIcon",
+                            356,
                             TownOfExtraColours.SwitcherRoleColour
                         );
                     }
@@ -33,20 +53,22 @@ public class SwitcherEvents
                 }
 
                 var pRole = p.Data.Role.Role;
-                var switcherRole = switcher.Data.Role.Role;
 
-                p.RpcSetRole(switcherRole);
-                switcher.RpcSetRole(pRole);
+                p.RpcRemoveModifier<ImitatorCacheModifier>();
+                p.RpcChangeRole(RoleId.Get<SwitcherRole>());
+                switcher.RpcSetRole(pRole, true);
                 p.RpcRemoveModifier<SwitchedModifier>();
 
                 p.RpcSendNotification(
                     $"Your role has been switched with the {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switcher</color>!",
                     "SwitcherRoleIcon",
+                    356,
                     TownOfExtraColours.SwitcherRoleColour
                 );
                 switcher.RpcSendNotification(
                     $"You have {TownOfExtraColours.SwitcherRoleColour.ToTextColor()}switched</color> your role with {p.name}!",
                     "SwitcherRoleIcon",
+                    356,
                     TownOfExtraColours.SwitcherRoleColour
                 );
             }

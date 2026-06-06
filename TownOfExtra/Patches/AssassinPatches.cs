@@ -3,19 +3,19 @@ using MiraAPI.GameOptions;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Killing;
 using TownOfExtra.Roles.Impostor.Power;
-using TownOfUs.Modifiers.Game;
+using TownOfUs.Modifiers.Game.Impostor;
 
 namespace TownOfExtra.Patches;
 
 public class AssassinPatches
 {
-    [HarmonyPatch(typeof(AssassinModifier), nameof(AssassinModifier.IsModifierValidOn))]
-    public static class AssasinModifierValidRolesPatch
+    [HarmonyPatch(typeof(ImpostorAssassinModifier), nameof(ImpostorAssassinModifier.IsModifierValidOn))]
+    public static class ImpostorAssassinModifierValidRolesPatch
     {
         public static void Postfix(RoleBehaviour role, ref bool __result)
         {
             if (role is StrikerRole) __result = false;
-            if (role is EraserRole && OptionGroupSingleton<EraserRoleOptions>.Instance.CanBeAssassin) __result = false;
+            if (role is EraserRole && !OptionGroupSingleton<EraserRoleOptions>.Instance.CanBeAssassin) __result = false;
         }
     }
 }

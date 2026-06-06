@@ -24,13 +24,13 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     private bool _placing;
     private bool _fallen;
     private GameObject _preview;
-    
+
     public override void ClickHandler()
     {
         if (!CanClick()) return;
         OnClick();
     }
-    
+
     public override bool CanUse()
     {
         return Timer <= 0 && !_placing && !PlayerControl.LocalPlayer.inVent;
@@ -45,19 +45,27 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
     {
         var camera = Camera.main;
         if (camera == null) yield break;
-        
+
         EnterPlacingMode();
 
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
             while (true)
             {
+                if (!_placing) yield break;
+
                 if (PlayerControl.LocalPlayer.inVent)
                 {
                     ExitPlacingMode();
                     yield return null;
                 }
-                
+
+                if (PlayerControl.LocalPlayer.Data.Disconnected || PlayerControl.LocalPlayer.Data.IsDead)
+                {
+                    ExitPlacingMode();
+                    yield return null;
+                }
+
                 var screenToWorldPoint = camera.ScreenToWorldPoint(Input.mousePosition);
 
                 if (_preview != null)
@@ -93,13 +101,14 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                 {
                     screenToWorldPoint.z = 0f;
 
-                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
-                    
+                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y,
+                        _fallen);
+
                     ExitPlacingMode();
-                    
+
                     EffectActive = true;
                     Timer = EffectDuration;
-                    
+
                     yield break;
                 }
 
@@ -110,7 +119,15 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
         {
             while (true)
             {
+                if (!_placing) yield break;
+
                 if (PlayerControl.LocalPlayer.inVent)
+                {
+                    ExitPlacingMode();
+                    yield return null;
+                }
+
+                if (PlayerControl.LocalPlayer.Data.Disconnected || PlayerControl.LocalPlayer.Data.IsDead)
                 {
                     ExitPlacingMode();
                     yield return null;
@@ -151,13 +168,14 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
                 {
                     screenToWorldPoint.z = 0f;
 
-                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y, _fallen);
-                    
+                    ConjurerRpcs.RpcPlaceRock(PlayerControl.LocalPlayer, screenToWorldPoint.x, screenToWorldPoint.y,
+                        _fallen);
+
                     ExitPlacingMode();
-                    
+
                     EffectActive = true;
                     Timer = EffectDuration;
-                    
+
                     yield break;
                 }
 
@@ -173,7 +191,7 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
         _fallen = false;
 
         Vector3 loc = Camera.main != null ? Camera.main.ScreenToWorldPoint(Input.mousePosition) : Vector3.zero;
-        
+
         loc.z = 0f;
 
         _preview = new GameObject();
@@ -195,14 +213,9 @@ public sealed class ConjurerConjureButton : TownOfUsRoleButton<ConjurerRole>
             _preview = null;
         }
     }
-    
+
     public override void OnEffectEnd()
     {
         Timer = Cooldown;
-    }
-
-    protected override void FixedUpdate(PlayerControl playerControl)
-    {
-        if (!PlayerControl.LocalPlayer.Data.IsDead && !PlayerControl.LocalPlayer.Data.Disconnected && !_placing) ExitPlacingMode();
     }
 }

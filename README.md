@@ -66,9 +66,9 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 # Asset Credits
 - [@AtonyGit](https://github.com/AtonyGit)/[Town Of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) - All assets that are not specified below
 - @az0th_19 (discord) - Vinculator | Empower, Chain [Role/Button Icons]
-- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Vulture | Heavy Workload | Scare, Possess, Cast, Locate [Role/Modifier/Button Icons]
+- @aasteriisken (discord) - Freezer, Switcher, Dream Caster, Eraser, Conjurer, Vulture, Journalist | Heavy Workload | Scare, Possess, Cast [Role/Modifier/Button Icons]
 - @mystic_haze2 (discord) - Freeze, Conjure [Buttons]
-- @jaydoeswitchcraft (discord) - Gambler, Signal Jammer, Holographer, Chief | Soulless [Role/Modifier Icons]
+- @jaydoeswitchcraft (discord) - Gambler, Signal Jammer, Holographer, Chief | Soulless | Locate [Role/Modifier/Button Icons]
 - @superkiller500(NerdCandy) (discord) - Striker | Strike [Role/Button Icons]
 - **You will probably never see these, unless I leave one used by accident, but these placeholder icons were made by @aasteriisken (discord)** - Generic Protect, Generic Info, Generic Attack, Generic Misc
 

@@ -4,7 +4,6 @@ using MiraAPI.GameEnd;
 using MiraAPI.GameOptions;
 using MiraAPI.Hud;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfExtra.Buttons;
@@ -35,14 +34,14 @@ public class TricksterRpcs
             int reports = TricksterRole.FakeBodiesReported;
             int reportsNeeded = (int)OptionGroupSingleton<TricksterRoleOptions>.Instance.ReportsNeeded;
 
-            var notif = Helpers.CreateAndShowNotification(
-                $"One of your {ttc}fake bodies</color> has been found! {ttc}{reports}/{reportsNeeded}</color>",
-                Color.white,
-                new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset()
+            p.RpcSendNotification($"One of your {ttc}fake bodies</color> has been found! {ttc}{reports}/{reportsNeeded}</color>",
+                "TricksterRoleIcon",
+                200,
+                TownOfExtraColours.TricksterRoleColour
             );
+            
             CustomButtonSingleton<TricksterPlaceButton>.Instance.Timer = OptionGroupSingleton<TricksterRoleOptions>.Instance.PlaceCooldown;
             
-            notif.AdjustNotification();
         }
         
         if (AmongUsClient.Instance.AmHost)

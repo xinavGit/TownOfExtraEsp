@@ -10,10 +10,10 @@ public class TownOfExtraColours
 {
     public static Color CreditsColour => new Color32(240, 70, 118, 255);
     
-    public static bool UseBasic { get; set; } =
-        LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
+    public static bool UseBasicCrew { get; set; } = LocalSettingsTabSingleton<TownOfUsLocalRoleSettings>.Instance.UseCrewmateTeamColorToggle.Value;
     
-    public static Color ChiefRoleColour => UseBasic ? Palette.CrewmateBlue : new Color32(0, 118, 1, 255);
+    public static Color ChiefRoleColour => UseBasicCrew ? Palette.CrewmateBlue : new Color32(0, 118, 1, 255);
+    public static Color JournalistRoleColour => UseBasicCrew ? Palette.CrewmateBlue : new Color32(218, 213, 197, 255);
     public static Color PoltergeistRoleColour => new Color32(122, 186, 168, 255);
     
     public static Color PoisonColour => new Color32(46, 82, 53, 255);

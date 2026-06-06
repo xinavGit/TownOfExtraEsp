@@ -10,7 +10,7 @@ namespace TownOfExtra.Networking;
 public static class GlobalRpcs
 {
     [MethodRpc((uint)TownOfExtraRpcs.SendNotification)]
-    public static void RpcSendNotification(this PlayerControl p, string msg, string spriteName, Color? flashColour = null)
+    public static void RpcSendNotification(this PlayerControl p, string msg, string spriteName, int? resizeThingySize = null, Color? flashColour = null)
     {
         if (PlayerControl.LocalPlayer != p || p == null) return;
 
@@ -18,10 +18,15 @@ public static class GlobalRpcs
         {
             Coroutines.Start(MiscUtils.CoFlash((Color)flashColour));
         }
+        
+        var sprite =
+            resizeThingySize == null ?
+            new LoadableResourceAsset($"TownOfExtra.Resources.{spriteName}.png") :
+            new LoadableResourceAsset($"TownOfExtra.Resources.{spriteName}.png", (float)resizeThingySize);
 
         var notif = Helpers.CreateAndShowNotification(
             msg,
-            Color.white, new Vector3(0f, 1f, -20f), spr: new LoadableResourceAsset($"TownOfExtra.Resources.{spriteName}.png").LoadAsset());
+            Color.white, new Vector3(0f, 1f, -20f), spr: sprite.LoadAsset());
         notif.AdjustNotification();
     }
 }

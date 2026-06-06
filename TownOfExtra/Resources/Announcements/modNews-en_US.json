@@ -285,7 +285,7 @@
       ]
     },
     {
-      "Date": "2026-05-26T00:00:00Z",
+      "Date": "2026-06-06T00:00:00Z",
       "Number": "22",
       "ShortTitle": "TownOfExtra v1.2.1", 
       "Title": "TownOfExtra v1.2.1",
@@ -297,13 +297,16 @@
         
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Killing role has been added: Striker",
+        "\n- A new Crewmate Power role has been added: Journalist",
 
         "\n\n\r<size=105%>Additions:</size>",
         "\n- Added an option to disable assasin modifier for the eraser",
+        "\n- Using basic crew colours will now use basic crew colours on role/button icons",
         
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Changed poltergeist from Neutral Outlier > Neutral Evil",
         "\n- Eraser now only marks full erased players (not just pending)",
+        "\n- Updated most role icons to use a higher resolution (for better image quality)",
 
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Conjurer can no longer drop rocks while dead",
@@ -311,6 +314,8 @@
         "\n- Switcher now actually is given the target's role",
         "\n- Fixed some notifications not being sent",
         "\n- Fixed eraser being able to re-erase erased players",
+        "\n- Fixed eraser, chief & switcher not working properly on imitator",
+        "\n- Fixed basic crew colours not applying until the game is restarted",
         
         "\n\n\r<size=105%>New Icons:</size>",
         "\n- Added new button icons for: Cast",

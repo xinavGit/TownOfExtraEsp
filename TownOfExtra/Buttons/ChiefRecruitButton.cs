@@ -1,5 +1,6 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Keybinds;
+using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
@@ -8,6 +9,7 @@ using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Crewmate.Power;
 using TownOfUs;
 using TownOfUs.Buttons;
+using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using UnityEngine;
@@ -136,8 +138,14 @@ public sealed class ChiefRecruitButton : TownOfUsKillRoleButton<ChiefRole, Playe
 
         if (Recruit.IsCrewmate())
         {
+            Recruit.RpcRemoveModifier<ImitatorCacheModifier>();
             Recruit.RpcChangeRole(RoleId.Get<SheriffRole>());
-            ChiefRpcs.RpcNotifyChiefRecruited(Recruit);
+            Recruit.RpcSendNotification(
+                $"You have been recruited by the {TownOfExtraColours.ChiefRoleColour.ToTextColor()}chief</color>, you are now a {TownOfUsColors.Sheriff.ToTextColor()}sheriff</color>!",
+                "ChiefRoleIcon",
+                200,
+                TownOfUsColors.Sheriff
+            );
         }
 
         notif = Helpers.CreateAndShowNotification(

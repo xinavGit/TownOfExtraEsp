@@ -1,11 +1,8 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using MiraAPI.Modifiers;
-using MiraAPI.Utilities;
-using Reactor.Utilities;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Networking;
-using TownOfUs.Utilities;
 using UnityEngine;
 
 namespace TownOfExtra.Patches;
@@ -17,7 +14,11 @@ public static class SjStartMeetingPatch
     {
         if (__instance.HasModifier<SignalJammedModifier>())
         {
-            SignalJammerRpcs.RpcNotifyOfJAm(__instance);
+            __instance.RpcSendNotification(
+                $"Your meeting signals are {Palette.ImpostorRed.ToTextColor()}jammed</color>!",
+                "SignalJammerJamButton",
+                flashColour: Palette.ImpostorRed
+            );
             
             return false;
         }
@@ -32,7 +33,11 @@ public static class SjReportDeadBodyPatch
     {
         if (__instance.HasModifier<SignalJammedModifier>())
         {
-            SignalJammerRpcs.RpcNotifyOfJAm(__instance);
+            __instance.RpcSendNotification(
+                $"Your meeting signals are {Palette.ImpostorRed.ToTextColor()}jammed</color>!",
+                "SignalJammerJamButton",
+                flashColour: Palette.ImpostorRed
+            );
 
             if (target != null)
             {
