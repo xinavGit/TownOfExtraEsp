@@ -2,7 +2,7 @@
   "News": [
     {
       "Date": "2026-04-29T15:26:00Z",
-      "Number": "0",
+      "Number": "100",
       "ShortTitle": "TownOfExtra v1.0.0",
       "Title": "Initial Release",
       "SubTitle": "The initial release!",
@@ -14,7 +14,7 @@
     },
     {
       "Date": "2026-04-29T19:11:00Z",
-      "Number": "1",
+      "Number": "101",
       "ShortTitle": "TownOfExtra v1.0.1",
       "Title": "A small hotfix",
       "SubTitle": "Squashing them pesky bugs!",
@@ -26,7 +26,7 @@
     },
     {
       "Date": "2026-05-02T23:34:00Z",
-      "Number": "2",
+      "Number": "102",
       "ShortTitle": "TownOfExtra v1.0.2",
       "Title": "The reaper is here!",
       "SubTitle": "",
@@ -34,14 +34,13 @@
         "\r<b>TownOfExtra has updated to v1.0.2</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-        
         "\n\n\r<size=105%>New Modifiers:</size>",
         "\n- New Universal modifier has been added: Soulless."
       ]
     },
     {
       "Date": "2026-05-04T09:35:00Z",
-      "Number": "3",
+      "Number": "103",
       "ShortTitle": "TownOfExtra v1.0.3",
       "Title": "Lets go gambling!",
       "SubTitle": "Aw, dang it :(",
@@ -49,17 +48,15 @@
         "\r<b>TownOfExtra has updated to v1.0.3</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- New Impostor Support role has been added: Gambler.",
-
         "\n\n\r<size=105%>Additions:</size>",
         "\n- Added these news updates here, hi :)"
       ]
     },
     {
       "Date": "2026-05-04T22:05:00Z",
-      "Number": "4",
+      "Number": "104",
       "ShortTitle": "TownOfExtra v1.0.4",
       "Title": "TownOfExtra v1.0.4",
       "SubTitle": "More roles & bugfixes!",
@@ -67,18 +64,16 @@
         "\r<b>TownOfExtra has updated to v1.0.4</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- New Impostor Power role has been added: Eraser.",
         "\n- New Neutral Outlier role has been added: Switcher.",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed trickster fake bodies getting automatically removed when placed."
       ]
     },
     {
       "Date": "2026-05-06T13:33:00Z",
-      "Number": "5",
+      "Number": "105",
       "ShortTitle": "TownOfExtra v1.0.5",
       "Title": "TownOfExtra v1.0.5",
       "SubTitle": "",
@@ -86,17 +81,15 @@
         "\r<b>TownOfExtra has updated to v1.0.5</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- New Impostor Killing role has been added: Tagger.",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed gambler not teleporting back to bodies."
       ]
     },
     {
       "Date": "2026-05-10T10:32:00Z",
-      "Number": "10",
+      "Number": "110",
       "ShortTitle": "TownOfExtra v1.1.0",
       "Title": "TownOfExtra v1.1.0",
       "SubTitle": "",
@@ -104,19 +97,17 @@
         "\r<b>TownOfExtra has updated to v1.1.0</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Changed almost every role/button icon",
         "\n- Most impostor roles now use the default colour",
         "\n- Cleaned up the code",
-
         "\n\n\r<size=105%>New Modifiers:</size>",
         "\n- A new Crewmate Passive modifier has been added: Fragile."
       ]
     },
     {
       "Date": "2026-05-12T22:12:00Z",
-      "Number": "11",
+      "Number": "111",
       "ShortTitle": "TownOfExtra v1.1.1",
       "Title": "TownOfExtra v1.1.1",
       "SubTitle": "",
@@ -124,14 +115,13 @@
         "\r<b>TownOfExtra has updated to v1.1.1</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Crewmate Power role has been added: Chief."
       ]
     },
     {
       "Date": "2026-05-13T16:50:00Z",
-      "Number": "12",
+      "Number": "112",
       "ShortTitle": "TownOfExtra v1.1.2",
       "Title": "TownOfExtra v1.1.2",
       "SubTitle": "",
@@ -139,17 +129,15 @@
         "\r<b>TownOfExtra has updated to v1.1.2</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Power role has been added: Vinculator.",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed the trickster role (it should finally work now)."
       ]
     },
     {
       "Date": "2026-05-14T20:55:00Z",
-      "Number": "13",
+      "Number": "113",
       "ShortTitle": "TownOfExtra v1.1.3",
       "Title": "TownOfExtra v1.1.3",
       "SubTitle": "",
@@ -157,17 +145,15 @@
         "\r<b>TownOfExtra has updated to v1.1.3</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Neutral Outlier role has been added: Vulture.",
-        
-        "\n\n\r<size=105%>Bufixes:</size>",
+        "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed? a lobby crashing bug with the soulless modifier."
       ]
     },
     {
       "Date": "2026-05-15T19:04:00Z",
-      "Number": "14",
+      "Number": "114",
       "ShortTitle": "TownOfExtra v1.1.4",
       "Title": "TownOfExtra v1.1.4",
       "SubTitle": "",
@@ -175,22 +161,19 @@
         "\r<b>TownOfExtra has updated to v1.1.4</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Features:</size>",
         "\n- The gambler role now shows a notification for what ability you recieved",
         "\n- Added list of recruited players & shot players for chief role",
-
         "\n\n\r<size=105%>Changes:</size>",
         "\n- New modifier icon for the Routine modifier",
         "\n- New button icon for the Vinculator Empower Button",
-        
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed chief being able to recruit even with 0 uses left"
       ]
     },
     {
       "Date": "2026-05-17T09:00:00Z",
-      "Number": "15",
+      "Number": "115",
       "ShortTitle": "TownOfExtra v1.1.5",
       "Title": "TownOfExtra v1.1.5",
       "SubTitle": "",
@@ -198,12 +181,10 @@
         "\r<b>TownOfExtra has updated to v1.1.5</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>Changes:</size>",
         "\n- New role icons for: Freezer, Gambler",
         "\n- New modifier icons for: Soulless",
         "\n- New button icons for: Freeze",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed trickster never actually winning (finally...)",
         "\n- Fixed vulture never actually winning (finally...)"
@@ -211,7 +192,7 @@
     },
     {
       "Date": "2026-05-20T13:35:00Z",
-      "Number": "16",
+      "Number": "116",
       "ShortTitle": "TownOfExtra v1.1.6",
       "Title": "TownOfExtra v1.1.6",
       "SubTitle": "",
@@ -219,18 +200,16 @@
         "\r<b>TownOfExtra has updated to v1.1.6</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Power role has been added: Conjurer",
         "\n- A new Impostor Concealing role has been added: Holographer",
-        
         "\n\n\r<size=105%>Changes:</size>",
         "\n- New icon for the Signal Jammer role"
       ]
     },
     {
       "Date": "2026-05-24T09:27:00Z",
-      "Number": "20",
+      "Number": "120",
       "ShortTitle": "TownOfExtra v1.2.0",
       "Title": "TownOfExtra v1.2.0",
       "SubTitle": "",
@@ -238,16 +217,13 @@
         "\r<b>TownOfExtra has updated to v1.2.0</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Power role has been added: Dream Caster",
         "\n- A new Neutral Outlier role has been added: Poltergeist",
-
         "\n\n\r<size=105%>New Icons:</size>",
         "\n- New Role Icons have been added for: Conjurer, Eraser, Chief, Vulture",
         "\n- New Modifier Icons have been added for: Heavy Workload",
         "\n- New Button Icons have been added for: Chain",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed trickster's name showing on the body screen when a real body is reported",
         "\n- Fixed vinculator's chain menu being openable while already open",
@@ -255,7 +231,6 @@
         "\n- Fixed chief acting like people are shot even when shielded",
         "\n- Fixed gambler not working for non host",
         "\n- Fixed eraser not erasing the target's roles",
-        
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Tou: Mira's cleric role can now cleanse ToEx's bad effects",
         "\n- Added new icons for some roles special effects: Switcher, Chief, Eraser, Tagger",
@@ -264,7 +239,7 @@
     },
     {
       "Date": "2026-05-25T20:25:00Z",
-      "Number": "21",
+      "Number": "1201",
       "ShortTitle": "TownOfExtra v1.2.0 [HF1]",
       "Title": "TownOfExtra v1.2.0",
       "SubTitle": "Hotfix #1",
@@ -272,12 +247,10 @@
         "\r<b>TownOfExtra has been hotfixed to Hotfix #1 [1.2.0]</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-        
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Fixed poltergeist's possess button sometimes not ending the game when it should.",
         "\n- Fixed eraser not working for non host",
         "\n- Fixed gambler sometimes giving all effects and crashing servers",
-
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Removed eraser marking already erased players",
         "\n- Added colour to the reactor credit cuz other mods did and i like colour",
@@ -286,28 +259,24 @@
     },
     {
       "Date": "2026-07-06T00:08:00Z",
-      "Number": "22",
-      "ShortTitle": "TownOfExtra v1.2.1", 
+      "Number": "121",
+      "ShortTitle": "TownOfExtra v1.2.1",
       "Title": "TownOfExtra v1.2.1",
       "SubTitle": "",
       "Text": [
         "\r<b>TownOfExtra has updated to v1.2.1</b>",
         "\n\nThank you for playing the mod!",
         "\n\n★ <link=https://discord.gg/y2GN5Q4fzb>Join Discord</link> ★ <link=https://github.com/Mehzxzz/TownOfExtra/wiki>Role/Modifier Info</link> ★",
-        
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Impostor Killing role has been added: Striker",
         "\n- A new Crewmate Power role has been added: Journalist",
-
         "\n\n\r<size=105%>Additions:</size>",
         "\n- Added an option to disable assasin modifier for the eraser",
         "\n- Using basic crew colours will now use basic crew colours on role/button icons",
-        
         "\n\n\r<size=105%>Changes:</size>",
         "\n- Changed poltergeist from Neutral Outlier > Neutral Evil",
         "\n- Eraser now only marks full erased players (not just pending)",
         "\n- Updated most role icons to use a higher resolution (for better image quality)",
-
         "\n\n\r<size=105%>Bugfixes:</size>",
         "\n- Conjurer can no longer drop rocks while dead",
         "\n- Switcher can now change target after selecting",
@@ -316,7 +285,7 @@
         "\n- Fixed eraser being able to re-erase erased players",
         "\n- Fixed eraser, chief & switcher not working properly on imitator",
         "\n- Fixed basic crew colours not applying until the game is restarted",
-        
+        "\n- Fixed mod icon showing on the normal game news",
         "\n\n\r<size=105%>New Icons:</size>",
         "\n- Added new button icons for: Cast",
         "\n- Added new placeholder button icons for: Protect, Info, Attack, Misc (you will probably never see these unless i forget to remove uses)"

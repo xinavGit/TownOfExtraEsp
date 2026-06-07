@@ -11,11 +11,11 @@ using HarmonyLib;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using UnityEngine;
 
-namespace TownOfExtra.Patches;
+namespace TownOfExtra;
 
-public class AnnouncementPatch
+public class ToExModNews
 {
-    public AnnouncementPatch(int number, string title, string subTitle, string shortTitle, string text, string date)
+    public ToExModNews(int number, string title, string subTitle, string shortTitle, string text, string date)
     {
         Number = number;
         Title = title;
@@ -58,7 +58,7 @@ public static class ModNewsFetcher
     private static void LoadFromResources()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        using var stream = assembly.GetManifestResourceStream("TownOfExtra.Resources.Announcements.modNews-en_US.json")
+        using var stream = assembly.GetManifestResourceStream("TownOfExtra.Resources.News.modNews-en_US.json")
             ?? throw new InvalidOperationException("Embedded news resource not found.");
         using var reader = new StreamReader(stream);
         ParseJson(reader.ReadToEnd());
@@ -78,7 +78,7 @@ public static class ModNewsFetcher
             var text = string.Join(" ", item.GetProperty("Text").EnumerateArray().Select(e => e.GetString()));
 
             ModNewsHistory.AllModNews = ModNewsHistory.AllModNews.Add(
-                new AnnouncementPatch(number, title, subTitle, shortTitle, text, date)
+                new ToExModNews(number, title, subTitle, shortTitle, text, date)
             );
         }
     }
@@ -86,7 +86,7 @@ public static class ModNewsFetcher
     [HarmonyPatch]
     public static class ModNewsHistory
     {
-        public static ImmutableList<AnnouncementPatch> AllModNews = ImmutableList<AnnouncementPatch>.Empty;
+        public static ImmutableList<ToExModNews> AllModNews = ImmutableList<ToExModNews>.Empty;
 
         [HarmonyPatch(typeof(PlayerAnnouncementData), nameof(PlayerAnnouncementData.SetAnnouncements))]
         [HarmonyPrefix]
@@ -107,7 +107,7 @@ public static class ModNewsFetcher
         [HarmonyPostfix]
         public static void SetUpPanel_Postfix(AnnouncementPanel __instance, [HarmonyArgument(0)] Announcement announcement)
         {
-            if (announcement.Number < 0 || announcement.Number > 1000) return;
+            if (announcement.Id != "TownOfExtra") return;
 
             var obj = new GameObject("ModLabel");
             obj.transform.SetParent(__instance.transform);
