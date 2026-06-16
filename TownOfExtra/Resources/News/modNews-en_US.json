@@ -308,6 +308,8 @@
         "\n- Fixed modifier selection screen breaking in freeplay",
         "\n- Fixed striker kills not being counted as the striker's",
         "\n- Fixed striker locate results having repeats & roles it shouldn't",
+        "\n- Fixed eraser turning neutrals into crew, added a setting for their new roles",
+        "\n- Fixed a spelling issue in striker's custom intro blurb",
         "\n\n\r<size=105%>New Icons:</size>",
         "\n- Added a new button icon for tagger's mark ability (by @maybe_xinav [discord])"
       ]

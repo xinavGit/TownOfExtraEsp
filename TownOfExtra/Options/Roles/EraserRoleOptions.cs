@@ -15,6 +15,14 @@ public sealed class EraserRoleOptions : AbstractOptionGroup<EraserRole>
     public float EraseUses { get; set; } = 3f;
     [ModdedToggleOption("Can be assasin?")]
     public bool CanBeAssassin { get; set; } = true;
-    /*[ModdedToggleOption("Cleric can unerase")]
-    public bool CanUnerase { get; set; } = true;*/
+    
+    [ModdedEnumOption("Erased neutral's roles", typeof(ErasedNeutralRole),
+        ["Amnesiac", "Survivor"])]
+    public ErasedNeutralRole ErasedNeutralRole { get; set; } = ErasedNeutralRole.Survivor;
+}
+
+public enum ErasedNeutralRole
+{
+    Amnesiac,
+    Survivor,
 }

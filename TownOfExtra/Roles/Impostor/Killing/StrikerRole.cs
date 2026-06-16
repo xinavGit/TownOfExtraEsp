@@ -24,7 +24,7 @@ namespace TownOfExtra.Roles.Impostor.Killing;
 public sealed class StrikerRole : ImpostorRole, ITownOfUsRole, IWikiDiscoverable, IDoomable, IUnlovable
 {
     public string RoleName => "Striker";
-    public string RoleDescription => OptionGroupSingleton<StrikerRoleOptions>.Instance.IntroBlurb == StrikerIntroBlurb.Normal ? "Airstrike players by locating their roles!" : "This your adress?";
+    public string RoleDescription => OptionGroupSingleton<StrikerRoleOptions>.Instance.IntroBlurb == StrikerIntroBlurb.Normal ? "Airstrike players by locating their roles!" : "This your address?";
     public string RoleLongDescription => RoleDescription;
     public Color RoleColor => Palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
