@@ -292,11 +292,11 @@
       ]
     },
     {
-      "Date": "2026-08-06T00:00:00Z",
+      "Date": "2026-27-06T00:27:00Z",
       "Number": "122",
       "ShortTitle": "TownOfExtra v1.2.2",
-      "Title": "TownOfExtra v1.2.2",
-      "SubTitle": "",
+      "Title": "Modifiers Galore! [v1.2.2]",
+      "SubTitle": "6 modifiers, 2 roles & lots of bugfixes to go along with them!",
       "Text": [
         "\r<b>TownOfExtra has updated to v1.2.2</b>",
         "\n\nThank you for playing the mod!",
@@ -306,10 +306,12 @@
         "\n- A new Neutral Killing role has been added: Shadow Walker",
         "\n\n\r<size=105%>New Modifiers:</size>",
         "\n- A new Universal Passive modifier has been added: Apolitical",
+        "\n- A new Universal Passive modifier has been added: Mute",
         "\n- A new Crewmate Passive modifier has been added: Observant",
         "\n- A new Crewmate Passive modifier has been added: Clumsy",
+        "\n- A new Impostor Utility modifier has been added: Shockwave",
+        "\n- A new Impostor Passive modifier has been added: Rebirth",
         "\n\n\r<size=105%>Changes:</size>",
-        "\n- Meeting button now shows broken when signals are jammed",
         "\n- Cannibal is now a Neutral Killing role",
         "\n\n\r<size=105%>Additions:</size>",
         "\n- Added an option to let chief spread its egotism",
@@ -326,7 +328,8 @@
         "\n- Ghosts are now alerted when a signal jam or freeze happens",
         "\n- Fixed chief being able to recruit already recruited players",
         "\n\n\r<size=105%>New Icons:</size>",
-        "\n- Added a new button icon for tagger's mark ability (by @maybe_xinav [discord])"
+        "\n- Added a new button icon for tagger's mark ability (by @maybe_xinav [discord])",
+        "\n- Added a new role icon for trickster (by @mystic_haze2 [discord])"
       ]
     }
   ]

@@ -14,7 +14,7 @@ public class ApoliticalModifier : TouGameModifier, IWikiDiscoverable, IColoredMo
 {
     public override string ModifierName => "Apolitical";
     public override ModifierFaction FactionType => ModifierFaction.UniversalPassive;
-    public override string IntroInfo => "Your cooldowns increase for each vote you gain.";
+    public override string IntroInfo => "Your cooldowns increase for each vote you gain";
     public override LoadableAsset<Sprite> ModifierIcon => TownOfExtraAssets.ApoliticalModifierIcon;
     public Color ModifierColor => TownOfExtraColours.ApoliticalModifierColour;
     public override Color FreeplayFileColor => TownOfExtraColours.ApoliticalModifierColour;

@@ -48,4 +48,17 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
         {
             Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.ApoliticalAmount > 0
         };
+    
+    /*----------------------
+              MUTE
+    ----------------------*/
+
+    [ModdedNumberOption("Mute Amount", 0, 5)]
+    public float MuteAmount { get; set; } = 0;
+
+    public ModdedNumberOption MuteChance { get; } =
+        new("Mute Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
+        {
+            Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.MuteAmount > 0
+        };
 }

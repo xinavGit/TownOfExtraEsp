@@ -15,4 +15,6 @@ public enum TownOfExtraRpcs : uint
     ConjurerPlaceRock = 510,
     HolographerSyncFakePlayer = 511,
     SendJournalistChat = 512,
+    SquidSpillInk = 513,
+    RebirthSendPopup = 514,
 }

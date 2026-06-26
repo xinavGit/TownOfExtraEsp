@@ -33,6 +33,8 @@ public class TownOfExtraColours
     public static Color ApoliticalModifierColour => new Color32(159, 184, 113, 255);
     public static Color ObservantModifierColour => new Color32(62, 222, 105, 255);
     public static Color ClumsyModifierColour => new Color32(111, 255, 211, 255);
+    public static Color ShockwaveModifierColour => new Color32(213, 167, 136, 255);
+    public static Color MuteModifierColour => new Color32(96, 47, 94, 255);
 
 
     public static Color GetRoleColour(string name)

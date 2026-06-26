@@ -39,10 +39,10 @@ public sealed class SquidRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
     {
         return
             "The Squid is a Neutral Killing role who can spill ink on the ground, causing 3 debuffs to players who walk in them.\n\n" +
-            $"<size=105%>{TownOfUsColors.Vigilante.ToTextColor()}Debuffs:</color></size>\n" +
-            "> Ink splatters onscreen\n" +
+            $"<size=105%><b>{TownOfUsColors.Vigilante.ToTextColor()}Debuffs:</color></b></size>\n" +
+            "> Reduced vision\n" +
             "> Slower speed\n" +
-            "> Block role buttons" +
+            "> Block role abilities" +
             MiscUtils.AppendOptionsText(GetType());
     }
 

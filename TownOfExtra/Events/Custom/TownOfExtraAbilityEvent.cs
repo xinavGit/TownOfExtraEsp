@@ -36,4 +36,5 @@ public enum AbilityType
 {
     VultureEatBody,
     PoltergeistPossessPlayer,
+    SquidInkDestroyed,
 }
