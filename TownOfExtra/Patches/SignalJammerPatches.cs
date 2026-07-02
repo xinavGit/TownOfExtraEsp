@@ -4,6 +4,7 @@ using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using UnityEngine;
 
 namespace TownOfExtra.Patches;

@@ -1,5 +1,6 @@
 ﻿using Reactor.Networking.Attributes;
 using TownOfExtra.Events;
+using TownOfExtra.Networking.Global;
 using TownOfUs;
 using TownOfUs.Modules;
 

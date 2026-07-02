@@ -2,6 +2,7 @@ using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using Reactor.Utilities;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Roles.Crewmate.Power;
 using TownOfUs;
 using TownOfUs.Modules;

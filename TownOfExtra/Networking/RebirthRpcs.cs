@@ -1,6 +1,7 @@
 ﻿using Reactor.Networking.Attributes;
 using TownOfExtra.Modifiers.Game.Impostor.Passive;
 using TownOfExtra.Modules;
+using TownOfExtra.Networking.Global;
 using TownOfUs.Modules;
 using TownOfUs.Utilities;
 

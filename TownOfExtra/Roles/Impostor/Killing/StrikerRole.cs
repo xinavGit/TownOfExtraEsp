@@ -7,6 +7,7 @@ using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfUs.Assets;
 using TownOfUs.Extensions;

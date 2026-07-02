@@ -7,6 +7,7 @@ using MiraAPI.Roles;
 using TownOfExtra.Modifiers;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Power;
 using TownOfUs.Modifiers.Crewmate;

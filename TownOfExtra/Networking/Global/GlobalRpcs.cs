@@ -1,11 +1,11 @@
-﻿using TownOfUs.Utilities;
-using MiraAPI.Utilities;
+﻿using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
+using TownOfUs.Utilities;
 using UnityEngine;
 
-namespace TownOfExtra.Networking;
+namespace TownOfExtra.Networking.Global;
 
 public static class GlobalRpcs
 {

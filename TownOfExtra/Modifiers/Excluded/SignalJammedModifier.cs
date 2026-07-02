@@ -5,6 +5,7 @@ using MiraAPI.GameOptions;
 using MiraAPI.Modifiers.Types;
 using MiraAPI.Utilities.Assets;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using UnityEngine;
 

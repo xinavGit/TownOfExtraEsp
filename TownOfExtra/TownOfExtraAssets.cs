@@ -92,8 +92,14 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{CrewModModIconPath}.ObservantModifierIcon.png", 200);
     public static LoadableAsset<Sprite> ClumsyModifierIcon =>
         new LoadableResourceAsset($"{CrewModModIconPath}.ClumsyModifierIcon.png", 200);
+    
+    // Passive
+    public static LoadableAsset<Sprite> PanicShieldModifierIcon =>
+        new LoadableResourceAsset($"{CrewModModIconPath}.PanicShieldModifierIcon.png", 200);
 
     // --- Buttons ---
+    
+    // Roles
 
     public static LoadableAsset<Sprite> ChiefRecruitButton =>
         new LoadableResourceAsset($"{CrewButtonPath}.ChiefRecruitButton.png");
@@ -101,6 +107,11 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{CrewButtonPath}.ChiefShootButton.png");
     public static LoadableAsset<Sprite> JournalistInterviewButton =>
         new LoadableResourceAsset($"{CrewButtonPath}.JournalistInterviewButton.png");
+    
+    // Modifiers
+    
+    public static LoadableAsset<Sprite> PanicShieldPanicShieldButton =>
+        new LoadableResourceAsset($"{CrewModModIconPath}.PanicShieldModifierIcon.png", 225);
     
     // --- Misc ---
     
@@ -146,6 +157,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpRoleIconPath}.FreezerRoleIcon.png", 356);
     public static LoadableAsset<Sprite> GamblerRoleIcon =>
         new LoadableResourceAsset($"{ImpRoleIconPath}.GamblerRoleIcon.png", 200);
+    public static LoadableAsset<Sprite> ObstructorRoleIcon =>
+        new LoadableResourceAsset($"{ImpRoleIconPath}.ObstructorRoleIcon.png");
 
     // --- Modifiers ---
     
@@ -165,7 +178,6 @@ public static class TownOfExtraAssets
 
     public static LoadableAsset<Sprite> TaggerMarkButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.TaggerMarkButton.png", 200);
-    
     public static LoadableAsset<Sprite> HolographerHolographButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.HolographerHolographButton.png");
     public static LoadableAsset<Sprite> SignalJammerJamButton =>
@@ -188,6 +200,8 @@ public static class TownOfExtraAssets
         new LoadableResourceAsset($"{ImpButtonPath}.VinculatorEmpowerButton.png");
     public static LoadableAsset<Sprite> FreezerFreezeButton =>
         new LoadableResourceAsset($"{ImpButtonPath}.FreezerFreezeButton.png");
+    public static LoadableAsset<Sprite> ObstructorObstructButton =>
+        new LoadableResourceAsset($"{ImpButtonPath}.ObstructorObstructButton.png");
 
     // --- Misc ---
     

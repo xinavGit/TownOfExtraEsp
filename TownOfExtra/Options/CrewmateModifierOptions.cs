@@ -121,4 +121,22 @@ public sealed class CrewmateModifierOptions : AbstractOptionGroup
         {
             Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.ClumsyAmount > 0
         };
+    
+    /*----------------------
+          PANIC SHIELD
+    ----------------------*/
+
+    [ModdedNumberOption("Panic Shield Amount", 0, 5)]
+    public float PanicShieldAmount { get; set; } = 0;
+
+    public ModdedNumberOption PanicShieldChance { get; } =
+        new("Panic Shield Chance", 50f, 0f, 100f, 10f, MiraNumberSuffixes.Percent)
+        {
+            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.PanicShieldAmount > 0
+        };
+    public ModdedNumberOption PanicShieldDuration { get; } =
+        new("Panic Shield Duration", 30f, 7.5f, 60f, 2.5f, MiraNumberSuffixes.Seconds)
+        {
+            Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.PanicShieldAmount > 0
+        };
 }

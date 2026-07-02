@@ -2,6 +2,7 @@
 using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Roles.Impostor.Power;
 using TownOfUs;
 using TownOfUs.Utilities;

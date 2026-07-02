@@ -7,13 +7,14 @@ using MiraAPI.Utilities.Assets;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Modifiers.Game.Impostor.Utility;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options;
 using TownOfUs.Buttons;
 using UnityEngine;
 
-namespace TownOfExtra.Buttons;
+namespace TownOfExtra.Buttons.Modifiers;
 
-public sealed class DisperseButton : TownOfUsButton
+public sealed class ShockwaveShockwaveButton : TownOfUsButton
 {
     public override string Name => "Shockwave";
     public override BaseKeybind Keybind => Keybinds.ModifierAction;

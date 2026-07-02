@@ -5,6 +5,7 @@ using MiraAPI.Modifiers;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers.Game.Crewmate.Passive;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfUs;
 using TownOfUs.Modifiers;
 using TownOfUs.Roles.Crewmate;

@@ -5,6 +5,7 @@ using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Roles.Crewmate.Power;
 
 namespace TownOfExtra.Events;

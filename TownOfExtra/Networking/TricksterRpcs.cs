@@ -7,6 +7,7 @@ using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfExtra.Buttons;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Neutral.Evil;
 using TownOfUs.GameOver;

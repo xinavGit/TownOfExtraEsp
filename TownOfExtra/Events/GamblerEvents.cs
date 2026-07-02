@@ -5,6 +5,7 @@ using MiraAPI.Modifiers;
 using Reactor.Utilities;
 using TownOfExtra.Modifiers.Gambler;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Support;
 using TownOfUs;

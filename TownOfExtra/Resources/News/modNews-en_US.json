@@ -345,6 +345,8 @@
         "\n\n\r<size=105%>New Roles:</size>",
         "\n- A new Neutral Killing role has been added: Barbarian",
         "\n- A new Crewmate Killing role has been added: Commander",
+        "\n\n\r<size=105%>New Modifiers:</size>",
+        "\n- A new Crewmate Utility modifier has been added: Panic Shield",
         "\n\n\r<size=105%>Additions:</size>",
         "\n- Added options for cannibal, squid & shadow walker to be able to vent",
         "\n- Poltergeist now applies permanent debuffs to scared & possessed players",
@@ -367,7 +369,8 @@
         "\n- Fixed shifter slightly bugging when trying to shift with their current target again",
         "\n- Fixed striker killing someone after they already die during impending doom",
         "\n- Fixed chief showing shot player's roles & recruits between rounds",
-        "\n- Fixed chief showing shot player's roles when the kill failed due to a shield"
+        "\n- Fixed chief showing shot player's roles when the kill failed due to a shield",
+        "\n- Shifter now obtains crewpostor, egotist & imitator properly"
       ]
     }
   ]

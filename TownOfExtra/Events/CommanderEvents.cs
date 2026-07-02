@@ -3,6 +3,7 @@ using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Networking;
+using TownOfExtra.Networking.Global;
 using TownOfExtra.Roles.Crewmate.Killing;
 
 namespace TownOfExtra.Events;

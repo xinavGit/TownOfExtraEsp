@@ -1,6 +1,7 @@
 using MiraAPI.Hud;
 using Reactor.Networking.Attributes;
 using TownOfExtra.Buttons;
+using TownOfExtra.Networking.Global;
 
 namespace TownOfExtra.Networking;
 
