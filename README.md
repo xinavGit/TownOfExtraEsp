@@ -10,7 +10,7 @@
 
 A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod that adds new roles & modifiers to [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira).\
 [**Join the Discord (Support, sneak peeks and more!)**](https://discord.gg/y2GN5Q4fzb)\
-[**View the update checklist & wiki here!**](https://toex.freehosting.dev)
+[**View the update checklist & wiki here!**](https://toex.freehosting.dev/docs)
 
 -----------------------
 
