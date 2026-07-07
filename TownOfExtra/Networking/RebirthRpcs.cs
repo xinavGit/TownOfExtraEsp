@@ -1,4 +1,5 @@
 ﻿using Reactor.Networking.Attributes;
+using TownOfExtra.Achievements;
 using TownOfExtra.Modifiers.Game.Impostor.Passive;
 using TownOfExtra.Modules;
 using TownOfExtra.Networking.Global;
@@ -29,15 +30,17 @@ public static class RebirthRpcs
                 RebirthModifier.Used = true;
                 sendto.RpcChangeRole((ushort)role.Role);
                 sendto.RpcSendNotification(
-                    $"You have {Palette.ImpostorRed.ToTextColor()}rebirthed</color> into {rolefrom.Data.PlayerName}'s role of {TownOfExtraColours.GetRoleColour(rolefrom.Data.Role.name).ToTextColor()}",
+                    $"You have {Palette.ImpostorRed.ToTextColor()}rebirthed</color> into {rolefrom.Data.PlayerName}'s role: {TownOfExtraColours.GetRoleColour(rolefrom.Data.Role.name).ToTextColor()}{role.NiceName}",
                     "RebirthModifierIcon",
                     "ImpModIcon"
                 );
+
+                AApi.AwardAchievement(AApi.GetInstance()?.UseRebirth);
             }
             else
             {
                 sendto.RpcSendNotification(
-                    $"You have {Palette.ImpostorRed.ToTextColor()}denied</color> the rebirth offer of {rolefrom.Data.PlayerName}'s role. ({TownOfExtraColours.GetRoleColour(rolefrom.Data.Role.name).ToTextColor()})",
+                    $"You have {Palette.ImpostorRed.ToTextColor()}denied</color> the rebirth offer of {rolefrom.Data.PlayerName}'s role: {TownOfExtraColours.GetRoleColour(rolefrom.Data.Role.name).ToTextColor()}{role.NiceName}",
                     "RebirthModifierIcon",
                     "ImpModIcon"
                 );

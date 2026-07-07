@@ -4,6 +4,7 @@ using MiraAPI.GameOptions;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using Reactor.Utilities.Attributes;
+using TownOfExtra.Achievements;
 using TownOfExtra.Options.Roles;
 using TownOfUs.Networking;
 using TownOfUs.Utilities;
@@ -12,7 +13,7 @@ using Object = UnityEngine.Object;
 
 namespace TownOfExtra.Networking;
 
-public class ConjurerRpcs
+public static class ConjurerRpcs
 {
     [MethodRpc((uint)TownOfExtraRpcs.ConjurerPlaceRock)]
     public static void RpcPlaceRock(PlayerControl sender, float x, float y, bool fallen)
@@ -51,6 +52,7 @@ public class ConjurerRpcs
                 if (Vector2.Distance(p.transform.position, pos) < 0.5f)
                 { 
                     sender.RpcSpecialMurder(p, true, true, teleportMurderer: false, showKillAnim: false, createDeadBody: false, causeOfDeath: "Crushed");
+                    sender.RpcAwardSplatAchievement();
                     
                     var body = new GameObject();
                     body.AddComponent<SquashedBody>();
@@ -88,6 +90,14 @@ public class ConjurerRpcs
         yield return new WaitForSeconds(duration);
 
         if (rock != null) Object.Destroy(rock);
+    }
+
+    [MethodRpc((uint)TownOfExtraRpcs.ConjurerAwardSplatAchievement)]
+    public static void RpcAwardSplatAchievement(this PlayerControl awardto)
+    {
+        if (PlayerControl.LocalPlayer != awardto) return;
+        
+        AApi.AwardAchievement(AApi.GetInstance()?.DropRockOnPlayer);
     }
 }
 

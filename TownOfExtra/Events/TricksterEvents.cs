@@ -4,6 +4,7 @@ using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.Utilities;
 using Reactor.Utilities;
+using TownOfExtra.Achievements;
 using TownOfExtra.Buttons;
 using TownOfExtra.Networking;
 using TownOfExtra.Roles.Neutral.Evil;
@@ -70,6 +71,8 @@ public class TricksterEvents
                 $"Something about that body felt {TownOfExtraColours.TricksterRoleColour.ToTextColor()}wrong</color>...",
                 Color.white, new Vector3(0f, 1f, -20f), spr: TownOfExtraAssets.TricksterRoleIcon.LoadAsset());
             notif.AdjustNotification();
+
+            AApi.AwardAchievement(AApi.GetInstance()?.ReportTricksterBody);
             
             TricksterRpcs.RpcNotifyTrickster(PlayerControl.LocalPlayer);
             TricksterRpcs.RpcDestroyFakeBodies(PlayerControl.LocalPlayer);

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AchievementsAPI;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
@@ -10,6 +11,7 @@ using Reactor;
 using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
+using TownOfExtra.Modules;
 using TownOfExtra.Patches;
 using TownOfUs.Modules.Localization;
 
@@ -19,6 +21,7 @@ namespace TownOfExtra;
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
+[BepInDependency(AchievementsAPIPlugin.Id, BepInDependency.DependencyFlags.SoftDependency)]
 [ReactorModFlags(ModFlags.RequireOnAllClients)]
 public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
 {
@@ -51,5 +54,14 @@ public class TownOfExtraPlugin : BasePlugin, IMiraPlugin
 
         TerminologyPatches.RegisterToExTerms();
         TerminologyIconRegistry.RegisterIcons();
+        
+        if (ModCompat.IsLoaded(ModCompat.AApiId, out var aapi))
+        {
+            Logger.LogInfo("AchievementsAPI found, achievements will be available!");
+        }
+        else
+        {
+            Logger.LogWarning("Failed to find AchievementsAPI, achievements will not be available.");
+        }
     }
 }

@@ -2,6 +2,7 @@
 using MiraAPI.Keybinds;
 using MiraAPI.Modifiers;
 using MiraAPI.Utilities.Assets;
+using TownOfExtra.Achievements;
 using TownOfExtra.Modifiers.Excluded;
 using TownOfExtra.Options.Roles;
 using TownOfExtra.Roles.Impostor.Support;
@@ -24,6 +25,9 @@ public sealed class FreezerFreezeButton : TownOfUsRoleButton<FreezerRole>
     protected override void OnClick()
     {
         OverrideName("Freeze Active");
+        
+        AApi.AwardAchievement(AApi.GetInstance()?.UseFreezeAbility);
+        
         foreach (var player in PlayerControl.AllPlayerControls)
         {
             if (player.Data.IsDead || player.Data.Role is HaunterRole or SpectreRole) continue;
