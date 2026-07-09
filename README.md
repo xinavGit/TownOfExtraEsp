@@ -1,5 +1,5 @@
 > [!NOTE]
-> This repo is an extension for an extension mod [Town of Extra] (https://github.com/Mehzxzz/TownOfExtra) for [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) that adds new roles and modifiers.\
+> This repo is an extension for an extension mod (Town of Extra) for [Town of Us: Mira](https://github.com/AU-Avengers/TOU-Mira) that adds new roles and modifiers.\
 > This mod requires Town of Us: Mira to be installed and is NOT for console versions of Among Us.
  
 <div align="center">
@@ -17,7 +17,7 @@ A client-side [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod
 <p align="center">
   <a href="https://toex.freehosting.dev/docs"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpKilling.png" /></a>
   <a href="https://toex.freehosting.dev/docs"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/PoisonerRoleIcon.png" /></a>
-<imgwidth="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/KnifeThrowerRoleIcon.png">
+<a href="https://toex.freehosting.dev/docs"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/KnifeThrowerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/TaggerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs"><img width="10%" src="https://github.com/Mehzxzz/TownOfExtra/blob/master/TownOfExtra/Resources/Imp/RoleIcons/StrikerRoleIcon.png" /></a>
   <a href="https://toex.freehosting.dev/docs"><img src="https://github.com/Mehzxzz/TownOfExtra/blob/master/Resources/Headers/ImpSupport.png" /></a>
