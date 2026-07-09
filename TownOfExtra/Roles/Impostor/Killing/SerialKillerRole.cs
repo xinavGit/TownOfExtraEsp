@@ -17,13 +17,20 @@ public sealed class SerialKillerRole: ImpostorRole, ITownOfUsRole, IWikiDiscover
     public color RoleColor => palette.ImpostorRed;
     public ModdedRoleTeams Team => ModdedRoleTeams.Impostor;
     public DoomableType DoomHintType => DoomableType.Fearmonger;
+    public bool IsUnlovable = true;
     public RoleBehaviour CrewVariant => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<SheriffRole>());
 
 public string GetAdvancedDescription()
 {
     return
-          "The Serial Killer is an Impostor Killing role that has a lower kill cooldown than others."  
+          "The Serial Killer is an Impostor Killing role that has a lower kill cooldown than others."  +
+          MiscUtils.AppendOptionsText(GetType());
 
+}
+
+public CustomRoleConfiguration Configuration => new CustomRoleConfiguration(This)
+{
+    Icon = TownOfExtraAssets.KnifeThrowerRoleIcon
 }
 }
 
