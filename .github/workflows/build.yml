@@ -1,7 +1,7 @@
 name: Mobile DLL Builder
 
 on:
-  workflow_dispatch: # Allows you to trigger this manually
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,14 +13,21 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' # Change to match your project version if needed
+        dotnet-version: '8.0.x'
 
-    - name: Build Project
-      run: dotnet build --configuration Release
+    # This forces the compiler to make a DLL, even if the project is set to EXE
+    - name: Build Project as DLL Library
+      run: dotnet build --configuration Release /p:OutputType=Library
 
+    # This will print the files to your log so you can see exactly where they went if it fails
+    - name: Debug and List Output Files
+      run: Get-ChildItem -Path . -Filter *.dll -Recurse
+
+    # Broad search path to catch the DLL wherever it landed
     - name: Upload DLL Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Compiled-DLL
-        path: '**/bin/Release/**/*.dll'
-
+        path: |
+          **/bin/Release/**/*.dll
+          **/bin/anycpu/Release/**/*.dll
