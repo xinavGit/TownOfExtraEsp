@@ -15,19 +15,13 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    # This forces the compiler to make a DLL, even if the project is set to EXE
-    - name: Build Project as DLL Library
-      run: dotnet build --configuration Release /p:OutputType=Library
+    # This builds the project and forces all output files directly into an 'output' folder
+    - name: Build Project to Specific Folder
+      run: dotnet build --configuration Release --output ./output /p:OutputType=Library
 
-    # This will print the files to your log so you can see exactly where they went if it fails
-    - name: Debug and List Output Files
-      run: Get-ChildItem -Path . -Filter *.dll -Recurse
-
-    # Broad search path to catch the DLL wherever it landed
-    - name: Upload DLL Artifact
+    # This uploads everything that was compiled without needing to search deep folders
+    - name: Upload Everything From Output Folder
       uses: actions/upload-artifact@v4
       with:
-        name: Compiled-DLL
-        path: |
-          **/bin/Release/**/*.dll
-          **/bin/anycpu/Release/**/*.dll
+        name: Compiled-Files
+        path: ./output/
