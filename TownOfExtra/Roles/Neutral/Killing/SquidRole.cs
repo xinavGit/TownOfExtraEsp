@@ -72,14 +72,14 @@ public sealed class SquidRole(IntPtr cppPtr) : NeutralRole(cppPtr), ITownOfUsRol
     
     public bool WinConditionMet()
     {
-        var SquidAmount = CustomRoleUtils.GetActiveRolesOfType<SquidRole>().Count(x => !x.Player.HasDied());
+        var squidAmount = CustomRoleUtils.GetActiveRolesOfType<SquidRole>().Count(x => !x.Player.HasDied());
 
-        if (MiscUtils.KillersAliveCount > SquidAmount)
+        if (MiscUtils.KillersAliveCount > squidAmount)
         {
             return false;
         }
 
-        return SquidAmount >= Helpers.GetAlivePlayers().Count - SquidAmount;
+        return squidAmount >= Helpers.GetAlivePlayers().Count - squidAmount;
     }
 
     public override bool DidWin(GameOverReason gameOverReason)
